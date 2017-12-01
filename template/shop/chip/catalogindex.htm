@@ -1,0 +1,45 @@
+<ul class="sortlist">
+    {php $child = get_maincat(0, $mid, 1);}
+
+	{loop $child $i $c}
+     {if in_array($c[catid], array(28,29,30,31,111,32,33,34))}
+      	<li class="item">
+       		<div class="mainsort mainsort_top">
+			  <h3> <a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a> </h3>
+			  <p class="else_sort">
+			  {if $c[child]}
+              {php $sub = get_maincat($c[catid], $mid, 1);}
+			     {loop $sub $j $s}{if $j < 8} 
+		        <a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a>
+						          {/if}
+				 {/loop}
+              {/if}
+			  </p>
+     		</div>
+			<div class="subsort">
+			<ul class="c_f">
+
+					   {if $c[child]}{php $sub = get_maincat($c[catid], $mid, 1);}
+                        {loop $sub $j $s}{if $j < 12} 
+					      <li>
+						   <h4><a class="c_green2" href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></h4>
+						   <p class="sub">
+						    {if $s[child]}{php $sub = get_maincat($s[catid], $mid, 1);}
+                              {loop $sub $k $s1}{if $k < 16} 
+                             <a href="{$MODULE[$mid][linkurl]}{$s1[linkurl]}" target="_blank">{set_style($s1[catname], $s1[style])}</a>
+                                               {/if}
+							  {/loop}
+                            {/if}
+						   </p>
+						 </li>
+						                 {/if}
+						 {/loop}
+                       {/if}
+			</ul>
+            </div>
+
+	    </li>
+        {/if} 
+   {/loop}  
+
+ </ul>
