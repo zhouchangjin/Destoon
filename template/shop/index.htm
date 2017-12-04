@@ -42,7 +42,7 @@
         <!--产品推荐 start-->
         <!--首页广告 A2 start-->
         <div class="pro_hotsales">
-        	<h2><span><a target="_blank" class="f_r" href="{$MODULE[5][linkurl]}">更多</a></span>产品推荐</h2>
+        	<h2><span><a target="_blank" class="f_r" href="{$MODULE[5][linkurl]}">更多</a></span>课程推荐</h2>
             <div class="default_left_body" >
 
 <table width="707" border="0" cellspacing="0" cellpadding="0">
@@ -109,7 +109,7 @@
         <!--产品推荐 end-->
          <!--最新供求 start-->
         <div class="procure">
-        	<h2><span><a target="_blank" class="f_r" href="{$MODULE[5][linkurl]}">更多</a></span>最新供求</h2>
+        	<h2><span><a target="_blank" class="f_r" href="{$MODULE[5][linkurl]}">更多</a></span>最新课程</h2>
             <div class="procure_one c_f">
             	 <ul>
                      <!--{php $tags=tag("moduleid=5&condition=status=3&areaid=$cityid&pagesize=5&order=edittime desc&time=addtime&template=null");}-->
@@ -126,43 +126,17 @@
         <!--最新供求 end-->
             </div>
 	<div class="index_right w_250 f_r">
-        		<div class="login_bar c_f">
+	<!-- 
+        <div class="login_bar c_f">
             <a class="register" href="{$MODULE[2][linkurl]}register.php">免费注册</a>            <a class="login" href="{$MODULE[2][linkurl]}login.php">登录</a>            <a class="ruzhu" href="{$MODULE[2][linkurl]}">商务中心</a>            <div style="clear"></div>
 		</div>
+	 -->
+	 <!-- 
         <div class="hr_10"></div>
+      -->
 		<!--入门 start-->
-		<div class="index_notice" id="notice">
-			<div class="tab_hd">
-				<ul class="c_f">
-                    <li><a target="_blank" href="/announce/">网站公告</a></li>
-					<li><a target="_blank" href="/extend/help.html">在线帮助</a></li>
-					<li><a target="_blank" href="/member/grade.php">在线推广</a></li>
-				</ul>
-			</div>
-			<div class="tab_cont">
-        <!--{tag("table=announce&condition=totime=0 or totime>$today_endtime-86400&areaid=$cityid&pagesize=3&length=28&datetype=2&order=listorder desc,addtime desc&target=_blank")}-->
-			</div>
-			<div class="tab_cont">
-				<ul>
-                   <li>【<a target="_blank" href="/extend/help.html">在线帮助</a>】
-		               <a title="忘记用户名怎么办？" target="_blank" href="/extend/help-1.html">忘记用户名怎么办？</a> </li>
-                   <li>【<a target="_blank" href="/extend/help.html">在线帮助</a>】
-					   <a title="忘记密码怎么办？" target="_blank" href="/extend/help-2.html">忘记密码怎么办？</a> </li>
-                   <li>【<a target="_blank" href="/extend/help.html">在线帮助</a>】
-					   <a title="怎么验证邮箱？" target="_blank" href="/extend/help-3.html">怎么验证邮箱？</a> </li>
-                </ul>
-			</div>
-			<div class="tab_cont">
-				<ul>
-                   <li>【<a target="_blank" href="/extend/contact.html">在线推广</a>】
-		               <a title="开通vip企业会员" target="_blank" href="/member/grade.php">开通vip企业会员</a> </li>
-                   <li>【<a target="_blank" href="/extend/contact.html">在线推广</a>】
-					   <a title="在线购买关键词" target="_blank" href="/spread/">在线购买关键词</a> </li>
-                   <li>【<a target="_blank" href="/member/grade.php">在线推广</a>】
-					   <a title="广告位推广" target="_blank" href="/ad/">广告位推广</a> </li>
-                </ul>
-			</div>
-		</div>
+
+		<!-- 
         <div class="baozhang">
         	<h2>安全交易保障</h2>
 			<ul class="c_f">
@@ -172,6 +146,7 @@
                 <li><a href="/" title="安全交易" ><img src="{DT_SKIN}images/bz_04.jpg" alt="安全交易" /><span class="c_666">安全交易</span></a></li>
 			</ul>
 		</div>
+		 -->
 		<!--入门 end-->
         
         <div class="hr_10"></div>
@@ -180,8 +155,8 @@
                      <div class="index_notice index_notice2" id="notice2">
 			<div class="tab_hd">
 				<ul class="c_f">
-					<li><a target="_blank" href="/news/">最新资讯</a></li>
-                    <li><a target="_blank" href="/news/">全国新闻</a></li>
+					<li><a target="_blank" href="/news/">美育头条</a></li>
+                    <li><a target="_blank" href="/news/">美育政策</a></li>
                     <li><a target="_blank" href="/news/">展会资讯</a></li>
 				</ul>
 			</div>
@@ -251,11 +226,11 @@
         <div class="cont_right w_780 f_l">
             <div class="hd">
                 <span class="top_search f_r">
-                 {php $maincat = get_maincat(806, $CATEGORY);}					
+                 {php $maincat = get_maincat(28, $CATEGORY);}					
                   {loop $maincat $i $c} {if $i < 10}
                  <a href="{$MODULE[5][linkurl]}{$MOD[linkurl]}{$c[linkurl]}" target="_blank">{$c[catname]}</a>{/if}
                   {/loop}
-				  {loop $child $i $c}{if in_array($c[catid], array(806))}<a title="更多" target="_blank" class="ff_ss" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">更多>></a>                  {/if}{/loop}           
+				  {loop $child $i $c}{if in_array($c[catid], array(28))}<a title="更多" target="_blank" class="ff_ss" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">更多>></a>                  {/if}{/loop}           
 				</span>
             </div>
             <div class="bdx">
@@ -291,7 +266,7 @@
             	<div class="ad_boxone"><a target="_blank" class="img_1" href="/"><img height="272" width="200" src="{DT_SKIN}images/138700528212385.jpg" alt="" /></a>                </div>
             	<div class="ad_text">
                 	<ul>
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=329&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=29&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
                     {loop $tags $t}
                     <li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
 					 {/loop}
@@ -302,16 +277,16 @@
         <div class="cont_right w_780 f_l">
         	<div class="hd">
                 <span class="top_search f_r">
-                 {php $maincat = get_maincat(329, $CATEGORY);}					
+                 {php $maincat = get_maincat(29, $CATEGORY);}					
                   {loop $maincat $i $c} {if $i < 10}
                  <a href="{$MODULE[5][linkurl]}{$MOD[linkurl]}{$c[linkurl]}" target="_blank">{$c[catname]}</a>{/if}
                   {/loop}
-				  {loop $child $i $c}{if in_array($c[catid], array(329))}<a title="更多" target="_blank" class="ff_ss" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">更多>></a>                  {/if}{/loop}           
+				  {loop $child $i $c}{if in_array($c[catid], array(29))}<a title="更多" target="_blank" class="ff_ss" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">更多>></a>                  {/if}{/loop}           
                 </span>
             </div>
             <div class="bdx">
                 <ul class="pro_list bghover c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=329&condition=status=3 and level>-1 and thumb<>''&pagesize=5&order=addtime desc&template=null");}-->
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=29&condition=status=3 and level>-1 and thumb<>''&pagesize=5&order=addtime desc&template=null");}-->
                     {loop $tags $t}
                     <li class=" item">
 					   <div class="c_img c_img160"><a href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="165"  height="160" alt="{$t[title]}" ></a></div>
@@ -342,7 +317,7 @@
             	<div class="ad_boxone"><a target="_blank" class="img_1" href="/"><img height="272" width="200" src="{DT_SKIN}images/138700534739924.jpg" alt="" /></a>                </div>
             	<div class="ad_text">
                 	<ul>
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=409&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=30&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
                     {loop $tags $t}
                     <li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
 					 {/loop}
@@ -353,16 +328,16 @@
         <div class="cont_right w_780 f_l">
         	<div class="hd">
                 <span class="top_search f_r">
-                 {php $maincat = get_maincat(409, $CATEGORY);}					
+                 {php $maincat = get_maincat(30, $CATEGORY);}					
                   {loop $maincat $i $c} {if $i < 10}
                  <a href="{$MODULE[5][linkurl]}{$MOD[linkurl]}{$c[linkurl]}" target="_blank">{$c[catname]}</a>{/if}
                   {/loop}
-				  {loop $child $i $c}{if in_array($c[catid], array(409))}<a title="更多" target="_blank" class="ff_ss" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">更多>></a>                  {/if}{/loop}           
+				  {loop $child $i $c}{if in_array($c[catid], array(30))}<a title="更多" target="_blank" class="ff_ss" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">更多>></a>                  {/if}{/loop}           
 				</span>
             </div>
             <div class="bdx">
                 <ul class="pro_list bghover c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=409&condition=status=3 and level>-1 and thumb<>''&pagesize=5&order=addtime desc&template=null");}-->
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=30&condition=status=3 and level>-1 and thumb<>''&pagesize=5&order=addtime desc&template=null");}-->
                     {loop $tags $t}
                     <li class=" item">
 					   <div class="c_img c_img160"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="165"  height="160" alt="{$t[title]}" ></A></div>
@@ -393,7 +368,7 @@
             	<div class="ad_boxone"><a target="_blank" class="img_1" href="/"><img height="272" width="200" src="{DT_SKIN}images/138700548570913.jpg" alt="" /></a>                </div>
             	<div class="ad_text">
                 	<ul>
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=977&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=31&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
                     {loop $tags $t}
                     <li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
 					 {/loop}
@@ -404,16 +379,16 @@
         <div class="cont_right w_780 f_l">
         	<div class="hd">
                 <span class="top_search f_r">
-                 {php $maincat = get_maincat(977, $CATEGORY);}					
+                 {php $maincat = get_maincat(31, $CATEGORY);}					
                   {loop $maincat $i $c} {if $i < 10}
                  <a href="{$MODULE[5][linkurl]}{$MOD[linkurl]}{$c[linkurl]}" target="_blank">{$c[catname]}</a>{/if}
                   {/loop}
-				  {loop $child $i $c}{if in_array($c[catid], array(977))}<a title="更多" target="_blank" class="ff_ss" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">更多>></a>                  {/if}{/loop}           
+				  {loop $child $i $c}{if in_array($c[catid], array(31))}<a title="更多" target="_blank" class="ff_ss" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">更多>></a>                  {/if}{/loop}           
 				</span>
             </div>
             <div class="bdx">
                 <ul class="pro_list bghover c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=977&condition=status=3 and level>-1 and thumb<>''&pagesize=5&order=addtime desc&template=null");}-->
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=31&condition=status=3 and level>-1 and thumb<>''&pagesize=5&order=addtime desc&template=null");}-->
                     {loop $tags $t}
                     <li class=" item">
 					   <div class="c_img c_img160"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="165"  height="160" alt="{$t[title]}" ></A></div>
@@ -445,7 +420,7 @@
 				</div>
             	<div class="ad_text">
                 	<ul>
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=722&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=111&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
                     {loop $tags $t}
                     <li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
 					 {/loop}
@@ -456,16 +431,16 @@
         <div class="cont_right w_780 f_l">
         	<div class="hd">
                 <span class="top_search f_r">
-                 {php $maincat = get_maincat(722, $CATEGORY);}					
+                 {php $maincat = get_maincat(111, $CATEGORY);}					
                   {loop $maincat $i $c} {if $i < 10}
                  <a href="{$MODULE[5][linkurl]}{$MOD[linkurl]}{$c[linkurl]}" target="_blank">{$c[catname]}</a>{/if}
                   {/loop}
-				  {loop $child $i $c}{if in_array($c[catid], array(722))}<a title="更多" target="_blank" class="ff_ss" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">更多>></a>                  {/if}{/loop}           
+				  {loop $child $i $c}{if in_array($c[catid], array(111))}<a title="更多" target="_blank" class="ff_ss" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">更多>></a>                  {/if}{/loop}           
 				</span>
             </div>
             <div class="bdx">
                 <ul class="pro_list bghover c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=722&condition=status=3 and level>-1 and thumb<>''&pagesize=5&order=addtime desc&template=null");}-->
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=111&condition=status=3 and level>-1 and thumb<>''&pagesize=5&order=addtime desc&template=null");}-->
                     {loop $tags $t}
                     <li class=" item">
 					   <div class="c_img c_img160"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="165"  height="160" alt="{$t[title]}" ></A></div>
@@ -496,7 +471,7 @@
             	<div class="ad_boxone"><a target="_blank" class="img_1" href="/"><img height="272" width="200" src="{DT_SKIN}images/138700560458050.jpg" alt="" /></a>                </div>
             	<div class="ad_text">
                 	<ul>
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=943&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=32&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
                     {loop $tags $t}
                     <li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
 					 {/loop}
@@ -507,16 +482,16 @@
         <div class="cont_right w_780 f_l">
         	<div class="hd">
                 <span class="top_search f_r">
-                 {php $maincat = get_maincat(943, $CATEGORY);}					
+                 {php $maincat = get_maincat(32, $CATEGORY);}					
                   {loop $maincat $i $c} {if $i < 10}
                  <a href="{$MODULE[5][linkurl]}{$MOD[linkurl]}{$c[linkurl]}" target="_blank">{$c[catname]}</a>{/if}
                   {/loop}
-				  {loop $child $i $c}{if in_array($c[catid], array(943))}<a title="更多" target="_blank" class="ff_ss" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">更多>></a>                  {/if}{/loop}           
+				  {loop $child $i $c}{if in_array($c[catid], array(32))}<a title="更多" target="_blank" class="ff_ss" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">更多>></a>                  {/if}{/loop}           
 				</span>
             </div>
             <div class="bdx">
                 <ul class="pro_list bghover c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=943&condition=status=3 and level>-1 and thumb<>''&pagesize=5&order=addtime desc&template=null");}-->
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=32&condition=status=3 and level>-1 and thumb<>''&pagesize=5&order=addtime desc&template=null");}-->
                     {loop $tags $t}
                     <li class=" item">
 					   <div class="c_img c_img160"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="165"  height="160" alt="{$t[title]}" ></A></div>
@@ -547,7 +522,7 @@
             	<div class="ad_boxone"><a target="_blank" class="img_1" href="/"><img height="272" width="200" src="{DT_SKIN}images/138700566583332.jpg" alt="" /></a>                </div>
             	<div class="ad_text">
                 	<ul>
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=898&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=33&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
                     {loop $tags $t}
                     <li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
 					 {/loop}
@@ -558,16 +533,16 @@
         <div class="cont_right w_780 f_l">
         	<div class="hd">
                 <span class="top_search f_r">
-                 {php $maincat = get_maincat(898, $CATEGORY);}					
+                 {php $maincat = get_maincat(33, $CATEGORY);}					
                   {loop $maincat $i $c} {if $i < 10}
                  <a href="{$MODULE[5][linkurl]}{$MOD[linkurl]}{$c[linkurl]}" target="_blank">{$c[catname]}</a>{/if}
                   {/loop}
-				  {loop $child $i $c}{if in_array($c[catid], array(898))}<a title="更多" target="_blank" class="ff_ss" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">更多>></a>                  {/if}{/loop}           
+				  {loop $child $i $c}{if in_array($c[catid], array(33))}<a title="更多" target="_blank" class="ff_ss" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">更多>></a>                  {/if}{/loop}           
 				</span>
             </div>
             <div class="bdx">
                 <ul class="pro_list bghover c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=898&condition=status=3 and level>-1 and thumb<>''&pagesize=5&order=addtime desc&template=null");}-->
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=33&condition=status=3 and level>-1 and thumb<>''&pagesize=5&order=addtime desc&template=null");}-->
                     {loop $tags $t}
                     <li class=" item">
 					   <div class="c_img c_img160"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="165"  height="160" alt="{$t[title]}" ></A></div>
@@ -598,7 +573,7 @@
             	<div class="ad_boxone"><a target="_blank" class="img_1" href="/"><img height="272" width="200" src="{DT_SKIN}images/138700574157933.jpg" alt="" /></a>                </div>
             	<div class="ad_text">
                 	<ul>
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=438&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=34&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
                     {loop $tags $t}
                     <li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
 					 {/loop}
@@ -609,16 +584,16 @@
         <div class="cont_right w_780 f_l">
         	<div class="hd">
                 <span class="top_search f_r">
-                 {php $maincat = get_maincat(438, $CATEGORY);}					
+                 {php $maincat = get_maincat(34, $CATEGORY);}					
                   {loop $maincat $i $c} {if $i < 10}
                  <a href="{$MODULE[5][linkurl]}{$MOD[linkurl]}{$c[linkurl]}" target="_blank">{$c[catname]}</a>{/if}
                   {/loop}
-				  {loop $child $i $c}{if in_array($c[catid], array(438))}<a title="更多" target="_blank" class="ff_ss" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">更多>></a>                  {/if}{/loop}           
+				  {loop $child $i $c}{if in_array($c[catid], array(34))}<a title="更多" target="_blank" class="ff_ss" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">更多>></a>                  {/if}{/loop}           
 				</span>
             </div>
             <div class="bdx">
                 <ul class="pro_list bghover c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=438&condition=status=3 and level>-1 and thumb<>''&pagesize=5&order=addtime desc&template=null");}-->
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=34&condition=status=3 and level>-1 and thumb<>''&pagesize=5&order=addtime desc&template=null");}-->
                     {loop $tags $t}
                     <li class=" item">
 					   <div class="c_img c_img160"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="165"  height="160" alt="{$t[title]}" ></A></div>
@@ -645,11 +620,11 @@
 <!--产品层 end-->
 <!--新闻资讯 start-->
 <div class="w_1200 o_a index_news c_f mt10">
-	<h2 style=" padding-left:5px"><span class="floor">9F</span> 新闻资讯</h2>
+	<h2 style=" padding-left:5px"><span class="floor">9F</span> 美育头条</h2>
     <div class="index_left">
         <div class="index_leftone">
         	<div class="index_peo" id="wpd">
-                <h3><a target="_blank" href="{$MODULE[21][linkurl]}">最新资讯</a></h3>
+                <h3><a target="_blank" href="{$MODULE[21][linkurl]}">美育新闻</a></h3>
                 <div class="c_f wp">
 <!--{php $tags=tag("moduleid=21&showcat=1&length=18&areaid=$cityid&condition=status=3 and level>0 and thumb<>''&order=addtime desc&pagesize=3&template=null");}-->
                       {loop $tags $k $t}
@@ -680,22 +655,22 @@
     	<div class="index_newrig_one c_f">
             <div class="news_left">
                 <div class="news_one">
-                    <h3><span class="f_r"><a target="_blank" class="ff_yh fs_12" href="{$MODULE[21][linkurl]}">更多&nbsp;&nbsp;<b class="ico ico_news"></b></a></span>行业资讯</h3>
+                    <h3><span class="f_r"><a target="_blank" class="ff_yh fs_12" href="{$MODULE[21][linkurl]}">更多&nbsp;&nbsp;<b class="ico ico_news"></b></a></span>美育新闻</h3>
                       <dl class="c_f">
                         <dt>
-<!--{php $tags=tag("moduleid=21&length=22&catid=10062&areaid=$cityid&condition=status=3 and level>0 and thumb<>''&order=addtime desc&pagesize=1&template=null");}-->
+<!--{php $tags=tag("moduleid=21&length=22&catid=48&areaid=$cityid&condition=status=3 and level>0 and thumb<>''&order=addtime desc&pagesize=1&template=null");}-->
                       {loop $tags $k $t}
                         <a href="{$t[linkurl]}" target=_blank><img src="{$t[thumb]}" width='130' height='130' alt="{$t[alt]}"/></a>
                       {/loop}
 						</dt>
                         <dd>
-<!--{php $tags=tag("moduleid=21&length=56&catid=10062&areaid=$cityid&condition=status=3&order=addtime desc&pagesize=1&template=null");}-->
+<!--{php $tags=tag("moduleid=21&length=56&catid=48&areaid=$cityid&condition=status=3&order=addtime desc&pagesize=1&template=null");}-->
                     {loop $tags $t}
                     <p><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></p>
                     <p class="bot_bor"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{dsubstr($t[introduce], 46)}... [详细]</a></p>
 					 {/loop}
 
-<!--{php $tags=tag("moduleid=21&length=56&catid=10062&areaid=$cityid&condition=status=3 and level>-1&order=addtime desc&pagesize=3&template=null");}-->
+<!--{php $tags=tag("moduleid=21&length=56&catid=48&areaid=$cityid&condition=status=3 and level>-1&order=addtime desc&pagesize=3&template=null");}-->
                     {loop $tags $t}
                     <p class="tet"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></p>
 					 {/loop}
@@ -703,15 +678,15 @@
                     </dl>
                 </div>
                  <div class="news_one news_two" id="con">
-                    <h3><span class="f_r"><a target="_blank" class="ff_yh fs_12" href="{$MODULE[21][linkurl]}">更多&nbsp;&nbsp;<b class="ico ico_news"></b></a></span>幽默一下</h3>
+                    <h3><span class="f_r"><a target="_blank" class="ff_yh fs_12" href="{$MODULE[21][linkurl]}">更多&nbsp;&nbsp;<b class="ico ico_news"></b></a></span>美育人物</h3>
                       <ul class="c_f news_pic tab_hd">
-<!--{php $tags=tag("moduleid=21&length=22&catid=10068&areaid=$cityid&condition=status=3 and thumb<>''&order=addtime desc&pagesize=5&template=null");}-->
+<!--{php $tags=tag("moduleid=21&length=22&catid=117&areaid=$cityid&condition=status=3 and thumb<>''&order=addtime desc&pagesize=5&template=null");}-->
                       {loop $tags $k $t}
                        <li class="" ><a href="{$t[linkurl]}" target=_blank><img src="{$t[thumb]}" width='84' height='80' alt="{$t[alt]}"/></a></li>
                       {/loop}
                       </ul>
 					  
-<!--{php $tags=tag("moduleid=21&catid=10068&areaid=$cityid&condition=status=3 and thumb<>''&order=addtime desc&pagesize=4&template=null");}-->
+<!--{php $tags=tag("moduleid=21&catid=117&areaid=$cityid&condition=status=3 and thumb<>''&order=addtime desc&pagesize=4&template=null");}-->
                     {loop $tags $t}
                         <div class="warp warp<?php echo $r+1;$r++?> tab_cont">
                             <div class="warp_one"></div>
@@ -725,22 +700,22 @@
             </div>
             <div class="news_left news_right">
                 <div class="news_one">
-                    <h3><span class="f_r"><a target="_blank" class="ff_yh fs_12" href="{$MODULE[21][linkurl]}">更多&nbsp;&nbsp;<b class="ico ico_news"></b></a></span>财经资讯</h3>
+                    <h3><span class="f_r"><a target="_blank" class="ff_yh fs_12" href="{$MODULE[21][linkurl]}">更多&nbsp;&nbsp;<b class="ico ico_news"></b></a></span>美育观点</h3>
                       <dl class="c_f">
                         <dt>
-<!--{php $tags=tag("moduleid=21&length=22&catid=10065&areaid=$cityid&condition=status=3 and thumb<>''&order=addtime desc&pagesize=1&template=null");}-->
+<!--{php $tags=tag("moduleid=21&length=22&catid=118&areaid=$cityid&condition=status=3 and thumb<>''&order=addtime desc&pagesize=1&template=null");}-->
                       {loop $tags $k $t}
                         <a href="{$t[linkurl]}" target=_blank><img src="{$t[thumb]}" width='130' height='130' alt="{$t[alt]}"/></a>
                       {/loop}
 						</dt>
                         <dd>
-<!--{php $tags=tag("moduleid=21&length=56&catid=10065&areaid=$cityid&condition=status=3&order=addtime desc&pagesize=1&template=null");}-->
+<!--{php $tags=tag("moduleid=21&length=56&catid=118&areaid=$cityid&condition=status=3&order=addtime desc&pagesize=1&template=null");}-->
                     {loop $tags $t}
                     <p><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></p>
                     <p class="bot_bor"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{dsubstr($t[introduce], 46)}... [详细]</a></p>
 					 {/loop}
 
-<!--{php $tags=tag("moduleid=21&length=56&catid=10065&areaid=$cityid&condition=status=3 and level>-1&order=addtime desc&pagesize=3&template=null");}-->
+<!--{php $tags=tag("moduleid=21&length=56&catid=118&areaid=$cityid&condition=status=3 and level>-1&order=addtime desc&pagesize=3&template=null");}-->
                     {loop $tags $t}
                     <p class="tet"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></p>
 					 {/loop}
@@ -748,15 +723,15 @@
                     </dl>
                 </div>
                 <div class="news_one news_two" id="con2">
-                    <h3><span class="f_r"><a target="_blank" class="ff_yh fs_12" href="{$MODULE[21][linkurl]}">更多&nbsp;&nbsp;<b class="ico ico_news"></b></a></span>汽车资讯</h3>
+                    <h3><span class="f_r"><a target="_blank" class="ff_yh fs_12" href="{$MODULE[21][linkurl]}">更多&nbsp;&nbsp;<b class="ico ico_news"></b></a></span>美育政策</h3>
                       <ul class="c_f news_pic tab_hd">
-<!--{php $tags=tag("moduleid=21&length=22&catid=10064&areaid=$cityid&condition=status=3 and thumb<>''&order=addtime desc&pagesize=5&template=null");}-->
+<!--{php $tags=tag("moduleid=21&length=22&catid=116&areaid=$cityid&condition=status=3 and thumb<>''&order=addtime desc&pagesize=5&template=null");}-->
                       {loop $tags $k $t}
                        <li class="" ><a href="{$t[linkurl]}" target=_blank><img src="{$t[thumb]}" width='84' height='80' alt="{$t[alt]}"/></a></li>
                       {/loop}
                       </ul>
 					  
-<!--{php $tags=tag("moduleid=21&catid=10064&areaid=$cityid&condition=status=3&order=addtime desc&pagesize=4&template=null");}-->
+<!--{php $tags=tag("moduleid=21&catid=116&areaid=$cityid&condition=status=3&order=addtime desc&pagesize=4&template=null");}-->
                     {loop $tags $t}
                         <div class="warp warp<?php echo $f+1;$f++?> tab_cont">
                             <div class="warp_one"></div>

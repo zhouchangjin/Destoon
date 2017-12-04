@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset={DT_CHARSET}"/>
+<title>{if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$DT[seo_delimiter]}{/if}{if $city_sitename}{$city_sitename}{else}{$DT[sitename]}{/if}{/if}</title>
+{if $head_keywords}
+<meta name="keywords" content="{$head_keywords}"/>
+{/if}
+{if $head_description}
+<meta name="description" content="{$head_description}"/>
+{/if}
+{if $head_mobile}
+<meta http-equiv="mobile-agent" content="format=xhtml; url={$head_mobile}"> 
+<meta http-equiv="mobile-agent" content="format=html5; url={$head_mobile}">
+{/if}
+<meta name="generator" content="DESTOON B2B - www.destoon.com"/>
+<link rel="shortcut icon" type="image/x-icon" href="{DT_STATIC}51meiyu.ico"/>
+<link rel="bookmark" type="image/x-icon" href="{DT_STATIC}51meiyu.ico"/>
+{if $head_canonical}
+<link rel="canonical" href="{$head_canonical}"/>
+{/if}
+{if $EXT[archiver_enable]}
+<link rel="archives" title="{$DT[sitename]}" href="{$EXT[archiver_url]}"/>
+{/if}
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}style.css"/>
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}css/style_one.css" />
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}css/form.css" />
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}css/default.css" />
+{if $moduleid>4}<link rel="stylesheet" type="text/css" href="{DT_SKIN}{$module}.css"/>{/if}
+{if $CSS}
+{loop $CSS $css}
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}{$css}.css"/>
+{/loop}
+{/if}
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}ie6.css"/>
+<![endif]-->
+{if !DT_DEBUG}<script type="text/javascript">window.onerror=function(){return true;}</script>{/if}
+<script type="text/javascript" src="{DT_STATIC}lang/{DT_LANG}/lang.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/config.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/jquery.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/common.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/page.js"></script>
+<script type="text/javascript" src="{DT_SKIN}js/jquery.SuperSlide.js"></script>
+<script type="text/javascript" src="{DT_SKIN}js/common.js"></script>
+<script type="text/javascript" src="{DT_SKIN}js/select.jQuery.js"></script>
+
+{if $lazy}<script type="text/javascript" src="{DT_STATIC}file/script/jquery.lazyload.js"></script>{/if}
+{if $JS}
+{loop $JS $js}
+<script type="text/javascript" src="{DT_STATIC}file/script/{$js}.js"></script>
+{/loop}
+{/if}
+{php $searchid = ($moduleid > 3 && $MODULE[$moduleid]['ismenu'] && !$MODULE[$moduleid]['islink']) ? $moduleid : 5;}
+<script type="text/javascript">
+{if $head_mobile && $EXT[wap_goto]}
+GoMobile('{$head_mobile}');
+{/if}
+var searchid = {$searchid};
+{if $itemid && $DT[anticopy]}
+document.oncontextmenu=function(e){return false;};
+document.onselectstart=function(e){return false;};
+{/if}
+</script>
+<script type="text/javascript">
+$(document).ready(function(){   
+    $("#allsort").Prolist();
+    $(".bghover").Prolist();
+});
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?eb609b3564f639636ab6dff67909159b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!--[以上为系统关键代码，除非您明确其含义，否则请勿修改或删除，否则会导致系统错误]-->
+<!--[模板中所有带id的元素，请勿修改或删除，否则会导致部分JS代码无法运行]-->
+<!--[以上类似的注释，在编译模板时，系统会自动移除，不会显示在实际的页面中]-->
+</head>
+<body>
+<!--顶部start-->
+<div class="site_topbar">
+	<div class="w_1200 o_a">
+    	<div class="left f_l" id="destoon_member"></div>
+        <!-- 
+        <div class="right f_r">
+        	<ul id="head_menu">
+				<li class="item menu my_account">
+                    <a class="link" href="{$MODULE[2][linkurl]}my.php">我的账户<b class="ico2 ico_updown"></b></a>
+                    					<ul class="sub_menu hide line_22">
+                    	<li><a href="{$MODULE[2][linkurl]}trade.php?action=order">已买到宝贝</a></li>
+                        <li><a href="{$MODULE[2][linkurl]}group.php?action=order">我的团购</a></li>
+                        <li><a href="{$MODULE[2][linkurl]}address.php">收货地址</a></li>
+                    </ul>
+                </li>
+				<li class="item menu seller">
+                     <a class="link" href="{$MODULE[2][linkurl]}">卖家中心<b class="ico2 ico_updown"></b></a>
+					 <ul class="sub_menu hide line_22">
+                    	<li><a href="{$MODULE[2][linkurl]}trade.php">已卖出宝贝</a></li>
+                        <li><a href="{$MODULE[2][linkurl]}my.php?mid=16&action=add">发布产品</a></li>
+                        <li><a href="{$MODULE[2][linkurl]}my.php?mid=16">出售中产品</a></li>
+                    </ul>
+            </li>
+				<li class="item menu kefu">
+                    <a class="link" href="/extend/help.html">在线帮助<b class="ico2 ico_updown"></b></a>
+					<ul class="sub_menu hide line_22">
+                    		        			        			        			            	<li><a href="#">买家帮助</a></li>
+		            		            		        			        			            	<li><a href="#">卖家帮助</a></li>
+		            		            		        			        			            	<li><a href="#">商城规则</a></li>
+		            		            		        			        			            	<li><a href="/extend/contact.html">客服中心</a></li>
+                    </ul>
+                </li>
+                <li class="item menu site_map">
+                	<a class="link" href="/sitemap/" title="网站导航">网站导航<b class="ico2 ico_updown"></b></a>
+                    <ul class="sub_menu hide line_22">
+                    	<li><a href="/">首页</a></li>
+                        <li><a href="/mall/">商铺商品</a></li>
+                        <li><a href="/sell/">供应信息</a></li>
+                        <li><a href="/group/">商品团购</a></li>
+                        <li><a href="/news/">行业资讯</a></li>
+						<li><a href="/buy/">采购信息</a></li>
+						<li><a href="#">配套服务</a></li>
+                        <li><a href="/extend/contact.html">客服中心</a></li>
+                        <li><a href="#">采购俱乐部</a></li>
+                    </ul>
+                </li>
+                <li class="item menu"><a class="link" href="#">进入社区</a></li>
+            </ul>
+        </div>
+         -->
+    </div>
+</div>
+<!--顶部end-->
+<script type="text/javascript">
+    $("#head_menu").headmenu(1);
+</script>
+<!--LOGO与搜索start-->
+
+<div class="header">
+<div class="m">
+	<div id="search_module" style="display:none;" onmouseout="Dh('search_module');" onmouseover="Ds('search_module');">
+	{loop $MODULE $m}{if $m[ismenu] && !$m[islink]}<a href="javascript:void(0);" onclick="setModule('{$m[moduleid]}','{$m[name]}')">{$m[name]}</a>{/if}{/loop}
+	</div>
+</div>
+
+    <div class="w_1200 o_a">
+
+        <h1 class="logo f_l"><a href="{$MODULE[1][linkurl]}"><img src="{if $MODULE[$moduleid][logo]}{DT_SKIN}image/logo_{$moduleid}.gif{elseif $DT[logo]}{$DT[logo]}{else}{DT_SKIN}image/logo.gif{/if}" alt="{$DT[sitename]}"/></a></h1>
+
+        <div class="search_bar c_f">
+
+    <form id="destoon_search" action="{$MODULE[$searchid][linkurl]}search.php" onsubmit="return Dsearch(1);">
+	<input type="hidden" name="moduleid" value="{$searchid}" id="destoon_moduleid"/>
+	<input type="hidden" name="spread" value="0" id="destoon_spread"/>
+    <div class="select">
+	<input type="text" id="destoon_select" class="search_m" value="{$MODULE[$searchid][name]}" readonly onfocus="this.blur();" onclick="$('#search_module').fadeIn('fast');"/>
+    </div>
+	<input name="kw" id="destoon_kw" type="text" class="t_ipt" value="{if $kw}{$kw}{else}请输入关键词{/if}" onfocus="if(this.value=='请输入关键词') this.value='';"{if $DT[search_tips]} onkeyup="STip(this.value);" autocomplete="off"{/if} x-webkit-speech speech/>
+
+	<button type="submit" class="btn_srh">搜索</button>
+
+    </form>
+
+</div>
+
+    </div>
+
+</div>
+
+<!--LOGO与搜索end-->
+<!--导航start-->
+
+<div class="nav_bar">
+
+	<div class="w_1200 o_a">
+
+        <ul class="main_nav f_l nav_barone">
+		<li {if $moduleid<4} class="cur"{/if}><a href="{$MODULE[1][linkurl]}"><span>首页</span></a></li>{loop $MODULE $m}{if $m[ismenu]}<li{if $m[moduleid]==$moduleid} class="cur"{/if}><a href="{$m[linkurl]}"{if $m[isblank]} target="_blank"{/if}>{$m[name]}</a></li>{/if}{/loop}
+        </ul>
+<!-- 
+		<ul class="sub_nav f_r">
+
+			<li class=""><a href="/">采购信息</a></li>
+
+			<li class=""><a href="/">转租转让</a></li>
+
+			<li class=""><a href="/">代理加盟</a></li>
+
+			<li class=""><a href="/">配套服务</a></li>
+
+			<li class=""><a href="/">展会信息</a></li>
+
+            <li class="no_border"><a href="/">采购俱乐部</a></li>
+
+		</ul>
+ -->
+    </div>
+
+</div>
+
+<!--导航end-->
+<div class="m b10">&nbsp;</div>
