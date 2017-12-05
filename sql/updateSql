@@ -1,0 +1,15 @@
+
+#===================================================================================
+UPDATE destoon_company SET catid=',39,',catids=',39,' WHERE company LIKE '%舞蹈%';
+UPDATE destoon_company SET catid=',40,',catids=',40,' WHERE company LIKE '%国学%';
+UPDATE destoon_company SET catid=',42,',catids=',42,' WHERE company LIKE '%体育%';
+UPDATE destoon_company SET catid=',41,',catids=',41,' WHERE company LIKE '%英语%';
+UPDATE destoon_company SET catid=',38,',catids=',38,' WHERE company LIKE '%美术%';
+UPDATE destoon_company SET catid=',37,',catids=',37,' WHERE company LIKE '%音乐%';
+
+#===================================================================================
+UPDATE destoon_company SET catid=',45,',catids=',45,' WHERE catid=',,';
+
+#=======
+UPDATE destoon_company SET linkurl=REPLACE(linkurl, '192.168.1.102/destoon', 'www.51meiyu.cn'); 
+UPDATE destoon_company SET linkurl=REPLACE(linkurl, 'index.php?homepage=', 'com/');
