@@ -1,0 +1,18 @@
+/*
+	[Destoon B2B System] Copyright (c) 2008-2013 Destoon.COM
+	This is NOT a freeware, use is subject to license.txt
+*/
+.exh_rec {padding:0 0 10px 30px;}
+.exh_rec a {font-weight:bold;font-size:14px;font-weight:bold}
+.exh_rec li {color:#666666;padding:0px 5px 0 5px;line-height:23px;overflow:hidden;}
+.exh_rec .label{background-color:#7e8c9a;color:white;font-weight:bold;padding:1px 5px 1px 5px;}
+.exh_rec img{border-radius:50px;}
+.exh_month {width:145px;height:150px;padding:10px 0 0 15px;overflow:hidden;}
+.exh_month div {float:left;width:36px;height:25px;line-height:25px;border:#DDDDDD 1px solid;background:url('image/pos.gif') repeat-x;margin:0 10px 10px 0;text-align:center;}
+.ctb {background:#DDDDDD;}
+.ltd {width:100px;text-align:center;background:#F3F3F3;font-weight:bold;color:#333333;}
+.rtd {background:#FFFFFF;}
+.box_body .picview{box-shadow: 3px 3px 3px #888888;;background:#FFFFFF;text-align:center;height:300px;width:25%;padding:10px 10px 10px 10px;margin:10px 10px 10px 10px;display: inline-block;}
+.box_body .picview img{height:200px;width:200px}
+.box_body .picview a{font-size:16px;font-weight:bold}
+.box_body .ul_pic{background:#EEEEEE;text-align:center}
