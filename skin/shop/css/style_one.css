@@ -1,0 +1,178 @@
+/* ************************************
+
+* 文件名称：style_one.css
+
+* 内容概要：首页等头部底部样式及公用样式
+
+************************************ */
+
+@charset "utf-8";
+
+@import url("../css/reset.css");
+
+@import url("../css/layout.css");
+
+@import url("../css/style_top.css");
+
+body{ background-color:#fff;}
+
+#header_no .w_1200{ background:none;}
+
+/*头部*/
+
+.header{ height:96px; min-width:1200px; background:#FFFFFF;}
+
+.header .w_1200{ position:relative; z-index:11;  height:96px;}
+
+.header .search_bar .t_ipt,.header .search_bar .btn_srh,.header .search_bar .select { display:block; float:left;}
+
+.header .search_bar{margin-top:auto;margin-bottom:auto; width:740px; height:80px; padding:1px; _height:30px; }
+
+.search_bar_box{background-image:url("../images/search_bar_box.png");margin:auto;margin-top:30px;width:580px;height:40px;}
+.header .joinin_phone{width:240px;height:80px;}
+.header .joinin_phone table{width:100%;margin-top:30px}
+.header .joinin_phone .phoneicon{width:45%;height:50px;background:url("../images/phone.png")  no-repeat center right;}
+.header .joinin_phone .phonelabel{font-size:14px;color:#888888}
+.header .joinin_phone .phonenum{font-size:20px;color:#f85415}
+.header .joinin_phone .phonespace{width:5%;height:50px;}
+.header .search_bar .select{ background:url("../images/magnifyglass.jpg") no-repeat center left;width:96px; height:39px;margin-left:20px}
+
+.header .selectbox{ background:none; font-family:simsun; display:block; width:89px; text-align:left; height:39px; line-height:39px; border:0 none; cursor:pointer; overflow:hidden; text-indent:5px;}
+
+.header .selectbox_wrapper{ z-index:3; position:absolute; background-color:#fff; border:1px solid #a2a2a2; text-align:left; z-index:999; width:87px;}
+
+.header .selectbox_wrapper ul{ padding:3px;}
+
+.header .selectbox_wrapper ul li{ border-bottom:1px dashed #e9e9e9; text-indent:8px; padding:2px 0; cursor:pointer;}
+
+.header .selectbox_wrapper ul li.current{ background-color:#f3f3f3;}
+
+.header .selectbox_wrapper ul #headSearch_input_1{ border-bottom:none;}
+
+.header .search_bar .t_ipt { font-size:16px;width:385px; line-height:35px; height:35px; padding:0; margin-top:2px; background-color:#fff; border:0 none; vertical-align:middle; color:#bebebe;}
+
+.header .search_bar .btn_srh{ width:70px; height:39px;font-weight:bold; color:white;font-size:16px; overflow:hidden; background-color:transparent; cursor:pointer; border:0 none; vertical-align:middle;}
+
+
+
+
+
+/*导航*/
+
+.nav_bar{ height:39px; line-height:39px; background:#df332c; overflow:hidden; min-width:1200px;}
+
+.nav_bar .main_nav li{ float:left; text-align:left; font:bold 14px/38px arial; *display:inline;}
+
+.nav_bar .nav_barone li.cur a,.nav_bar .nav_barone li a:hover{ background:#bc2620; color:#fff;}
+
+.nav_bar .main_nav li a{ color:#fff; display:inline-block; height:39px; padding:0 17px;}
+
+.nav_bar .main_nav li a.wid_30{ width:30px; margin-right:45px;}
+
+.nav_bar .main_nav li a.wid_60{ width:60px;}
+
+.nav_bar .main_nav li a.wid_70{ width:70px;}
+
+.nav_bar .main_nav li a.wid_45{ width:45px;}
+
+.nav_bar .nav_barone li a:hover{ text-decoration:none; background:#bc2620;}
+
+.nav_bar .sub_nav li{ float:left; }
+
+.nav_bar .sub_nav li a{ color:#f3ecd5; border-right:solid 1px #f3ecd5; padding:0 8px;}
+
+.nav_bar .sub_nav li.no_border a{ border:none;}
+
+.nav_bartwo li a:hover{ text-decoration:none; background:#353535;}
+
+.nav_bartwo{ background:#4c4c4c;}
+
+.nav_barnews{ background:#9a7320;}
+
+.nav_barnews li a:hover{ text-decoration:none; background:#85631c;}
+
+
+
+/*底部*/
+/*
+
+.footer,.footer a{ margin:auto; width:100%; min-width:1200px; text-align:center; color:#666;}
+
+.footer a:hover{ color:#f60;}
+
+.footer .foot_help{  background:#f0f0f0; padding:20px 0; min-width:1200px; border-top:solid 2px #e3e3e3;}
+
+.footer .foot_help a{ color:#666666;}
+
+.footer .foot_help a:hover{ color:#f60;}
+
+.foot_help li{ float:left; width:150px; padding-left:10px;}
+
+.foot_help li dt{ margin-bottom:5px; font-weight:bold;}
+
+.foot_help li dd a{ line-height:22px;}
+
+.foot_help li.weixin{ width:180px; color:#666;}
+
+
+/*2015.09.06新加共用*/
+
+.wrapper { width: 1200px; text-align: left; margin: 0 auto; }
+.clear { clear: both; height: 0; width: 0; zoom: 1; overflow: hidden; }
+.fl { float: left; }
+.fr { float: right; }
+.fb { font-weight: bold; }
+.f12 { font-size: 12px; }
+.f14 { font-size: 14px; font-weight: bold; }
+.f141 { font-size: 14px; }
+.f16 { font-size: 16px; font-weight: bold; }
+
+.mt5 { margin-top: 5px; }
+.mt10 { margin-top: 10px; }
+.mt15 { margin-top: 15px; }
+.ml10 { margin-left: 10px; _margin-left:5px; }
+.ml15 { margin-left: 15px; }
+.ml20 { margin-left: 20px; }
+.mr10 { margin-right: 10px; }
+
+/*2015.09.06新加字体样式*/
+.black,.black a,.black a:link,.black a:visited{ color: #666; }
+.black a:hover { text-decoration: underline; color: #ff6600; }
+
+.orange,.orange a:link,.orange a:visited{ color: #ff5a00; }
+.orange a:hover { color: #ff6600; text-decoration: underline; }
+
+.gray,.gray a:link,.gray a:visited{ color: #606060; font-family:"微软雅黑"; }
+.gray a:hover { color: #ff6600; text-decoration: none; }
+
+.gray1,.gray1 a:link,.gray1 a:visited{ color: #a4a4a4; font-family:"微软雅黑"; }
+.gray1 a:hover { color: #ff6600; text-decoration: none; }
+
+.red,.red a:link,.red a:visited{ color: #ea1e00; text-decoration: none; font-family:Arial, Helvetica, sans-serif; }
+.red a:hover { color: #ff6600; text-decoration: underline; }
+
+.white,.white a:link,.white a:visited{ color: #fff; }
+.white a:hover { color: #ffddc3; text-decoration: none; }
+  
+.green,.green a,.green a:link,.green a:visited{ color: #006600; }
+.green a:hover { text-decoration: underline; color: #ff6600; }
+
+.blue,.blue a,.blue a:link,.blue a:visited{ color:#3d5590; }
+.yellow,.yellow a,.yellow a:link,.yellow a:visited{ color:#996600; }
+.purple,.purple a,.purple a:link,.purple a:visited{ color:#1c0060; }
+.green1,.green1 a,.green1 a:link,.green1 a:visited{ color:#336666; }
+.orange1,.orange1 a,.orange1 a:link,.orange1 a:visited{ color:#cc6600; }
+.white1{ font-family:Arial; font-size:14px; }
+
+
+/*2015.09.06新加*/
+
+.wrapper { width: 1200px; text-align: left; margin: 0 auto; }
+.crumbs { height: 27px; line-height: 27px; background: #f1f1f1; border: 1px solid #e4e4e4; padding-left: 12px; width: 1186px; }
+.crumbs .mr10 { margin-right: 10px; }
+
+
+
+
+
+

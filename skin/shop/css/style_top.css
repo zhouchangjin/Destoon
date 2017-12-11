@@ -1,0 +1,54 @@
+@charset "utf-8";
+.ico2{ background:url(../images/ico.png) 0 0 no-repeat; display:inline-block; vertical-align:middle; overflow:hidden;}
+.ico_cart2{ background-position: 0 -118px; width:16px; height:15px; margin-right:5px;}
+.ico_updown{ background-position: 0 -4px; width:7px; height:4px; margin-left:5px;}
+/*顶部*/
+.site_topbar{ color:#cccccc;font-family: "Microsoft YaHei";height:35px;background-color:#f5f5f5; border-bottom:1px solid #eeeeee; padding:0 0 0 0; line-height:35px; min-width:990px;}
+.site_topbar a{margin:0 10px 0 0px;color:#888888;};
+.site_topbar .right .ppd{ padding-top:3px; _padding-top:0;}
+.site_topbar .welcome{ margin-right:10px;}
+.site_topbar .left .c_f60{ margin-right:10px;}
+.site_topbar .right .item{ float:left; margin-right:12px; display:inline;}
+.site_topbar .right .window{ padding-top:3px; _padding-top:0;}
+.site_topbar .right .menu{ position:relative; margin:-2px 0 0; z-index:12; *zoom:1; margin-right:3px;}
+.site_topbar .menu .link{ border:1px solid #f5f5f5; border-bottom:none; padding:2px 7px 2px 10px; display:inline-block; position:relative; z-index:10; *zoom:1; background-color:#f5f5f5; background:none;}
+.site_topbar .hover .link{ border-color:#d8d8d8; background-color:#fff;}
+.site_topbar .hover .ico_updown{ background-position: 0 0;}
+.site_topbar .menu .sub_menu{ position:absolute; right:0; top:24px; border:1px solid #d8d8d8; background-color:#fff;}
+.site_topbar .my_account .sub_menu{ position:absolute; left:0; top:24px; border:1px solid #d8d8d8; background-color:#fff;}
+.site_topbar .cart .sub_menu{ width:312px;}
+.site_topbar .cart .sub_menu ul{ padding:6px;}
+.site_topbar .cart .sub_menu li{ padding:10px 5px; border-bottom:1px dashed #e9e9e9;}
+.site_topbar .cart .pro_info{ width:192px;}
+.site_topbar .cart .pro_info img{ border:1px solid #d6d6d6; vertical-align:top; margin-right:5px; float:left; width:50px; height:50px;}
+.site_topbar .cart .sub_menu .total{ background:#fff8e0; padding:13px 15px;}
+.site_topbar .cart .total .btn_go:hover{ color:#fff;}
+.site_topbar .my_account .sub_menu{ white-space:nowrap; padding:6px; line-height:22px;}
+.site_topbar .seller .sub_menu{ white-space:nowrap; padding:6px 9px 6px 3px; line-height:22px; _padding:6px 3px}
+.site_topbar .my_account dl{ float:left; width:85px; padding:0 6px;}
+.site_topbar .my_account dl dt{ font-weight:bold; color:#999;}
+.site_topbar .site_map .sub_menu{ white-space:nowrap; padding:6px 0 6px 12px; width:130px;}
+.site_topbar .site_map li{ float:left; width:65px;}
+.site_topbar .my_account .sub_menu{ white-space:nowrap;}
+.site_topbar .my_account li{ width:65px;}
+.site_topbar .seller li{ width:65px;}
+.site_topbar .kefu .sub_menu{ padding:6px 15px 6px 14px; white-space:nowrap;}
+.site_topbar .hover .service{ background-color:#f5f5f5; border-color:#f5f5f5;}
+/*底部*/
+.footer{ margin:auto; width:100%; min-width:1200px; text-align:center; background:#f0f0f0;}
+.footer,.footer a{ text-align:center; color:#666;}
+.footer a:hover{ color:#f60;}
+.footer .foot_help{  background:#f0f0f0; padding:20px 0; min-width:990px; border-top:solid 1px #e3e3e3;}
+.footer .foot_help a{ color:#666666;}
+.footer .foot_help a:hover{ color:#f60;}
+.foot_help li{ float:left; width:150px; padding-left:10px;}
+.foot_help li dt{ margin-bottom:5px; font-weight:bold;}
+.foot_help li dd a{ line-height:22px;}
+.foot_help li.weixin{ width:180px; color:#666;}
+.footer .foot_nav{ padding:10px 0px 5px 0px;}
+.footer .foot_border{ border-top:solid 2px #b40c0c;}
+.foot_nav a{ border-right:1px solid #666; padding:0 10px;}
+.footer .foot_info .img{ padding:5px 0px 15px 0px;}
+.footer .foot_info .img a{ margin-right:10px;}
+.footer_bor{ border-top:solid 2px #75b904;}
+
