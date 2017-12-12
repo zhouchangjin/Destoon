@@ -31,7 +31,7 @@ body{ background-color:#fff;}
 .search_bar_box{background-image:url("../images/search_bar_box.png");margin:auto;margin-top:30px;width:580px;height:40px;}
 .header .joinin_phone{width:240px;height:80px;}
 .header .joinin_phone table{width:100%;margin-top:30px}
-.header .joinin_phone .phoneicon{width:45%;height:50px;background:url("../images/phone.png")  no-repeat center right;}
+.header .joinin_phone .phoneicon{width:40%;height:50px;background:url("../images/phone.png")  no-repeat center right;}
 .header .joinin_phone .phonelabel{font-size:14px;color:#888888}
 .header .joinin_phone .phonenum{font-size:20px;color:#f85415}
 .header .joinin_phone .phonespace{width:5%;height:50px;}
@@ -59,14 +59,13 @@ body{ background-color:#fff;}
 
 /*导航*/
 
-.nav_bar{ height:39px; line-height:39px; background:#df332c; overflow:hidden; min-width:1200px;}
-
+.nav_bar{ height:42px; line-height:42px; background:#f85415; overflow:hidden; min-width:1200px;}
+.main_nav{margin-left:215px;}
 .nav_bar .main_nav li{ float:left; text-align:left; font:bold 14px/38px arial; *display:inline;}
 
-.nav_bar .nav_barone li.cur a,.nav_bar .nav_barone li a:hover{ background:#bc2620; color:#fff;}
+.nav_bar .nav_barone li.cur a,.nav_bar .nav_barone li a:hover{ background:#e2231a; color:#fff;}
 
-.nav_bar .main_nav li a{ color:#fff; display:inline-block; height:39px; padding:0 17px;}
-
+.nav_bar .main_nav li a{ width:90px;color:#fff; display:inline-block; height:42px;text-align:center}
 .nav_bar .main_nav li a.wid_30{ width:30px; margin-right:45px;}
 
 .nav_bar .main_nav li a.wid_60{ width:60px;}
@@ -75,7 +74,7 @@ body{ background-color:#fff;}
 
 .nav_bar .main_nav li a.wid_45{ width:45px;}
 
-.nav_bar .nav_barone li a:hover{ text-decoration:none; background:#bc2620;}
+.nav_bar .nav_barone li a:hover{ text-decoration:none; background:#e2231a;}
 
 .nav_bar .sub_nav li{ float:left; }
 
