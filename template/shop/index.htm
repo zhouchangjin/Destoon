@@ -4,10 +4,10 @@
 <!--正文start-->
 <div class="w_1200 o_a c_f">
     	<!--总分类start-->
-	<div class="w_210 f_l" >
+	<div class="w_215 f_l" >
                 
     	<div class="allsort" id="allsort">
-            <h2 class="fs_14"><a class="c_white" href="{DT_PATH}sitemap/{rewrite('index.php?mid=5')}" target="_blank">所有产品分类</a></h2>
+            <h2 class="fs_14"><a class="c_white" href="{DT_PATH}sitemap/{rewrite('index.php?mid=5')}" target="_blank">课程中心</a></h2>
             <!--5是模块ID-->
                   
          {php $mid = 5;}
@@ -18,113 +18,7 @@
 		 </div>
     </div>
     <!--总分类end-->
-        <div class="index_center w_720 f_l">
-        		<!--轮播 start-->
-    	<div class="index_slide">
-        	<div class="slideimg bdx">
-                <ul>
-                                    <li><a target="_blank" href="/"><img height="230" width="700" src="{DT_SKIN}images/140089345054892.jpg" alt="" /></a></li>
-                                    <li><a target="_blank" href="/"><img height="230" width="700" src="{DT_SKIN}images/140117352676444.jpg" alt="" /></a></li>
-                                    <li><a target="_blank" href="/"><img height="230" width="700" src="{DT_SKIN}images/140135451076600.jpg" alt="" /></a></li>
-                </ul>
-            </div>
-            <ul class="slidetab hd">
-                                    <li>1</li>
-                                    <li>2</li>
-                                    <li>3</li>
-            </ul>
-        </div>
-		<script type="text/javascript">
-			jQuery(".index_slide").slide( { mainCell:".slideimg ul",effect:"leftLoop",autoPlay:true} );
-		</script>
-		<!--轮播 end-->
-        <div class="hr_5"></div>
-        <!--产品推荐 start-->
-        <!--首页广告 A2 start-->
-        <div class="pro_hotsales">
-        	<h2><span><a target="_blank" class="f_r" href="{$MODULE[5][linkurl]}">更多</a></span>课程推荐</h2>
-            <div class="default_left_body" >
 
-<table width="707" border="0" cellspacing="0" cellpadding="0">
-
-  <tr>
-
-    <td width="20"><div class="aleft">
-
-<img onMouseDown="ISL_GoDown()" onMouseUp="ISL_StopDown()" onMouseOut="ISL_StopDown()" src="{DT_SKIN}images/shqm_left_pic.gif"/>
-
-</div></td>
-
-    <td align="center" >
-
-<div  id="rollBox" >
-
-<div id="ISL_Cont" style="overflow:hidden;width:658px;">
-
-<table cellpadding="0" cellspacing="0" border="0" >
-
-<tr>
-
-<td id="List1" valign="top"  >
-
-<table width='100%' border='0' cellspacing='0' cellspadding='0'><tr>
-
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&condition=status=3 and level>0 and thumb<>''&pagesize=16&order=addtime desc&template=null");}-->
-                      {loop $tags $i $t}
-                      <td><table  border='0' cellspacing='0' cellspadding='0'><tr><td><A href="{$t[linkurl]}" title="{$t[title]}" target="_blank" rel="nofollow"><IMG height=108 class='info_border z_mar_1' alt={$t[title]} src="{imgurl($t[thumb], 1)}" width=149  border="1"></a>
-					  </td></tr><tr><td><A href="{$t[linkurl]}" title="{$t[title]}" class="info_title z_b" target="_blank" style='color:#000000' rel="nofollow">{dsubstr($t[title], 18)}</A></td><tr>
-					  </table></td>                     
-                      {/loop}
-</tr></table>
-
-</td>
-
-<td id="List2" valign="top"></td>
-
-</tr>
-
-</table>
-
-</div>
-
-</div>
-
-</td>
-
-    <td width="20"><div class="aright">
-
-<img  onmousedown="ISL_GoUp()" onMouseUp="ISL_StopUp()" onMouseOut="ISL_StopUp()" src="{DT_SKIN}images/shqm_right_pic.gif" />
-
-</div></td>
-
-  </tr>
-
-</table>
-
-<div class=clear></div>
-
-</div>
-        </div>
-		<!--首页广告 A2 end-->
-        <!--产品推荐 end-->
-         <!--最新供求 start-->
-        <div class="procure">
-        	<h2><span><a target="_blank" class="f_r" href="{$MODULE[5][linkurl]}">更多</a></span>最新课程</h2>
-            <div class="procure_one c_f">
-            	 <ul>
-                     <!--{php $tags=tag("moduleid=5&condition=status=3&areaid=$cityid&pagesize=5&order=edittime desc&time=addtime&template=null");}-->
-				{loop $tags $k $t}
-                    <LI ><span class='class_list Mark'></span><A href="{$t[linkurl]}" target=_blank>{dsubstr($t[title], 48)}</A> &nbsp;<A>[{timetodate($t['edittime'], 2)}]</A></LI>                {/loop}
-				</ul>
-                <ul class="left_mar">
-                     <!--{php $tags=tag("moduleid=6&condition=status=3&areaid=$cityid&pagesize=5&order=edittime desc&time=addtime&template=null");}-->
-				{loop $tags $k $t}
-                    <LI ><span class='class_list Mark'></span><A href="{$t[linkurl]}" target=_blank>{dsubstr($t[title], 48)}</A> &nbsp;<A>[{timetodate($t['edittime'], 2)}]</A></LI>                {/loop}
-                 </ul>
-            </div>
-        </div>
-        <!--最新供求 end-->
-            </div>
 	<div class="index_right w_250 f_r">
 	<!-- 
         <div class="login_bar c_f">
@@ -200,6 +94,38 @@
 		<!--商城动态 end-->
         	</div>
 </div>
+
+<!-- slide start -->
+        <div class="index_center">
+        		<!--轮播 start-->
+    	<div class="index_slide">
+        	<div class="slideimg bdx">
+                <ul>
+                                    <li><a target="_blank" href="/"><img height="500"  src="{DT_SKIN}images/adv1.jpg" alt="" /></a></li>
+                                    <li><a target="_blank" href="/"><img height="500"  src="{DT_SKIN}images/140117352676444.jpg" alt="" /></a></li>
+                                    <li><a target="_blank" href="/"><img height="500"  src="{DT_SKIN}images/140135451076600.jpg" alt="" /></a></li>
+                </ul>
+            </div>
+            <ul class="slidetab hd">
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+            </ul>
+        </div>
+		<script type="text/javascript">
+			jQuery(".index_slide").slide( { mainCell:".slideimg ul",effect:"leftLoop",autoPlay:true} );
+		</script>
+		<!--轮播 end-->
+
+
+      
+      </div>
+
+
+<!-- slide end -->
+
+
+
 <div class="hr_10"></div>
  <!-- 首页广告位 A4-->
 <div class="w_1200 o_a">
