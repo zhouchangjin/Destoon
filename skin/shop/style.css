@@ -21,6 +21,7 @@ a.g:link,a.g:visited,a.g:active {color:#666666;text-decoration:none;}
 a.g:hover {color:#FF6600;}
 /* common */
 .m {margin:auto;width:1200px;background:#FFFFFF;clear:both;}
+.sep_tras{margin:auto;width:1200px;background:transparent;clear:both;}
 .head {background:#F1F1F1 url('image/head_bg.png') repeat-x;width:100%;height:31px;position:fixed;z-index:999999;left:0;}
 .head_m {margin:auto;width:1200px;padding:7px 0 0 0;color:#666666;}
 .head_s {height:31px;}
