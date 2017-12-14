@@ -19,50 +19,37 @@
     </div>
     <!--总分类end-->
 
-	<div class="index_right w_250 f_r">
-	<!-- 
+	<div class="index_right f_r">
+	 
         <div class="login_bar c_f">
-            <a class="register" href="{$MODULE[2][linkurl]}register.php">免费注册</a>            <a class="login" href="{$MODULE[2][linkurl]}login.php">登录</a>            <a class="ruzhu" href="{$MODULE[2][linkurl]}">商务中心</a>            <div style="clear"></div>
+            <div class="login_head">
+            </div>
+            <p>
+            	Hi,&nbsp;&nbsp;你好！
+            </p>
+          <a class="login" href="{$MODULE[2][linkurl]}login.php">登录</a><a class="register" href="{$MODULE[2][linkurl]}register.php">注册</a>
 		</div>
-	 -->
-	 <!-- 
-        <div class="hr_10"></div>
-      -->
-		<!--入门 start-->
-
-		<!-- 
-        <div class="baozhang">
-        	<h2>安全交易保障</h2>
-			<ul class="c_f">
-				<li><a href="/" title="买家保障" ><img src="{DT_SKIN}images/bz_01.jpg" alt="买家保障" /><span class="c_666">买家保障</span></a></li>
-				<li><a href="/" title="实体认证" ><img src="{DT_SKIN}images/bz_02.jpg" alt="实体认证" /><span class="c_666">实体认证</span></a></li>
-				<li><a href="/" title="实名认证" ><img src="{DT_SKIN}images/bz_03.jpg" alt="实名认证" /><span class="c_666">实名认证</span></a></li>
-                <li><a href="/" title="安全交易" ><img src="{DT_SKIN}images/bz_04.jpg" alt="安全交易" /><span class="c_666">安全交易</span></a></li>
-			</ul>
-		</div>
-		 -->
-		<!--入门 end-->
-        
-        <div class="hr_10"></div>
 		<!--商城动态 start-->
         	 <!--首页广告 A3-->
                      <div class="index_notice index_notice2" id="notice2">
 			<div class="tab_hd">
 				<ul class="c_f">
 					<li><a target="_blank" href="/news/">美育头条</a></li>
-                    <li><a target="_blank" href="/news/">美育政策</a></li>
-                    <li><a target="_blank" href="/news/">展会资讯</a></li>
+                    <li><a target="_blank" href="/news/">展览演出</a></li>
 				</ul>
 			</div>
 			<div class="tab_cont">
 				<ul>
 <!--{php $tags=tag("moduleid=21&showcat=1&length=26&showcat=1&areaid=$cityid&condition=status=3 and level=3&order=addtime desc&pagesize=1&template=null");}-->
 				 {loop $tags $t}
-                <li><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="230"  height="72" alt="{$t[title]}" ></A></li>
+                <li style="height:100px">
+                <A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="200"  height="100" alt="{$t[title]}" ></A>
+                <div class="imgtxt">{$t[title]}</div>
+                </li>
 				 {/loop} 
-<!--{php $tags=tag("moduleid=21&showcat=1&length=26&showcat=1&areaid=$cityid&condition=status=3 and level>-1&order=addtime desc&pagesize=7&template=null");}-->
+<!--{php $tags=tag("moduleid=21&showcat=1&length=28&showcat=1&areaid=$cityid&condition=status=3 and level>-1&order=addtime desc&pagesize=5&template=null");}-->
 				 {loop $tags $t}
-                <li><a href="{$t['caturl']}" target="_blank">[{$t['catname']}]</a>&nbsp;<A href="{$t[linkurl]}" alt="{$t[title]}" target="_blank">{$t[title]}</A></li>
+                <li><A href="{$t[linkurl]}" alt="{$t[title]}" target="_blank">{$t[title]}</A></li>
 				 {/loop} 
 				</ul>
 			</div>
@@ -126,10 +113,11 @@
 
 
 
-<div class="hr_10"></div>
+<div class="hr_30"></div>
  <!-- 首页广告位 A4-->
 <div class="w_1200 o_a">
- <a target="_blank" href="/"><img height="88" width="1200" src="{DT_SKIN}images/139936872081950.jpg" alt="" /></a></div>
+<div class="bigtitlebar"><div class="bigtext">推荐课程</div></div>
+ </div>
 <!-- 首页广告位 A4-->
 <!--产品层 start-->
 <div class="w_1200 o_a">
