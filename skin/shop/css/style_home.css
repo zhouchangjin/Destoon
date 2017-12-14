@@ -340,8 +340,8 @@
 
 .index_news .index_newrig .index_newrig_one .news_left .news_two .news_text li.news_tit a{ color:#999;}
 
-.bigtext{width:150px;font-size:30px;color:#707070;margin:auto}
+.bigtext{font-size:30px;color:#707070;margin:auto;line-height:30px;text-align:center}
 
-.bigtitlebar{width:100%;background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><text x="5%" y="5%" font-size="30" fill="red">/</text></svg>')};
+.bigtitlebar{width:100%;}
 
 
