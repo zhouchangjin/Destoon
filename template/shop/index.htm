@@ -122,31 +122,78 @@
 <div class="hr_30"></div>
 
 <!--推荐课程轮播  -->
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&condition=status=3 and level>-1 and thumb<>''&pagesize=8&order=addtime desc&template=null");}-->
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&condition=status=3 and level=1 and thumb<>''&pagesize=5&order=addtime desc&template=null");}-->
 		<div class="picScroll w_1200 o_a">
-			<div class="scrollhead">
-				<a class="next"></a>
-				<ul></ul>
-				<a class="prev"></a>
-				<span class="pageState"></span>
-			</div>
+		
 			<div class="scrollbody">
 				<ul class="picList">
 				{loop $tags $t}
 					<li>
 					
 					
-						<div class="pic"><a alt="{$t[title]}" href="{$t[linkurl]}" target="_blank"><img alt="{$t[title]}" src="{imgurl($t[thumb], 1)}" /></a></div>
+						<div class="pic">
+						<a alt="{$t[title]}" href="{$t[linkurl]}" target="_blank"><img alt="{$t[title]}" src="{imgurl($t[thumb], 1)}" /></a>
+						<div class="spicmask"></div>
+						</div>
 						<div class="title"><a alt="{$t[title]}" href="{$t[linkurl]}" target="_blank">{$t[title]}</a></div>
 					</li>
 				{/loop}
 				</ul>
+			</div>
+			<div class="scrollhead">
+				<a class="next"></a>
+				<ul></ul>
+				<a class="prev"></a>
+				<span class="pageState"></span>
 			</div>
 		</div>
 <script type="text/javascript">
 jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",autoPage:true,effect:"left",autoPlay:true,vis:4,trigger:"click"});
 </script>
 <!--推荐课程轮播  -->
+
+<!--推荐展会 -->
+<div class="hr_30"></div>
+<div class="w_1200 o_a">
+<div class="bigtitlebar o_a"><div class="separ">//////////////////////////////////////////////////////////////////////////////////////////////////////////////</div><div class="bigtext">展览演出</div><div class="separ">//////////////////////////////////////////////////////////////////////////////////////////////////////////////</div></div>
+</div>
+<div class="hr_30"></div>
+
+<div class="recexh w_1200 o_a">
+<div class="w_300 exhi_fil exhi_fil_all">全年龄阶段</div>
+<div class="w_300 exhi_fil">0-3岁</div>
+<div class="w_300 exhi_fil">3-6岁</div>
+<div class="w_300 exhi_fil o_a">6-12岁</div>
+<div class="hr_30"></div>
+<!--{php $tags=tag("moduleid=8&areaid=$cityid&length=28&condition=status=3 and level=1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
+
+<ul class="exhiList">
+{loop $tags $t}
+<li>
+<div class="pic">
+<a alt="{$t[title]}" href="{$t[linkurl]}" target="_blank"><img alt="{$t[title]}" src="{imgurl($t[thumb], 1)}" /></a>
+<div class="spicmask"></div>
+</div>
+<div class="title"><a alt="{$t[title]}" href="{$t[linkurl]}" target="_blank">{$t[title]}</a></div>
+</li>
+{/loop}
+</ul>
+
+<!--{php $tags=tag("moduleid=8&areaid=$cityid&length=28&condition=status=3 and level=1 and thumb<>''&pagesize=4&page=2&order=addtime desc&template=null&debug=1");}-->
+<ul class="exhiList">
+{loop $tags $t}
+<li>
+<div class="pic">
+<a alt="{$t[title]}" href="{$t[linkurl]}" target="_blank"><img alt="{$t[title]}" src="{imgurl($t[thumb], 1)}" /></a>
+<div class="spicmask"></div>
+</div>
+<div class="title"><a alt="{$t[title]}" href="{$t[linkurl]}" target="_blank">{$t[title]}</a></div>
+</li>
+{/loop}
+</ul>
+
+</div>
+<!--推荐展会 -->
 
 <!--产品层 start-->
 <div class="w_1200 o_a">
