@@ -372,5 +372,6 @@
 .recexh .exhiList li .pic .spicmask{ width:285px; height:150px;position:absolute;top:0px;layout:999;background:url(../images/picedge.png) no-repeat}
 .recexh .exhiList li .pic img{ width:285px; height:150px; display:block;}
 .recexh .exhiList li .pic a:hover img{ border-color:#999;  }
-.recexh .exhiList li .title{ font-size:14px;line-height:24px; color:#333333;  }
+.recexh .exhiList li .title{ font-size:14px;line-height:24px; color:#333333;height:50px; text-align:left }
 .recexh .exhiList li .title a{color:#333333;text-decoration:none}
+.recexh .exhiList li .title .exinfo{color:#c0c0c0;font-size:14px}

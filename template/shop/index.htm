@@ -174,12 +174,22 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
 <a alt="{$t[title]}" href="{$t[linkurl]}" target="_blank"><img alt="{$t[title]}" src="{imgurl($t[thumb], 1)}" /></a>
 <div class="spicmask"></div>
 </div>
-<div class="title"><a alt="{$t[title]}" href="{$t[linkurl]}" target="_blank">{$t[title]}</a></div>
+<div class="title">
+
+<div>
+<a alt="{$t[title]}" href="{$t[linkurl]}" target="_blank">{$t[title]}</a>
+</div>
+
+<div class="exinfo">
+<span><img src="{DT_SKIN}images/clock.png"/>&nbsp;{date('Y年m月d日',$t[fromtime])}</span><span class="f_r"><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人报名</span>
+</div>
+
+</div>
 </li>
 {/loop}
 </ul>
 
-<!--{php $tags=tag("moduleid=8&areaid=$cityid&length=28&condition=status=3 and level=1 and thumb<>''&pagesize=4&page=2&order=addtime desc&template=null&debug=1");}-->
+<!--{php $tags=tag("moduleid=8&areaid=$cityid&length=28&condition=status=3 and level=1 and thumb<>''&pagesize=4&page=2&order=addtime desc&template=null");}-->
 <ul class="exhiList">
 {loop $tags $t}
 <li>
@@ -187,7 +197,17 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
 <a alt="{$t[title]}" href="{$t[linkurl]}" target="_blank"><img alt="{$t[title]}" src="{imgurl($t[thumb], 1)}" /></a>
 <div class="spicmask"></div>
 </div>
-<div class="title"><a alt="{$t[title]}" href="{$t[linkurl]}" target="_blank">{$t[title]}</a></div>
+<div class="title">
+
+<div>
+<a alt="{$t[title]}" href="{$t[linkurl]}" target="_blank">{$t[title]}</a>
+</div>
+
+<div class="exinfo">
+<span><img src="{DT_SKIN}images/clock.png"/>&nbsp;{date('Y年m月d日',$t[fromtime])}</span><span class="f_r"><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人报名</span>
+</div>
+
+</div>
 </li>
 {/loop}
 </ul>
