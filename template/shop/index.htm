@@ -89,8 +89,8 @@
         	<div class="slideimg bdx">
                 <ul>
                                     <li><a target="_blank" href="/"><img height="500"  src="{DT_SKIN}images/adv1.jpg" alt="" /></a></li>
-                                    <li><a target="_blank" href="/"><img height="500"  src="{DT_SKIN}images/140117352676444.jpg" alt="" /></a></li>
-                                    <li><a target="_blank" href="/"><img height="500"  src="{DT_SKIN}images/140135451076600.jpg" alt="" /></a></li>
+                                    <li><a target="_blank" href="/"><img height="500"  src="{DT_SKIN}images/adv2.jpg" alt="" /></a></li>
+                                    <li><a target="_blank" href="/"><img height="500"  src="{DT_SKIN}images/adv3.jpg" alt="" /></a></li>
                 </ul>
             </div>
             <ul class="slidetab hd">
@@ -120,6 +120,34 @@
  </div>
 <!-- 首页广告位 A4-->
 <div class="hr_30"></div>
+
+<!--推荐课程轮播  -->
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&condition=status=3 and level>-1 and thumb<>''&pagesize=8&order=addtime desc&template=null");}-->
+		<div class="picScroll w_1200 o_a">
+			<div class="scrollhead">
+				<a class="next"></a>
+				<ul></ul>
+				<a class="prev"></a>
+				<span class="pageState"></span>
+			</div>
+			<div class="scrollbody">
+				<ul class="picList">
+				{loop $tags $t}
+					<li>
+					
+					
+						<div class="pic"><a alt="{$t[title]}" href="{$t[linkurl]}" target="_blank"><img alt="{$t[title]}" src="{imgurl($t[thumb], 1)}" /></a></div>
+						<div class="title"><a alt="{$t[title]}" href="{$t[linkurl]}" target="_blank">{$t[title]}</a></div>
+					</li>
+				{/loop}
+				</ul>
+			</div>
+		</div>
+<script type="text/javascript">
+jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",autoPage:true,effect:"left",autoPlay:true,vis:4,trigger:"click"});
+</script>
+<!--推荐课程轮播  -->
+
 <!--产品层 start-->
 <div class="w_1200 o_a">
 <!--1F start-->
