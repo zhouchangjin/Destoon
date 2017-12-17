@@ -140,7 +140,7 @@
 
 /*产品层*/
 
-.pro_sort .cont_left h2{ height:38px; font: 20px/38px "微软雅黑"; color:#fff; padding-left:12px; font-weight:bold;}
+.pro_sort .cont_left h2{ font: 24px "微软雅黑"; color:#fff;font-weight:bold;padding: 10px 0px 0px 15px;}
 
 .pro_sort .cont_left .floor{ text-transform:uppercase;}
 
@@ -188,11 +188,11 @@
 
 
 
-.cont_left{ height:436px;}
+.cont_left{ height:430px;position:relative;}
+.ad_box{position:absolute;bottom:0px}
 
 
-
-.pro_sort01 .cont_left{ background:#cdae1f;}
+.pro_sort01 .cont_left{background:#1dbca6;background:url(../images/paint_post.jpg) no-repeat; }
 
 .pro_sort01 .cont_right{ border-top:2px solid #cdae1f;}
 
@@ -375,3 +375,10 @@
 .recexh .exhiList li .title{ font-size:14px;line-height:24px; color:#333333;height:50px; text-align:left }
 .recexh .exhiList li .title a{color:#333333;text-decoration:none}
 .recexh .exhiList li .title .exinfo{color:#c0c0c0;font-size:14px}
+.floor_top {height:38px;border-bottom:1px solid #eeeeee;margin-bottom:20px}
+.floor_img {height:36px;width:36px;font-size:18px;color:white;line-height:36px;text-align:center}
+.floor_title {font-size:16px;line-height:36px;margin-left:10px;font-weight:bold;color:#666}
+.floor_top ul{float:right;height:38px}
+.floor_top ul li{display:inline-block;font-size:14px;color:#888;height:37px;line-height:37px;width:85px;cursor:pointer;text-align:center}
+.floor_top ul li.select{border-bottom:2px solid #1dbca6}
+.pro_sort01 .floor_top .floor_img{background:url(../images/paint_floor.png) no-repeat;}

@@ -218,11 +218,23 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
 <!--产品层 start-->
 <div class="w_1200 o_a">
 <!--1F start-->
-	<div class="pro_sort pro_sort01 c_f mt10">
+	<div id="tabfloor1"  class="pro_sort pro_sort01 c_f mt10">
+	    <div class="floor_top tab_hd"><div class="floor_img f_l">1F</div>
+	    <div class="floor_title f_l">美术课程</div>
+	    <ul>
+	    {php $maincat = get_maincat(28, $CATEGORY);}
+	    {loop $maincat $i $c} 
+	    {if $i < 4}
+	    <li>{$c[catname]}</li>
+	    {/if}
+	    {/loop}
+	    <li>其他</li>
+	    </ul>
+	    </div>
     	<div class="cont_left w_210 f_l">
-        	<h2><span class="floor">1F</span> 音乐</h2>
+        	<h2>美术课程</h2>
         	<div class="ad_box">
-            	<div class="ad_boxone"><a href="/"target="_blank" class="img_1"><img height="272" width="200" src="{DT_SKIN}images/138700525626079.jpg" alt="" /></a></div>
+            	
             	<div class="ad_text">
                 	<ul>
 <!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=28&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
@@ -234,15 +246,7 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
             </div>
         </div>
         <div class="cont_right w_780 f_l">
-            <div class="hd">
-                <span class="top_search f_r">
-                 {php $maincat = get_maincat(28, $CATEGORY);}					
-                  {loop $maincat $i $c} {if $i < 10}
-                 <a href="{$MODULE[5][linkurl]}{$MOD[linkurl]}{$c[linkurl]}" target="_blank">{$c[catname]}</a>{/if}
-                  {/loop}
-				  {loop $child $i $c}{if in_array($c[catid], array(28))}<a title="更多" target="_blank" class="ff_ss" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">更多>></a>                  {/if}{/loop}           
-				</span>
-            </div>
+
             <div class="bdx">
                 <ul class="pro_list bghover c_f">
 <!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=28&condition=status=3 and level>-1 and thumb<>''&pagesize=5&order=addtime desc&template=null");}-->
