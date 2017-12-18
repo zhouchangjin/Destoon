@@ -210,60 +210,48 @@
 
 
 
-.pro_sort02 .cont_left{ background:#d96a18;}
-
-.pro_sort02 .cont_middle{ border-top:2px solid #d96a18;}
-
+.pro_sort02 .cont_left{background:url(../images/music_post.jpg) no-repeat; }
+.pro_sort02 .cont_left .ad_box{background:rgba(248,84,21,0.8)}
 .pro_sort02 .cont_middle .hd{ background:#f0dfd2;}
 
 
 
-.pro_sort03 .cont_left{ background:#19b3d4;}
-
-.pro_sort03 .cont_middle{ border-top:2px solid #19b3d4;}
-
+.pro_sort03 .cont_left{background:url(../images/dance_post.jpg) no-repeat; }
+.pro_sort03 .cont_left .ad_box{background:rgba(233,29,98,0.8)}
 .pro_sort03 .cont_middle .hd{ background:#dbe6f1;}
 
 
 
-.pro_sort04 .cont_left{ background:#ec468e;}
-
-.pro_sort04 .cont_middle{ border-top:2px solid #ec468e;}
-
+.pro_sort04 .cont_left{background:url(../images/chess_post.jpg) no-repeat; }
+.pro_sort04 .cont_left .ad_box{background:rgba(253,192,6,0.8)}
 .pro_sort04 .cont_middle .hd{ background:#e8dff6;}
 
 
 
-.pro_sort05 .cont_left{ background:#e34041;}
-
-.pro_sort05 .cont_middle{ border-top:2px solid #e34041;}
-
+.pro_sort05 .cont_left{background:url(../images/tradition_post.jpg) no-repeat; }
+.pro_sort05 .cont_left .ad_box{background:rgba(175,95,10,0.8)}
 .pro_sort05 .cont_middle .hd{ background:#f4dede;}
 
 
 
-.pro_sort06 .cont_left{ background:#1f81cc;}
-
-.pro_sort06 .cont_middle{ border-top:2px solid #1f81cc;}
-
+.pro_sort06 .cont_left{background:url(../images/english_post.jpg) no-repeat; }
+.pro_sort06 .cont_left .ad_box{background:rgba(56,186,141,0.8)}
 .pro_sort06 .cont_middle .hd{ background:#d2eefc;}
 
 
 
-.pro_sort07 .cont_left{ background:#6ab716;}
-
-.pro_sort07 .cont_middle{ border-top:2px solid #6ab716;}
-
+.pro_sort07 .cont_left{background:url(../images/science_post.jpg) no-repeat; }
+.pro_sort07 .cont_left .ad_box{background:rgba(1,105,80,0.8)}
 .pro_sort07 .cont_middle .hd{ background:#e9f3de;}
 
 
-
-.pro_sort08 .cont_left{ background:#fb7c20;}
-
-.pro_sort08 .cont_middle{ border-top:2px solid #fb7c20;}
-
+.pro_sort08 .cont_left{background:url(../images/athetic_post.jpg) no-repeat; }
+.pro_sort08 .cont_left .ad_box{background:rgba(64,192,237,0.8)}
 .pro_sort08 .cont_middle .hd{ background:#f1d5b7;}
 
+.pro_sort09 .cont_left{background:url(../images/other_post.jpg) no-repeat; }
+.pro_sort09 .cont_left .ad_box{background:rgba(184,177,245,0.8)}
+.pro_sort09 .cont_middle .hd{ background:#f1d5b7;}
 
 
 /*生意经*/
@@ -394,4 +382,13 @@
 .floor_top .righttopic{height:36px;margin-left:20px}
 .floor_top .righttopic .rmph{height:36px;line-height:36px;font-size:16px;font-weight:bold;color:#666}
 .floor_top .righttopic .gdlj{height:36px;line-height:36px}
+
 .pro_sort01 .floor_top .floor_img{background:url(../images/paint_floor.png) no-repeat;}
+.pro_sort02 .floor_top .floor_img{background:url(../images/music_floor.png) no-repeat;}
+.pro_sort03 .floor_top .floor_img{background:url(../images/dance_floor.png) no-repeat;}
+.pro_sort04 .floor_top .floor_img{background:url(../images/chess_floor.png) no-repeat;}
+.pro_sort05 .floor_top .floor_img{background:url(../images/tradition_floor.png) no-repeat;}
+.pro_sort06 .floor_top .floor_img{background:url(../images/english_floor.png) no-repeat;}
+.pro_sort07 .floor_top .floor_img{background:url(../images/science_floor.png) no-repeat;}
+.pro_sort08 .floor_top .floor_img{background:url(../images/athetic_floor.png) no-repeat;}
+.pro_sort09 .floor_top .floor_img{background:url(../images/other_floor.png) no-repeat;}
