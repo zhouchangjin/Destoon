@@ -4,9 +4,11 @@
 .w_960{width:1170px;}
 .w_970{width:1170px;}
 .w_210{ width:210px;}
+.w_220{ width:220px;}
 .w_215{ width:215px;}
 .w_700{ width:700px;}
 .w_710{ width:710px;}
+.w_720{ width:720px;}
 .w_760{ width:760px;}
 .w_980{ width:980px;}
 .w_790{ width:790px;}
@@ -42,7 +44,7 @@ a:hover,a.c_666:hover,c_666 a:hover,a.c_999:hover,c_999 a:hover{ color:#ff6600;}
 .more_txt{ font:normal 12px/22px simsun; color:#999; margin-top:3px;}
 .bg_fff{ background-color:#fff;}
 .title_pro01{ height:19px; overflow:hidden;}
-.title_pro02{ height:38px; overflow:hidden;}
+.title_pro02{ height:24px; overflow:hidden;font-size:14px;}
 .title_pro01 a:hover,.title_pro02 a:hover{ color:#ff6600 !important;}
 /*线条*/
 .border_t_01{border-top:1px solid #e2e2e2}
@@ -179,7 +181,7 @@ a:hover,a.c_666:hover,c_666 a:hover,a.c_999:hover,c_999 a:hover{ color:#ff6600;}
 .pro_li .list .price{ padding:3px 8px;}
 .pro_list .list{ padding:5px 0;}
 .pro_list .list .item{ width:160px; padding:8px 10px; background-color:#fff; border:1px solid #f1f1f1; margin:10px 0 10px 10px; float:left; *display:inline;}
-.pro_list .item .price{ padding:5px 3px;}
+.pro_list .item .price{}
 .pro_list .item .title a:hover{ color:#6aad00;}
 .pro_list .item .buy{width:103px; margin:8px auto;}
 .pro_list .item .buy .btn_buy{ background-position: 0 -60px; width:103px; height:24px; text-indent:-999em; display:block;}

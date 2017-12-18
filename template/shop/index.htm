@@ -219,10 +219,14 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
 <div class="w_1200 o_a">
 <!--1F start-->
 	<div id="tabfloor1"  class="pro_sort pro_sort01 c_f mt10">
-	    <div class="floor_top tab_hd"><div class="floor_img f_l">1F</div>
+	    <div class="floor_top tab_hd">
+	    <div class="w_220 f_l">
+	    <div class="floor_img f_l">1F</div>
 	    <div class="floor_title f_l">美术课程</div>
+	    </div>
+	    <div class="w_720 f_l">
 	    <ul>
-	    {php $maincat = get_maincat(28, $CATEGORY);}
+	    {php $maincat = get_maincat(29, $CATEGORY);}
 	    {loop $maincat $i $c} 
 	    {if $i < 4}
 	    <li>{$c[catname]}</li>
@@ -231,13 +235,15 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
 	    <li>其他</li>
 	    </ul>
 	    </div>
-    	<div class="cont_left w_210 f_l">
+	    
+	    </div>
+    	<div class="cont_left w_220 f_l">
         	<h2>美术课程</h2>
         	<div class="ad_box">
             	
             	<div class="ad_text">
                 	<ul>
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=28&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=29&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
                     {loop $tags $t}
                     <li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
 					 {/loop}
@@ -245,30 +251,46 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
                 </div>
             </div>
         </div>
-        <div class="cont_right w_780 f_l">
+        <div class="cont_middle f_l">
 
             <div class="bdx">
                 <ul class="pro_list bghover c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=28&condition=status=3 and level>-1 and thumb<>''&pagesize=5&order=addtime desc&template=null");}-->
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=20&catid=66&condition=status=3 and level>-1 and thumb<>''&pagesize=6&order=addtime desc&template=null");}-->
                     {loop $tags $t}
                     <li class=" item">
-					   <div class="c_img c_img160"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="165"  height="160" alt="{$t[title]}" ></A></div>
-					   <p class="title_pro02"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></p>
-					   <p class="price ff_yh fs_14  c_js">价格<strong >：{if $t[price]>0}{$t[price]}{$DT[money_unit]}{else}面议{/if}</strong></p>
-					   <p class="company"><a class="c_999" target="_blank" href="{userurl($t[username])}">{dsubstr($t[company], 22)}</a></p>
+					   <div class="c_img"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="220"  height="140" alt="{$t[title]}" ></A></div>
+					   <div class="title_pro02"><div class="f_l"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></div><div class="f_r o_a" style="width:66px;height:12px;background:url({DT_SKIN}images/stars.png) no-repeat 0px -<?php echo 12*rand(1,8)?>px;background-size:66px"></div></div>
+					   <div class="price ff_yh fs_14  c_js f_l">￥{if $t[price]>0}{$t[price]}{$DT[money_unit]}{else}免费{/if}</div><div class="learnum fs_14 f_r"><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人在学</div>
+					   
 					</li>
 					 {/loop}                        
                 </ul>
-                <div class="pro_title">
-                	<h2>推荐商家</h2>
-                    <ul class="ad_box c_f">
-<!--{php $tags=tag("moduleid=4&condition=groupid>5 and catids<>'' and vip>-1 and thumb<>''&catid=2992&areaid=$cityid&pagesize=7&order=fromtime desc&template=null")}--> 
-                      {loop $tags $k $t}
-                      <li><a href="{$t[linkurl]}" target=_blank><img src="{$t[thumb]}" width='130' height='58' alt="{$t[alt]}"/></a></li>
-                      {/loop}
- 					</ul>
-                </div>
+
         	</div>
+        </div>
+        
+        <div id="recm_art" class="cont_right f_l">
+        	<div class="recm_headder tab_hd">
+        		<ul>
+        			<li>热门课程</li><li>热门问答</li>
+        		</ul>
+        	</div>
+        	<div class="recm_body">
+        		<div class="tab_cont">
+        		   <ul>
+        		   		<!--{php $tags=tag("moduleid=5&condition=thumb<>''&catid=29&areaid=$cityid&pagesize=10&order=hits desc&template=null")}--> 
+        		   		{loop $tags $t}
+        		   		<li>
+        		   			<div><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a>
+        		   			</div>
+        		   		</li>
+        		   		{/loop}
+        		   </ul>
+        			
+        		</div>
+        		<div class="tab_cont"></div>
+        	</div>
+        	
         </div>
     </div>
 <!--1F end-->
@@ -761,5 +783,10 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
     </div>
 </div>
 <!--新闻资讯 end-->
-
+<script type="text/javascript">
+$(function(){ 
+    $("#tabfloor1").TabADS();
+     $("#recm_art").TabADS();
+});
+</script>
 {template 'footer'}
