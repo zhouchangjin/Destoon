@@ -191,12 +191,21 @@
 .cont_right .recm_headder ul li.select{color:#fb5415;border-bottom:2px solid #fb5415;}
 .cont_right .recm_headder{padding: 10px 0 0 9px;}
 .cont_right .recm_body{padding: 10px 0 0 9px;}
+.cont_right .recm_body .rTitle .ratitle{height:24px}
+.cont_right .recm_body .rTitle{margin-bottom:5px}
+.cont_right .recm_body .ranking{text-align:center;font-size:14px;color:white;background:#ccc;line-height:22px;width:22px;height:22px;}
+.cont_right .recm_body .toprank{background:url(../images/toprank.png) no-repeat}
+.cont_right .recm_body .secondrank{background:url(../images/secrank.png) no-repeat}
+.cont_right .recm_body .thirdrank{background:url(../images/thirdrank.png) no-repeat}
+.cont_right .recm_body  a{font-size:14px;color:#666;margin-left:20px}
+.cont_right .recm_body .rabody .rafee{margin-left:10px;font-size:12px;color:#666}
+.cont_right .recm_body .rabody .rafee .price{color:#fb5415}
 .cont_left{ height:430px;position:relative;}
 .ad_box{position:absolute;bottom:0px;width:220px}
 
 
 .pro_sort01 .cont_left{background:url(../images/paint_post.jpg) no-repeat; }
-
+.pro_sort01 .cont_left .ad_box{background:rgba(29,188,166,0.8)}
 .pro_sort01 .cont_middle .hd{ background:#ece5cc;}
 
 
@@ -382,4 +391,7 @@
 .floor_top ul{float:right;height:38px}
 .floor_top ul li{display:inline-block;font-size:14px;color:#888;height:37px;line-height:37px;width:85px;cursor:pointer;text-align:center}
 .floor_top ul li.select{border-bottom:2px solid #1dbca6}
+.floor_top .righttopic{height:36px;margin-left:20px}
+.floor_top .righttopic .rmph{height:36px;line-height:36px;font-size:16px;font-weight:bold;color:#666}
+.floor_top .righttopic .gdlj{height:36px;line-height:36px}
 .pro_sort01 .floor_top .floor_img{background:url(../images/paint_floor.png) no-repeat;}

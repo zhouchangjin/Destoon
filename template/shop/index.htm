@@ -235,7 +235,10 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
 	    <li>其他</li>
 	    </ul>
 	    </div>
-	    
+	    	 <div class="righttopic w_240 f_l">
+	    	 	<div class="rmph f_l">热门排行</div>
+	    	 	<div class="gdlj f_r">更多&gt;&gt;</div>
+	   		 </div>
 	    </div>
     	<div class="cont_left w_220 f_l">
         	<h2>美术课程</h2>
@@ -260,7 +263,7 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
                     <li class=" item">
 					   <div class="c_img"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="220"  height="140" alt="{$t[title]}" ></A></div>
 					   <div class="title_pro02"><div class="f_l"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></div><div class="f_r o_a" style="width:66px;height:12px;background:url({DT_SKIN}images/stars.png) no-repeat 0px -<?php echo 12*rand(1,8)?>px;background-size:66px"></div></div>
-					   <div class="price ff_yh fs_14  c_js f_l">￥{if $t[price]>0}{$t[price]}{$DT[money_unit]}{else}免费{/if}</div><div class="learnum fs_14 f_r"><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人在学</div>
+					   <div class="price ff_yh fs_14  c_js f_l">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div><div class="learnum fs_14 f_r"><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人在学</div>
 					   
 					</li>
 					 {/loop}                        
@@ -278,10 +281,31 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
         	<div class="recm_body">
         		<div class="tab_cont">
         		   <ul>
-        		   		<!--{php $tags=tag("moduleid=5&condition=thumb<>''&catid=29&areaid=$cityid&pagesize=10&order=hits desc&template=null")}--> 
-        		   		{loop $tags $t}
+        		   		<!--{php $tags=tag("moduleid=5&length=20&condition=thumb<>''&catid=29&areaid=$cityid&pagesize=10&order=hits desc&template=null")}--> 
+        		   		{loop $tags $i $t}
         		   		<li>
-        		   			<div><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a>
+        		   			<div class="rTitle o_a">
+        		   			  <div class="ratitle">
+        		   			  	{if $i==0}
+        		   			  	    <div class="ranking f_l toprank">{$i+1}</div>
+        		   			  	{elseif $i==1}
+        		   			  	    <div class="ranking f_l secondrank">{$i+1}</div>
+        		   			  	{elseif $i==2}
+        		   			  	    <div class="ranking f_l thirdrank">{$i+1}</div>
+        		   			  	{else}
+        		   			  	    <div class="ranking f_l">{$i+1}</div> 
+        		   			  	{/if}
+        		   			  	<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a>
+        		   			  </div>
+        		   			  {if $i==0}
+        		   			  <div class="rabody">
+        		   			  	<div class="f_l"><img width="75" height="45" src='{imgurl($t[thumb], 1)}'/></div>
+        		   			  	<div class="rafee f_l">
+        		   			  		<div class="price">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div>
+        		   			  		<div><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人在学</div>
+        		   			  	</div>
+        		   			  </div>	
+        		   			  {/if}
         		   			</div>
         		   		</li>
         		   		{/loop}
@@ -294,6 +318,7 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
         </div>
     </div>
 <!--1F end-->
+
 <!--2F start-->
     <div class="pro_sort pro_sort02 c_f mt10">
     	<div class="cont_left w_210 f_l">
