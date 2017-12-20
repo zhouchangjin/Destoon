@@ -330,3 +330,8 @@
 .pro_sort07 .floor_top .floor_img{background:url(../images/science_floor.png) no-repeat;}
 .pro_sort08 .floor_top .floor_img{background:url(../images/athetic_floor.png) no-repeat;}
 .pro_sort09 .floor_top .floor_img{background:url(../images/other_floor.png) no-repeat;}
+
+.floor_nav{width:35px;position: fixed;left:50%;margin-left:-660px;z-index:10000;top:300px;display:none}
+.floor_nav li{cursor:pointer;border:1px solid #fff;width:33px;height:50px;color:white;background:#7b7171;font-size:14px;text-align:center}
+.floor_nav li.cur{background:#fb5415;}
+.floor_nav li.hl{display:none}

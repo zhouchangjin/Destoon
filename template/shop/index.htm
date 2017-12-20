@@ -1292,12 +1292,70 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
 
 </div>
 <!--新闻资讯 end-->
+
+<div class="floor_nav">
+<ul>
+	<li refdiv=".bigtitlebar:eq(0)">推荐课程</li>
+	<li refdiv=".bigtitlebar:eq(1)">展览演出</li>
+	<li refdiv="#tabfloor1">&nbsp;1F美术</li>
+	<li refdiv="#tabfloor2">&nbsp;2F音乐</li>
+	<li refdiv="#tabfloor3">&nbsp;3F舞蹈</li>
+	<li refdiv="#tabfloor4">&nbsp;4F棋类</li>
+	<li refdiv="#tabfloor5">&nbsp;5F国学</li>
+	<li refdiv="#tabfloor6">&nbsp;6F外语</li>
+	<li refdiv="#tabfloor7">&nbsp;7F科学</li>
+	<li refdiv="#tabfloor8">&nbsp;8F体育</li>
+	<li refdiv="#tabfloor9">&nbsp;9F兴趣</li>
+	<li refdiv=".bigtitlebar:eq(2)">美育头条</li>
+</ul>
+</div>
+
 <script type="text/javascript">
 jQuery("#hotnews").slide( {mainCell:".slide .bd ul",effect:"leftLoop",autoPlay:true} );
 $(function(){ 
     $("#tabfloor1").TabADS();
-     $("#recm_art").TabADS();
+    $("#recm_art").TabADS();
+    var start=$('.bigtitlebar').offset().top;
+    var st=start-300;
+    $(window).bind("scroll",function(e){
+    
+    	var scrolly = $(document).scrollTop();
+    	if(scrolly<st || scrolly>5500){
+    		$('.floor_nav').hide();
+    	}else if(scrolly>=st){
+
+    	    $('.floor_nav ul li').removeClass("cur");
+    	    $('.floor_nav ul li').removeClass("hl");
+    		$('.floor_nav').show();
+    		if(scrolly<st+305-50){
+    			$('.floor_nav ul li').eq(0).addClass("cur");
+    		}else if(scrolly<st+305+600-50){
+    			$('.floor_nav ul li').eq(1).addClass("cur");
+    		}else{
+    			var floorNum=(scrolly-st-305-600+50)/495;
+    			$('.floor_nav ul li').eq(floorNum+2).addClass("cur");
+    			$('.floor_nav ul li').each(function(index,ele){
+    				if(index<floorNum+1 && index>1){
+    					$(this).addClass('hl');
+    				}
+    			});
+    		}
+    	}
+    });
+    $('.floor_nav ul li').click(function(){
+		var divname=$(this).attr("refdiv");
+		var top=$(divname).offset().top-300;
+		$("html,body").animate({"scrollTop":top},500)
+    });
+    $('.floor_nav ul li').hover(function(){
+    	$(this).addClass("cur");
+    },function(){
+    	$(this).removeClass("cur");
+    });
      
 });
+
+
+
 </script>
 {template 'footer'}
