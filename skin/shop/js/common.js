@@ -53,6 +53,29 @@ $.fn.TabADS = function(){
 		});
 	});
 }
+
+$.fn.mytab = function(head,content){
+	var obj = $(this);
+	var currentClass = "select";
+	var tabs = obj.find("."+head).find("li");
+	var conts = obj.find("."+content);
+	var t;
+	tabs.eq(0).addClass(currentClass);
+	conts.hide();
+	conts.eq(0).show();
+	tabs.each(function(i){
+		$(this).bind("mouseover",function(){
+			 t = setTimeout(function(){
+				conts.hide().eq(i).show();
+				tabs.removeClass(currentClass).eq(i).addClass(currentClass);
+			},200);
+		}).bind("mouseout",function(){
+			clearTimeout(t);
+		});
+	});
+}
+
+
 /*tab2*/
 $.fn.TabADS2 = function(){
 	var obj = $(this);

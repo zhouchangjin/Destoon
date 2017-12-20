@@ -254,7 +254,7 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
                 </div>
             </div>
         </div>
-        <div class="cont_middle f_l">
+        <div class="cont_middle f_l tab_cont">
 
             <div class="bdx">
                 <ul class="pro_list bghover c_f">
@@ -271,15 +271,14 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
 
         	</div>
         </div>
-        
         <div id="recm_art" class="cont_right f_l">
-        	<div class="recm_headder tab_hd">
+        	<div class="recm_headder tabhd">
         		<ul>
         			<li>热门课程</li><li>热门问答</li>
         		</ul>
         	</div>
         	<div class="recm_body">
-        		<div class="tab_cont">
+        		<div class="tabcont">
         		   <ul>
         		   		<!--{php $tags=tag("moduleid=5&length=20&condition=thumb<>''&catid=29&areaid=$cityid&pagesize=10&order=hits desc&template=null")}--> 
         		   		{loop $tags $i $t}
@@ -1314,7 +1313,7 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
 jQuery("#hotnews").slide( {mainCell:".slide .bd ul",effect:"leftLoop",autoPlay:true} );
 $(function(){ 
     $("#tabfloor1").TabADS();
-    $("#recm_art").TabADS();
+    $("#recm_art").mytab("tabhd","tabcont");
     var start=$('.bigtitlebar').offset().top;
     var st=start-300;
     $(window).bind("scroll",function(e){
