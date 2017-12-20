@@ -256,7 +256,7 @@
 
 /*生意经*/
 
-.index_news{}
+.index_news{overflow:hidden}
 
 .index_news .index_left{width:340px; float:left;}
 .index_news h3{font-size:16px;height:32px;color:#fb5415;border-bottom:1px solid #f7f7f7}
