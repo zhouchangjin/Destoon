@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="{DT_SKIN}css/style_home.css" />
 <!--正文start-->
 <div class="w_1200 o_a c_f">
-    	<!--总分类start-->
+   	<!--总分类start-->
 	<div class="w_215 f_l" >
                 
     	<div class="allsort" id="allsort">
@@ -217,16 +217,20 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
 
 <!--产品层 start-->
 <div class="w_1200 o_a">
+{php $child = get_maincat(0, $mid, 1);}
+{loop $child $j $course}
+{php $ij=$j+1}
+{if in_array($course[catid], array(28,29,30,31,111,32,33,34,35))}
 <!--1F start-->
-	<div id="tabfloor1"  class="pro_sort pro_sort01 c_f mt10">
+	<div id="tabfloor{$ij}"  class="pro_sort pro_sort0{$ij} c_f mt10">
 	    <div class="floor_top tab_hd">
 	    <div class="w_220 f_l">
-	    <div class="floor_img f_l">1F</div>
-	    <div class="floor_title f_l">美术课程</div>
+	    <div class="floor_img f_l">{$ij}F</div>
+	    <div class="floor_title f_l">{$course[catname]}课程</div>
 	    </div>
 	    <div class="w_720 f_l">
 	    <ul>
-	    <li>推荐</li>{php $maincat = get_maincat(29, $CATEGORY);}
+	    <li>推荐</li>{php $maincat = get_maincat($course[catid], $CATEGORY);}
 	    {loop $maincat $i $c} 
 	    {if $i < 4}
 	    <li>{$c[catname]}</li>
@@ -241,12 +245,12 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
 	   		 </div>
 	    </div>
     	<div class="cont_left w_220 f_l">
-        	<h2>美术课程</h2>
+        	<h2>{$course[catname]}课程</h2>
         	<div class="ad_box">
             	
             	<div class="ad_text">
                 	<ul>
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=29&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=".$course[catid]."&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
                     {loop $tags $t}
                     <li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
 					 {/loop}
@@ -258,7 +262,7 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
 
             <div class="bdx">
                 <ul class="pro_list bghover c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=20&catid=29&condition=status=3 and level>-1 and thumb<>''&pagesize=6&order=addtime desc&template=null");}-->
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=20&catid=".$course[catid]."&condition=status=3 and level=1 and thumb<>''&pagesize=6&order=addtime desc&template=null");}-->
                     {loop $tags $t}
                     <li class=" item">
 					   <div class="c_img"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="220"  height="140" alt="{$t[title]}" ></A></div>
@@ -271,7 +275,45 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
 
         	</div>
         </div>
-        <div id="recm_art" class="cont_right f_l">
+        {loop $maincat $i $c}
+        {if $i < 4}
+        	<div class="cont_middle f_l tab_cont">
+
+            <div class="bdx">
+                <ul class="pro_list bghover c_f">
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=20&catid=".$c[catid]."&condition=status=3 and level>-1 and thumb<>''&pagesize=6&order=addtime desc&template=null");}-->
+                    {loop $tags $t}
+                    <li class=" item">
+					   <div class="c_img"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="220"  height="140" alt="{$t[title]}" ></A></div>
+					   <div class="title_pro02"><div class="f_l"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></div><div class="f_r o_a" style="width:66px;height:12px;background:url({DT_SKIN}images/stars.png) no-repeat 0px -<?php echo 12*rand(1,8)?>px;background-size:66px"></div></div>
+					   <div class="price ff_yh fs_14  c_js f_l">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div><div class="learnum fs_14 f_r"><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
+					   
+					</li>
+					 {/loop}                        
+                </ul>
+
+        	</div>
+        	</div>
+        {/if}
+        {/loop}
+        <div class="cont_middle f_l tab_cont">
+
+            <div class="bdx">
+                <ul class="pro_list bghover c_f">
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=20&catid=".$course[catid]."&condition=status=3 and thumb<>''&pagesize=6&order=addtime desc&template=null");}-->
+                    {loop $tags $t}
+                    <li class=" item">
+					   <div class="c_img"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="220"  height="140" alt="{$t[title]}" ></A></div>
+					   <div class="title_pro02"><div class="f_l"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></div><div class="f_r o_a" style="width:66px;height:12px;background:url({DT_SKIN}images/stars.png) no-repeat 0px -<?php echo 12*rand(1,8)?>px;background-size:66px"></div></div>
+					   <div class="price ff_yh fs_14  c_js f_l">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div><div class="learnum fs_14 f_r"><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
+					   
+					</li>
+					 {/loop}                        
+                </ul>
+
+        	</div>
+        </div>
+        <div id="recm_{$ij}" class="cont_right f_l">
         	<div class="recm_headder tabhd">
         		<ul>
         			<li>热门课程</li><li>热门问答</li>
@@ -280,7 +322,7 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
         	<div class="recm_body">
         		<div class="tabcont">
         		   <ul>
-        		   		<!--{php $tags=tag("moduleid=5&length=20&condition=thumb<>''&catid=29&areaid=$cityid&pagesize=10&order=hits desc&template=null")}--> 
+        		   		<!--{php $tags=tag("moduleid=5&length=20&condition=thumb<>''&catid=".$course[catid]."&areaid=$cityid&pagesize=10&order=hits desc&template=null")}--> 
         		   		{loop $tags $i $t}
         		   		<li>
         		   			<div class="rTitle o_a">
@@ -317,868 +359,13 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
         </div>
     </div>
 <!--1F end-->
+<script type="text/javascript">
+	    $("#tabfloor{$ij}").TabADS();
+        $("#recm_{$ij}").mytab("tabhd","tabcont");
+</script>
+{/if} 
+{/loop}
 
-<!--2F start-->
-    <div id="tabfloor2"  class="pro_sort pro_sort02 c_f mt10">
-<!-- 2楼楼层抬头 -->
-	    <div class="floor_top tab_hd">
-	    <div class="w_220 f_l">
-	    <div class="floor_img f_l">2F</div>
-	    <div class="floor_title f_l">音乐课程</div>
-	    </div>
-	    <div class="w_720 f_l">
-	    <ul>
-	    <li>推荐</li>{php $maincat = get_maincat(28, $CATEGORY);}
-	    {loop $maincat $i $c} 
-	    {if $i < 4}
-	    <li>{$c[catname]}</li>
-	    {/if}
-	    {/loop}
-	    <li>其他</li>
-	    </ul>
-	    </div>
-	    	 <div class="righttopic w_240 f_l">
-	    	 	<div class="rmph f_l">热门排行</div>
-	    	 	<div class="gdlj f_r">更多&gt;&gt;</div>
-	   		 </div>
-	    </div>  
-<!-- 2楼楼层抬头结束 -->
-    
-    
-    	<div class="cont_left w_220 f_l">
-        	<h2>音乐课程</h2>
-        	<div class="ad_box">
-            	
-            	<div class="ad_text">
-                	<ul>
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=28&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
-                    {loop $tags $t}
-                    <li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
-					 {/loop}
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="cont_middle f_l">
-
-            <div class="bdx">
-                <ul class="pro_list bghover c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=20&catid=28&condition=status=3 and level>-1 and thumb<>''&pagesize=6&order=addtime desc&template=null");}-->
-                    {loop $tags $t}
-                    <li class=" item">
-					   <div class="c_img"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="220"  height="140" alt="{$t[title]}" ></A></div>
-					   <div class="title_pro02"><div class="f_l"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></div><div class="f_r o_a" style="width:66px;height:12px;background:url({DT_SKIN}images/stars.png) no-repeat 0px -<?php echo 12*rand(1,8)?>px;background-size:66px"></div></div>
-					   <div class="price ff_yh fs_14  c_js f_l">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div><div class="learnum fs_14 f_r"><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
-					   
-					</li>
-					 {/loop}                        
-                </ul>
-
-        	</div>
-        </div>  
-        
-        <div id="recm_music" class="cont_right f_l">
-        	<div class="recm_headder tab_hd">
-        		<ul>
-        			<li>热门课程</li><li>热门问答</li>
-        		</ul>
-        	</div>
-        	<div class="recm_body">
-        		<div class="tab_cont">
-        		   <ul>
-        		   		<!--{php $tags=tag("moduleid=5&length=20&condition=thumb<>''&catid=28&areaid=$cityid&pagesize=10&order=hits desc&template=null")}--> 
-        		   		{loop $tags $i $t}
-        		   		<li>
-        		   			<div class="rTitle o_a">
-        		   			  <div class="ratitle">
-        		   			  	{if $i==0}
-        		   			  	    <div class="ranking f_l toprank">{$i+1}</div>
-        		   			  	{elseif $i==1}
-        		   			  	    <div class="ranking f_l secondrank">{$i+1}</div>
-        		   			  	{elseif $i==2}
-        		   			  	    <div class="ranking f_l thirdrank">{$i+1}</div>
-        		   			  	{else}
-        		   			  	    <div class="ranking f_l">{$i+1}</div> 
-        		   			  	{/if}
-        		   			  	<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a>
-        		   			  </div>
-        		   			  {if $i==0}
-        		   			  <div class="rabody">
-        		   			  	<div class="f_l"><img width="75" height="45" src='{imgurl($t[thumb], 1)}'/></div>
-        		   			  	<div class="rafee f_l">
-        		   			  		<div class="price">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div>
-        		   			  		<div><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
-        		   			  	</div>
-        		   			  </div>	
-        		   			  {/if}
-        		   			</div>
-        		   		</li>
-        		   		{/loop}
-        		   </ul>
-        			
-        		</div>
-        		<div class="tab_cont"></div>
-        	</div>
-        	
-        </div>    
-
-    </div>
-    <!--2F end-->
-    <!--3F start-->
-    <div  id="tabfloor3"  class="pro_sort pro_sort03 c_f mt10">
-    
-    <!-- 3楼楼层抬头 -->
-	    <div class="floor_top tab_hd">
-	    <div class="w_220 f_l">
-	    <div class="floor_img f_l">3F</div>
-	    <div class="floor_title f_l">舞蹈课程</div>
-	    </div>
-	    <div class="w_720 f_l">
-	    <ul>
-	    <li>推荐</li>{php $maincat = get_maincat(30, $CATEGORY);}
-	    {loop $maincat $i $c} 
-	    {if $i < 4}
-	    <li>{$c[catname]}</li>
-	    {/if}
-	    {/loop}
-	    <li>其他</li>
-	    </ul>
-	    </div>
-	    	 <div class="righttopic w_240 f_l">
-	    	 	<div class="rmph f_l">热门排行</div>
-	    	 	<div class="gdlj f_r">更多&gt;&gt;</div>
-	   		 </div>
-	    </div>  
-       <!-- 3楼楼层抬头结束 -->
-    
-    	<div class="cont_left w_220 f_l">
-        	<h2>舞蹈课程</h2>
-        	<div class="ad_box">
-            	
-            	<div class="ad_text">
-                	<ul>
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=30&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
-                    {loop $tags $t}
-                    <li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
-					 {/loop}
-                    </ul>
-                </div>
-            </div>
-        </div>
-        
-        <div class="cont_middle f_l">
-
-            <div class="bdx">
-                <ul class="pro_list bghover c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=20&catid=30&condition=status=3 and level>-1 and thumb<>''&pagesize=6&order=addtime desc&template=null");}-->
-                    {loop $tags $t}
-                    <li class=" item">
-					   <div class="c_img"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="220"  height="140" alt="{$t[title]}" ></A></div>
-					   <div class="title_pro02"><div class="f_l"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></div><div class="f_r o_a" style="width:66px;height:12px;background:url({DT_SKIN}images/stars.png) no-repeat 0px -<?php echo 12*rand(1,8)?>px;background-size:66px"></div></div>
-					   <div class="price ff_yh fs_14  c_js f_l">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div><div class="learnum fs_14 f_r"><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
-					   
-					</li>
-					 {/loop}                        
-                </ul>
-
-        	</div>
-        </div> 
-        
-         
-                <div id="recm_dance" class="cont_right f_l">
-        	<div class="recm_headder tab_hd">
-        		<ul>
-        			<li>热门课程</li><li>热门问答</li>
-        		</ul>
-        	</div>
-        	<div class="recm_body">
-        		<div class="tab_cont">
-        		   <ul>
-        		   		<!--{php $tags=tag("moduleid=5&length=20&condition=thumb<>''&catid=30&areaid=$cityid&pagesize=10&order=hits desc&template=null")}--> 
-        		   		{loop $tags $i $t}
-        		   		<li>
-        		   			<div class="rTitle o_a">
-        		   			  <div class="ratitle">
-        		   			  	{if $i==0}
-        		   			  	    <div class="ranking f_l toprank">{$i+1}</div>
-        		   			  	{elseif $i==1}
-        		   			  	    <div class="ranking f_l secondrank">{$i+1}</div>
-        		   			  	{elseif $i==2}
-        		   			  	    <div class="ranking f_l thirdrank">{$i+1}</div>
-        		   			  	{else}
-        		   			  	    <div class="ranking f_l">{$i+1}</div> 
-        		   			  	{/if}
-        		   			  	<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a>
-        		   			  </div>
-        		   			  {if $i==0}
-        		   			  <div class="rabody">
-        		   			  	<div class="f_l"><img width="75" height="45" src='{imgurl($t[thumb], 1)}'/></div>
-        		   			  	<div class="rafee f_l">
-        		   			  		<div class="price">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div>
-        		   			  		<div><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
-        		   			  	</div>
-        		   			  </div>	
-        		   			  {/if}
-        		   			</div>
-        		   		</li>
-        		   		{/loop}
-        		   </ul>
-        			
-        		</div>
-        		<div class="tab_cont"></div>
-        	</div>
-        	
-        </div>   
-
-    </div>
-<!--3F end-->
-<!--4F start-->
-<div  id="tabfloor4" class="pro_sort pro_sort04 c_f mt10">
-
-    <!-- 4楼楼层抬头 -->
-	    <div class="floor_top tab_hd">
-	    <div class="w_220 f_l">
-	    <div class="floor_img f_l">4F</div>
-	    <div class="floor_title f_l">棋类课程</div>
-	    </div>
-	    <div class="w_720 f_l">
-	    <ul>
-	    <li>推荐</li>{php $maincat = get_maincat(111, $CATEGORY);}
-	    {loop $maincat $i $c} 
-	    {if $i < 4}
-	    <li>{$c[catname]}</li>
-	    {/if}
-	    {/loop}
-	    <li>其他</li>
-	    </ul>
-	    </div>
-	    	 <div class="righttopic w_240 f_l">
-	    	 	<div class="rmph f_l">热门排行</div>
-	    	 	<div class="gdlj f_r">更多&gt;&gt;</div>
-	   		 </div>
-	    </div>  
-       <!-- 4楼楼层抬头结束 -->
-
-
-    	<div class="cont_left w_220 f_l">
-        	<h2>棋类课程</h2>
-        	<div class="ad_box">
-            	
-            	<div class="ad_text">
-                	<ul>
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=111&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
-                    {loop $tags $t}
-                    <li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
-					 {/loop}
-                    </ul>
-                </div>
-            </div>
-        </div> 
-        <div class="cont_middle f_l">
-
-            <div class="bdx">
-                <ul class="pro_list bghover c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=20&catid=111&condition=status=3 and level>-1 and thumb<>''&pagesize=6&order=addtime desc&template=null");}-->
-                    {loop $tags $t}
-                    <li class=" item">
-					   <div class="c_img"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="220"  height="140" alt="{$t[title]}" ></A></div>
-					   <div class="title_pro02"><div class="f_l"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></div><div class="f_r o_a" style="width:66px;height:12px;background:url({DT_SKIN}images/stars.png) no-repeat 0px -<?php echo 12*rand(1,8)?>px;background-size:66px"></div></div>
-					   <div class="price ff_yh fs_14  c_js f_l">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div><div class="learnum fs_14 f_r"><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
-					   
-					</li>
-					 {/loop}                        
-                </ul>
-
-        	</div>
-        </div> 
-        
-        
-          <div id="recm_chess" class="cont_right f_l">
-        	<div class="recm_headder tab_hd">
-        		<ul>
-        			<li>热门课程</li><li>热门问答</li>
-        		</ul>
-        	</div>
-        	<div class="recm_body">
-        		<div class="tab_cont">
-        		   <ul>
-        		   		<!--{php $tags=tag("moduleid=5&length=20&condition=thumb<>''&catid=111&areaid=$cityid&pagesize=10&order=hits desc&template=null")}--> 
-        		   		{loop $tags $i $t}
-        		   		<li>
-        		   			<div class="rTitle o_a">
-        		   			  <div class="ratitle">
-        		   			  	{if $i==0}
-        		   			  	    <div class="ranking f_l toprank">{$i+1}</div>
-        		   			  	{elseif $i==1}
-        		   			  	    <div class="ranking f_l secondrank">{$i+1}</div>
-        		   			  	{elseif $i==2}
-        		   			  	    <div class="ranking f_l thirdrank">{$i+1}</div>
-        		   			  	{else}
-        		   			  	    <div class="ranking f_l">{$i+1}</div> 
-        		   			  	{/if}
-        		   			  	<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a>
-        		   			  </div>
-        		   			  {if $i==0}
-        		   			  <div class="rabody">
-        		   			  	<div class="f_l"><img width="75" height="45" src='{imgurl($t[thumb], 1)}'/></div>
-        		   			  	<div class="rafee f_l">
-        		   			  		<div class="price">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div>
-        		   			  		<div><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
-        		   			  	</div>
-        		   			  </div>	
-        		   			  {/if}
-        		   			</div>
-        		   		</li>
-        		   		{/loop}
-        		   </ul>
-        			
-        		</div>
-        		<div class="tab_cont"></div>
-        	</div>
-        	
-        </div>   
-
-    </div>
-<!--4F end-->
-<!--5F start-->
-<div id="tabfloor5" class="pro_sort pro_sort05 c_f mt10">
-
-    <!-- 5楼楼层抬头 -->
-	    <div class="floor_top tab_hd">
-	    <div class="w_220 f_l">
-	    <div class="floor_img f_l">5F</div>
-	    <div class="floor_title f_l">国学课程</div>
-	    </div>
-	    <div class="w_720 f_l">
-	    <ul>
-	    <li>推荐</li>{php $maincat = get_maincat(31, $CATEGORY);}
-	    {loop $maincat $i $c} 
-	    {if $i < 4}
-	    <li>{$c[catname]}</li>
-	    {/if}
-	    {/loop}
-	    <li>其他</li>
-	    </ul>
-	    </div>
-	    	 <div class="righttopic w_240 f_l">
-	    	 	<div class="rmph f_l">热门排行</div>
-	    	 	<div class="gdlj f_r">更多&gt;&gt;</div>
-	   		 </div>
-	    </div>  
-       <!-- 5楼楼层抬头结束 -->
-
-    	<div class="cont_left w_220 f_l">
-        	<h2>国学课程</h2>
-        	<div class="ad_box">
-            	
-            	<div class="ad_text">
-                	<ul>
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=31&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
-                    {loop $tags $t}
-                    <li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
-					 {/loop}
-                    </ul>
-                </div>
-            </div>
-        </div> 
-
-        <div class="cont_middle f_l">
-
-            <div class="bdx">
-                <ul class="pro_list bghover c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=20&catid=31&condition=status=3 and level>-1 and thumb<>''&pagesize=6&order=addtime desc&template=null");}-->
-                    {loop $tags $t}
-                    <li class=" item">
-					   <div class="c_img"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="220"  height="140" alt="{$t[title]}" ></A></div>
-					   <div class="title_pro02"><div class="f_l"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></div><div class="f_r o_a" style="width:66px;height:12px;background:url({DT_SKIN}images/stars.png) no-repeat 0px -<?php echo 12*rand(1,8)?>px;background-size:66px"></div></div>
-					   <div class="price ff_yh fs_14  c_js f_l">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div><div class="learnum fs_14 f_r"><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
-					   
-					</li>
-					 {/loop}                        
-                </ul>
-
-        	</div>
-        </div> 
-
-
-          <div id="recm_tradition" class="cont_right f_l">
-        	<div class="recm_headder tab_hd">
-        		<ul>
-        			<li>热门课程</li><li>热门问答</li>
-        		</ul>
-        	</div>
-        	<div class="recm_body">
-        		<div class="tab_cont">
-        		   <ul>
-        		   		<!--{php $tags=tag("moduleid=5&length=20&condition=thumb<>''&catid=31&areaid=$cityid&pagesize=10&order=hits desc&template=null")}--> 
-        		   		{loop $tags $i $t}
-        		   		<li>
-        		   			<div class="rTitle o_a">
-        		   			  <div class="ratitle">
-        		   			  	{if $i==0}
-        		   			  	    <div class="ranking f_l toprank">{$i+1}</div>
-        		   			  	{elseif $i==1}
-        		   			  	    <div class="ranking f_l secondrank">{$i+1}</div>
-        		   			  	{elseif $i==2}
-        		   			  	    <div class="ranking f_l thirdrank">{$i+1}</div>
-        		   			  	{else}
-        		   			  	    <div class="ranking f_l">{$i+1}</div> 
-        		   			  	{/if}
-        		   			  	<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a>
-        		   			  </div>
-        		   			  {if $i==0}
-        		   			  <div class="rabody">
-        		   			  	<div class="f_l"><img width="75" height="45" src='{imgurl($t[thumb], 1)}'/></div>
-        		   			  	<div class="rafee f_l">
-        		   			  		<div class="price">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div>
-        		   			  		<div><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
-        		   			  	</div>
-        		   			  </div>	
-        		   			  {/if}
-        		   			</div>
-        		   		</li>
-        		   		{/loop}
-        		   </ul>
-        			
-        		</div>
-        		<div class="tab_cont"></div>
-        	</div>
-        	
-        </div>   
-
-    </div>
-<!--5F end-->
-<!--6F start-->
-<div id="tabfloor6" class="pro_sort pro_sort06 c_f mt10">
-    <!-- 6楼楼层抬头 -->
-	    <div class="floor_top tab_hd">
-	    <div class="w_220 f_l">
-	    <div class="floor_img f_l">6F</div>
-	    <div class="floor_title f_l">外语课程</div>
-	    </div>
-	    <div class="w_720 f_l">
-	    <ul>
-	    <li>推荐</li>{php $maincat = get_maincat(32, $CATEGORY);}
-	    {loop $maincat $i $c} 
-	    {if $i < 4}
-	    <li>{$c[catname]}</li>
-	    {/if}
-	    {/loop}
-	    <li>其他</li>
-	    </ul>
-	    </div>
-	    	 <div class="righttopic w_240 f_l">
-	    	 	<div class="rmph f_l">热门排行</div>
-	    	 	<div class="gdlj f_r">更多&gt;&gt;</div>
-	   		 </div>
-	    </div>  
-       <!-- 6楼楼层抬头结束 -->
-
-    	<div class="cont_left w_220 f_l">
-        	<h2>外语课程</h2>
-        	<div class="ad_box">
-            	
-            	<div class="ad_text">
-                	<ul>
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=32&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
-                    {loop $tags $t}
-                    <li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
-					 {/loop}
-                    </ul>
-                </div>
-            </div>
-        </div> 
-        
-        <div class="cont_middle f_l">
-
-            <div class="bdx">
-                <ul class="pro_list bghover c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=20&catid=32&condition=status=3 and level>-1 and thumb<>''&pagesize=6&order=addtime desc&template=null");}-->
-                    {loop $tags $t}
-                    <li class=" item">
-					   <div class="c_img"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="220"  height="140" alt="{$t[title]}" ></A></div>
-					   <div class="title_pro02"><div class="f_l"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></div><div class="f_r o_a" style="width:66px;height:12px;background:url({DT_SKIN}images/stars.png) no-repeat 0px -<?php echo 12*rand(1,8)?>px;background-size:66px"></div></div>
-					   <div class="price ff_yh fs_14  c_js f_l">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div><div class="learnum fs_14 f_r"><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
-					   
-					</li>
-					 {/loop}                        
-                </ul>
-
-        	</div>
-        </div> 
-        
-                  <div id="recm_english" class="cont_right f_l">
-        	<div class="recm_headder tab_hd">
-        		<ul>
-        			<li>热门课程</li><li>热门问答</li>
-        		</ul>
-        	</div>
-        	<div class="recm_body">
-        		<div class="tab_cont">
-        		   <ul>
-        		   		<!--{php $tags=tag("moduleid=5&length=20&condition=thumb<>''&catid=32&areaid=$cityid&pagesize=10&order=hits desc&template=null")}--> 
-        		   		{loop $tags $i $t}
-        		   		<li>
-        		   			<div class="rTitle o_a">
-        		   			  <div class="ratitle">
-        		   			  	{if $i==0}
-        		   			  	    <div class="ranking f_l toprank">{$i+1}</div>
-        		   			  	{elseif $i==1}
-        		   			  	    <div class="ranking f_l secondrank">{$i+1}</div>
-        		   			  	{elseif $i==2}
-        		   			  	    <div class="ranking f_l thirdrank">{$i+1}</div>
-        		   			  	{else}
-        		   			  	    <div class="ranking f_l">{$i+1}</div> 
-        		   			  	{/if}
-        		   			  	<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a>
-        		   			  </div>
-        		   			  {if $i==0}
-        		   			  <div class="rabody">
-        		   			  	<div class="f_l"><img width="75" height="45" src='{imgurl($t[thumb], 1)}'/></div>
-        		   			  	<div class="rafee f_l">
-        		   			  		<div class="price">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div>
-        		   			  		<div><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
-        		   			  	</div>
-        		   			  </div>	
-        		   			  {/if}
-        		   			</div>
-        		   		</li>
-        		   		{/loop}
-        		   </ul>
-        			
-        		</div>
-        		<div class="tab_cont"></div>
-        	</div>
-        	
-        </div>   
-        
-
-    </div>
-<!--6F end-->
-<!--7F start-->
-<div id="tabfloor7" class="pro_sort pro_sort07 c_f mt10">
-
-    <!-- 7楼楼层抬头 -->
-	    <div class="floor_top tab_hd">
-	    <div class="w_220 f_l">
-	    <div class="floor_img f_l">7F</div>
-	    <div class="floor_title f_l">科学课程</div>
-	    </div>
-	    <div class="w_720 f_l">
-	    <ul>
-	    <li>推荐</li>{php $maincat = get_maincat(35, $CATEGORY);}
-	    {loop $maincat $i $c} 
-	    {if $i < 4}
-	    <li>{$c[catname]}</li>
-	    {/if}
-	    {/loop}
-	    <li>其他</li>
-	    </ul>
-	    </div>
-	    	 <div class="righttopic w_240 f_l">
-	    	 	<div class="rmph f_l">热门排行</div>
-	    	 	<div class="gdlj f_r">更多&gt;&gt;</div>
-	   		 </div>
-	    </div>  
-       <!-- 7楼楼层抬头结束 -->
-
-   	<div class="cont_left w_220 f_l">
-        	<h2>科学课程</h2>
-        	<div class="ad_box">
-            	
-            	<div class="ad_text">
-                	<ul>
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=35&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
-                    {loop $tags $t}
-                    <li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
-					 {/loop}
-                    </ul>
-                </div>
-            </div>
-        </div> 
-
-       <div class="cont_middle f_l">
-
-            <div class="bdx">
-                <ul class="pro_list bghover c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=20&catid=35&condition=status=3 and level>-1 and thumb<>''&pagesize=6&order=addtime desc&template=null");}-->
-                    {loop $tags $t}
-                    <li class=" item">
-					   <div class="c_img"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="220"  height="140" alt="{$t[title]}" ></A></div>
-					   <div class="title_pro02"><div class="f_l"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></div><div class="f_r o_a" style="width:66px;height:12px;background:url({DT_SKIN}images/stars.png) no-repeat 0px -<?php echo 12*rand(1,8)?>px;background-size:66px"></div></div>
-					   <div class="price ff_yh fs_14  c_js f_l">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div><div class="learnum fs_14 f_r"><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
-					   
-					</li>
-					 {/loop}                        
-                </ul>
-
-        	</div>
-        </div> 
-
-
-                  <div id="recm_science" class="cont_right f_l">
-        	<div class="recm_headder tab_hd">
-        		<ul>
-        			<li>热门课程</li><li>热门问答</li>
-        		</ul>
-        	</div>
-        	<div class="recm_body">
-        		<div class="tab_cont">
-        		   <ul>
-        		   		<!--{php $tags=tag("moduleid=5&length=20&condition=thumb<>''&catid=35&areaid=$cityid&pagesize=10&order=hits desc&template=null")}--> 
-        		   		{loop $tags $i $t}
-        		   		<li>
-        		   			<div class="rTitle o_a">
-        		   			  <div class="ratitle">
-        		   			  	{if $i==0}
-        		   			  	    <div class="ranking f_l toprank">{$i+1}</div>
-        		   			  	{elseif $i==1}
-        		   			  	    <div class="ranking f_l secondrank">{$i+1}</div>
-        		   			  	{elseif $i==2}
-        		   			  	    <div class="ranking f_l thirdrank">{$i+1}</div>
-        		   			  	{else}
-        		   			  	    <div class="ranking f_l">{$i+1}</div> 
-        		   			  	{/if}
-        		   			  	<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a>
-        		   			  </div>
-        		   			  {if $i==0}
-        		   			  <div class="rabody">
-        		   			  	<div class="f_l"><img width="75" height="45" src='{imgurl($t[thumb], 1)}'/></div>
-        		   			  	<div class="rafee f_l">
-        		   			  		<div class="price">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div>
-        		   			  		<div><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
-        		   			  	</div>
-        		   			  </div>	
-        		   			  {/if}
-        		   			</div>
-        		   		</li>
-        		   		{/loop}
-        		   </ul>
-        			
-        		</div>
-        		<div class="tab_cont"></div>
-        	</div>
-        	
-        </div>   
-
-    </div>
-<!--7F end-->
-<!--8F start-->
-<div id="tabfloor8" class="pro_sort pro_sort08 c_f mt10">
-    <!-- 8楼楼层抬头 -->
-	    <div class="floor_top tab_hd">
-	    <div class="w_220 f_l">
-	    <div class="floor_img f_l">8F</div>
-	    <div class="floor_title f_l">体育课程</div>
-	    </div>
-	    <div class="w_720 f_l">
-	    <ul>
-	    <li>推荐</li>{php $maincat = get_maincat(33, $CATEGORY);}
-	    {loop $maincat $i $c} 
-	    {if $i < 4}
-	    <li>{$c[catname]}</li>
-	    {/if}
-	    {/loop}
-	    <li>其他</li>
-	    </ul>
-	    </div>
-	    	 <div class="righttopic w_240 f_l">
-	    	 	<div class="rmph f_l">热门排行</div>
-	    	 	<div class="gdlj f_r">更多&gt;&gt;</div>
-	   		 </div>
-	    </div>  
-       <!-- 8楼楼层抬头结束 -->
-
-   	<div class="cont_left w_220 f_l">
-        	<h2>体育课程</h2>
-        	<div class="ad_box">
-            	
-            	<div class="ad_text">
-                	<ul>
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=33&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
-                    {loop $tags $t}
-                    <li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
-					 {/loop}
-                    </ul>
-                </div>
-            </div>
-        </div> 
-
-      <div class="cont_middle f_l">
-
-            <div class="bdx">
-                <ul class="pro_list bghover c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=20&catid=33&condition=status=3 and level>-1 and thumb<>''&pagesize=6&order=addtime desc&template=null");}-->
-                    {loop $tags $t}
-                    <li class=" item">
-					   <div class="c_img"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="220"  height="140" alt="{$t[title]}" ></A></div>
-					   <div class="title_pro02"><div class="f_l"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></div><div class="f_r o_a" style="width:66px;height:12px;background:url({DT_SKIN}images/stars.png) no-repeat 0px -<?php echo 12*rand(1,8)?>px;background-size:66px"></div></div>
-					   <div class="price ff_yh fs_14  c_js f_l">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div><div class="learnum fs_14 f_r"><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
-					   
-					</li>
-					 {/loop}                        
-                </ul>
-
-        	</div>
-        </div>
-
-                  <div id="recm_athetic" class="cont_right f_l">
-        	<div class="recm_headder tab_hd">
-        		<ul>
-        			<li>热门课程</li><li>热门问答</li>
-        		</ul>
-        	</div>
-        	<div class="recm_body">
-        		<div class="tab_cont">
-        		   <ul>
-        		   		<!--{php $tags=tag("moduleid=5&length=20&condition=thumb<>''&catid=33&areaid=$cityid&pagesize=10&order=hits desc&template=null")}--> 
-        		   		{loop $tags $i $t}
-        		   		<li>
-        		   			<div class="rTitle o_a">
-        		   			  <div class="ratitle">
-        		   			  	{if $i==0}
-        		   			  	    <div class="ranking f_l toprank">{$i+1}</div>
-        		   			  	{elseif $i==1}
-        		   			  	    <div class="ranking f_l secondrank">{$i+1}</div>
-        		   			  	{elseif $i==2}
-        		   			  	    <div class="ranking f_l thirdrank">{$i+1}</div>
-        		   			  	{else}
-        		   			  	    <div class="ranking f_l">{$i+1}</div> 
-        		   			  	{/if}
-        		   			  	<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a>
-        		   			  </div>
-        		   			  {if $i==0}
-        		   			  <div class="rabody">
-        		   			  	<div class="f_l"><img width="75" height="45" src='{imgurl($t[thumb], 1)}'/></div>
-        		   			  	<div class="rafee f_l">
-        		   			  		<div class="price">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div>
-        		   			  		<div><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
-        		   			  	</div>
-        		   			  </div>	
-        		   			  {/if}
-        		   			</div>
-        		   		</li>
-        		   		{/loop}
-        		   </ul>
-        			
-        		</div>
-        		<div class="tab_cont"></div>
-        	</div>
-        	
-        </div>   
-
-    </div>
-<!--8F end-->
-
-
-
-
-<!--9F start-->
-<div id="tabfloor9" class="pro_sort pro_sort09 c_f mt10">
-    <!-- 9楼楼层抬头 -->
-	    <div class="floor_top tab_hd">
-	    <div class="w_220 f_l">
-	    <div class="floor_img f_l">9F</div>
-	    <div class="floor_title f_l">兴趣课程</div>
-	    </div>
-	    <div class="w_720 f_l">
-	    <ul>
-	    <li>推荐</li>{php $maincat = get_maincat(34, $CATEGORY);}
-	    {loop $maincat $i $c} 
-	    {if $i < 4}
-	    <li>{$c[catname]}</li>
-	    {/if}
-	    {/loop}
-	    <li>其他</li>
-	    </ul>
-	    </div>
-	    	 <div class="righttopic w_240 f_l">
-	    	 	<div class="rmph f_l">热门排行</div>
-	    	 	<div class="gdlj f_r">更多&gt;&gt;</div>
-	   		 </div>
-	    </div>  
-       <!-- 9楼楼层抬头结束 -->
-
-   	<div class="cont_left w_220 f_l">
-        	<h2>兴趣课程</h2>
-        	<div class="ad_box">
-            	
-            	<div class="ad_text">
-                	<ul>
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=34&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
-                    {loop $tags $t}
-                    <li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
-					 {/loop}
-                    </ul>
-                </div>
-            </div>
-        </div> 
-
-      <div class="cont_middle f_l">
-
-            <div class="bdx">
-                <ul class="pro_list bghover c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=20&catid=34&condition=status=3 and level>-1 and thumb<>''&pagesize=6&order=addtime desc&template=null");}-->
-                    {loop $tags $t}
-                    <li class=" item">
-					   <div class="c_img"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="220"  height="140" alt="{$t[title]}" ></A></div>
-					   <div class="title_pro02"><div class="f_l"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></div><div class="f_r o_a" style="width:66px;height:12px;background:url({DT_SKIN}images/stars.png) no-repeat 0px -<?php echo 12*rand(1,8)?>px;background-size:66px"></div></div>
-					   <div class="price ff_yh fs_14  c_js f_l">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div><div class="learnum fs_14 f_r"><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
-					   
-					</li>
-					 {/loop}                        
-                </ul>
-
-        	</div>
-        </div>
-
-                  <div id="recm_other" class="cont_right f_l">
-        	<div class="recm_headder tab_hd">
-        		<ul>
-        			<li>热门课程</li><li>热门问答</li>
-        		</ul>
-        	</div>
-        	<div class="recm_body">
-        		<div class="tab_cont">
-        		   <ul>
-        		   		<!--{php $tags=tag("moduleid=5&length=20&condition=thumb<>''&catid=34&areaid=$cityid&pagesize=10&order=hits desc&template=null")}--> 
-        		   		{loop $tags $i $t}
-        		   		<li>
-        		   			<div class="rTitle o_a">
-        		   			  <div class="ratitle">
-        		   			  	{if $i==0}
-        		   			  	    <div class="ranking f_l toprank">{$i+1}</div>
-        		   			  	{elseif $i==1}
-        		   			  	    <div class="ranking f_l secondrank">{$i+1}</div>
-        		   			  	{elseif $i==2}
-        		   			  	    <div class="ranking f_l thirdrank">{$i+1}</div>
-        		   			  	{else}
-        		   			  	    <div class="ranking f_l">{$i+1}</div> 
-        		   			  	{/if}
-        		   			  	<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a>
-        		   			  </div>
-        		   			  {if $i==0}
-        		   			  <div class="rabody">
-        		   			  	<div class="f_l"><img width="75" height="45" src='{imgurl($t[thumb], 1)}'/></div>
-        		   			  	<div class="rafee f_l">
-        		   			  		<div class="price">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div>
-        		   			  		<div><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
-        		   			  	</div>
-        		   			  </div>	
-        		   			  {/if}
-        		   			</div>
-        		   		</li>
-        		   		{/loop}
-        		   </ul>
-        			
-        		</div>
-        		<div class="tab_cont"></div>
-        	</div>
-        	
-        </div>   
-
-    </div>
-<!--9F end-->
 </div>
 <!--产品层 end-->
 
@@ -1312,8 +499,7 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
 <script type="text/javascript">
 jQuery("#hotnews").slide( {mainCell:".slide .bd ul",effect:"leftLoop",autoPlay:true} );
 $(function(){ 
-    $("#tabfloor1").TabADS();
-    $("#recm_art").mytab("tabhd","tabcont");
+
     var start=$('.bigtitlebar').offset().top;
     var st=start-300;
     $(window).bind("scroll",function(e){
@@ -1344,7 +530,7 @@ $(function(){
     $('.floor_nav ul li').click(function(){
 		var divname=$(this).attr("refdiv");
 		var top=$(divname).offset().top-300;
-		$("html,body").animate({"scrollTop":top},500)
+		$("html,body").animate({"scrollTop":top},200)
     });
     $('.floor_nav ul li').hover(function(){
     	$(this).addClass("cur");
