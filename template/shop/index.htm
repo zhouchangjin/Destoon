@@ -266,7 +266,15 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
                     {loop $tags $t}
                     <li class=" item">
 					   <div class="c_img"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="220"  height="140" alt="{$t[title]}" ></A></div>
-					   <div class="title_pro02"><div class="f_l"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></div><div class="f_r o_a" style="width:66px;height:12px;background:url({DT_SKIN}images/stars.png) no-repeat 0px -<?php echo 12*rand(1,8)?>px;background-size:66px"></div></div>
+					   <div class="title_pro02"><div class="f_l"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></div>
+					   		<div class="f_r o_a">
+					   			{if $t[level]==1}
+					   				<img src="{DT_SKIN}images/stars_01.jpg" alt="star5" width=66/>
+					   			{else}
+					   				<img src="{DT_SKIN}images/stars_02.jpg" alt="star4.5" width=66"/>
+					   			{/if}
+					   		</div>
+					   </div>
 					   <div class="price ff_yh fs_14  c_js f_l">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div><div class="learnum fs_14 f_r"><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
 					   
 					</li>
@@ -285,7 +293,15 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
                     {loop $tags $t}
                     <li class=" item">
 					   <div class="c_img"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="220"  height="140" alt="{$t[title]}" ></A></div>
-					   <div class="title_pro02"><div class="f_l"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></div><div class="f_r o_a" style="width:66px;height:12px;background:url({DT_SKIN}images/stars.png) no-repeat 0px -<?php echo 12*rand(1,8)?>px;background-size:66px"></div></div>
+					   <div class="title_pro02"><div class="f_l"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></div>
+					   		<div class="f_r o_a">
+					   			{if $t[level]==1}
+					   				<img src="{DT_SKIN}images/stars_01.jpg" alt="star5" width=66/>
+					   			{else}
+					   				<img src="{DT_SKIN}images/stars_02.jpg" alt="star4.5" width=66"/>
+					   			{/if}
+					   		</div>
+					   	</div>
 					   <div class="price ff_yh fs_14  c_js f_l">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div><div class="learnum fs_14 f_r"><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
 					   
 					</li>
@@ -304,7 +320,15 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
                     {loop $tags $t}
                     <li class=" item">
 					   <div class="c_img"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="220"  height="140" alt="{$t[title]}" ></A></div>
-					   <div class="title_pro02"><div class="f_l"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></div><div class="f_r o_a" style="width:66px;height:12px;background:url({DT_SKIN}images/stars.png) no-repeat 0px -<?php echo 12*rand(1,8)?>px;background-size:66px"></div></div>
+					   <div class="title_pro02"><div class="f_l"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></div>
+					   		<div class="f_r o_a">
+					   			{if $t[level]==1}
+					   				<img src="{DT_SKIN}images/stars_01.jpg" alt="star5" width=66/>
+					   			{else}
+					   				<img src="{DT_SKIN}images/stars_02.jpg" alt="star4.5" width=66"/>
+					   			{/if}
+					   		</div>
+					   	</div>
 					   <div class="price ff_yh fs_14  c_js f_l">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div><div class="learnum fs_14 f_r"><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
 					   
 					</li>
