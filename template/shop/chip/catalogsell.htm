@@ -3,13 +3,13 @@
     {php $child = get_maincat(0, $mid, 1);}
 
 	{loop $child $i $c}
-      {if in_array($c[catid], array(28,29,30,31,111,32,33,34))}
+      {if in_array($c[catid], array(28,29,30,31,111,32,33,34,35))}
       	<li class="item">
        		<div class="mainsort mainsort_top">
-			  <h3> <a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a> </h3>
+			  <h3> <a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}课程</a>  <img src="{DT_SKIN}images/arrow_grey.png"/></h3>
 			  <p class="else_sort">
 			  {if $c[child]}{php $sub = get_maincat($c[catid], $mid, 1);}
-			     {loop $sub $j $s}{if $j < 8} 
+			     {loop $sub $j $s}{if $j < 3} 
 		        <a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a>
 						          {/if}
 				 {/loop}

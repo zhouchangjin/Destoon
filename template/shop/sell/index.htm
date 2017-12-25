@@ -2,9 +2,9 @@
 <link href="{DT_SKIN}css/style_product.css" rel="stylesheet" type="text/css" />
 <div class="w_1200 o_a c_f">
 	<!--总分类start-->
-	<div class="w_210 f_l" >
+	<div class="w_215 f_l" >
          <div class="allsort" id="allsort">
-            <h2 class="fs_14"><a class="c_white" href="{DT_PATH}sitemap/{rewrite('index.php?mid=5')}" target="_blank">课程分类</a></h2>
+            <h2 class="fs_14"><a class="c_white" href="{DT_PATH}sitemap/{rewrite('index.php?mid=5')}" target="_blank">课程中心</a></h2>
 
          {php $mid = 5;}
 			{template 'catalogsell', 'chip'}
@@ -14,13 +14,13 @@
 
     </div>
     <!--总分类end-->
-	   	 <div class="index_center w_980 f_l">
+	   	 <div class="index_center f_l">
 	    		<!--轮播 start-->
     	<div class="index_slide">
         	<div class="slideimg bdx">
                 <ul>
-                  <li><a href="/"><img height="240" width="980" src="{DT_SKIN}images/140091315572966.jpg" alt="" /></a></li>
-				  <li><a href="/"><img height="240" width="980" src="{DT_SKIN}images/138249434672724.jpg" alt="" /></a></li>
+                  <li><a href="/"><img height="240" width="970" src="{DT_SKIN}images/140091315572966.jpg" alt="" /></a></li>
+				  <li><a href="/"><img height="240" width="970" src="{DT_SKIN}images/138249434672724.jpg" alt="" /></a></li>
 				</ul>
             </div>
             <ul class="slidetab hd">
@@ -33,13 +33,13 @@
 		</script>
 		<!--轮播 end-->
 		        <div class="hr_10"></div>
-        <div class="product w_980 c_f">
+        <div class="product c_f">
 		    <!--推荐产品 start-->
             <div class="recorm_mer w_720 f_l">
             	<h2>推荐课程</h2>
                 <div class="bor c_f w_720"><span class="bor_1 f_l"></span><span class="bor_2 f_l"></span></div>
                 <div  class="recorm_list c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=38&condition=status=3 and level>0 and thumb<>''&pagesize=9&order=addtime desc&template=null");}-->
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=38&condition=status=3 and level>0 and thumb<>''&pagesize=6&order=addtime desc&template=null");}-->
                     {loop $tags $t}
                     <dl class="c_f">
 					   <dt><div class="c_img c_img80"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="80"  height="80" alt="{$t[title]}" ></A></div></dt>
@@ -57,7 +57,7 @@
 			<!--最新加盟商家 start-->
     		<div class="leag w_250 f_r">
             	<div class="leag_mer">
-                	<h2><span><a class="f_r" href="/company/" target="_blank">更多</a></span>最新加盟机构</h2>
+                	<h2><span><a class="f_r" href="/company/" target="_blank">更多</a></span>最新加盟</h2>
                     <ul>
  <!--{php $tags=tag("moduleid=4&condition=groupid>5 and vip>-1 and catids<>''&areaid=$cityid&length=28&pagesize=8&order=userid desc&template=null");}-->
                       {loop $tags $t}
@@ -65,8 +65,6 @@
                       {/loop}
                     </ul>
                 </div>
-                <div class="leag_img">
-				<a target="_blank" href="/"><img height="80" width="248" src="{DT_SKIN}images/138249498486501.jpg" alt="" /></a>         		</div>
             </div>
             <!--最新加盟商家 end-->
 			        </div>

@@ -294,7 +294,7 @@
 .picScroll .scrollbody{}
 .picScroll .scrollbody ul{ overflow:hidden; zoom:1;height:150px }
 .picScroll .scrollbody ul li{ margin:0 20px 0 0; float:left; _display:inline; overflow:hidden; text-align:center;  }
-.picScroll .scrollbody ul li .pic{ text-align:center; }
+.picScroll .scrollbody ul li .pic{ text-align:center;position:relative }
 .picScroll .scrollbody ul li .pic .spicmask{ width:285px; height:150px;position:absolute;top:0px;layout:999;background:url(../images/picedge.png) no-repeat}
 .picScroll .scrollbody ul li .pic img{ width:285px; height:150px; display:block;}
 .picScroll .scrollbody ul li .pic a:hover img{ border-color:#999;  }
