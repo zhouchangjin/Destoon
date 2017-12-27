@@ -188,7 +188,7 @@
 .cont_right{border:1px solid #eeeeee;width:240px;margin-left:18px;height:430px;}
 
 .cont_right .recm_headder ul li{cursor:pointer;display:inline-block;width:110px;border-bottom:2px solid #ccc;text-align:center;font-size:16px;line-height:32px;color:#666}
-.cont_right .recm_headder ul li.select{color:#fb5415;border-bottom:2px solid #fb5415;}
+.cont_right .recm_headder ul li.select{color:#f85415;border-bottom:2px solid #f85415;}
 .cont_right .recm_headder{padding: 10px 0 0 9px;}
 .cont_right .recm_body{padding: 10px 0 0 9px;}
 .cont_right .recm_body .rTitle .ratitle{height:24px}
@@ -199,7 +199,7 @@
 .cont_right .recm_body .thirdrank{background:url(../images/thirdrank.png) no-repeat}
 .cont_right .recm_body  a{font-size:14px;color:#666;margin-left:20px}
 .cont_right .recm_body .rabody .rafee{margin-left:10px;font-size:12px;color:#666}
-.cont_right .recm_body .rabody .rafee .price{color:#fb5415}
+.cont_right .recm_body .rabody .rafee .price{color:#f85415}
 .cont_left{ height:430px;position:relative;}
 .ad_box{position:absolute;bottom:0px;width:220px}
 
@@ -259,14 +259,14 @@
 .index_news{overflow:hidden}
 
 .index_news .index_left{width:340px; float:left;}
-.index_news h3{font-size:16px;height:32px;color:#fb5415;border-bottom:1px solid #f7f7f7}
+.index_news h3{font-size:16px;height:32px;color:#f85415;border-bottom:1px solid #f7f7f7}
 .index_news h3 a{color:#949494;font-size:14px;line-height:32px}
 #hotnews{position:relative;height:190px;overflow:hidden}
 #hotnews .hd{position:absolute;bottom:5px;right:20px}
 #hotnews .hd ul li{cursor:pointer;display:inline-block;width:14px;height:14px;color:white;background:rgba(0,0,0,0.5);border:1px solid #fff;border-radius:14px;margin-left:3px;text-align:center;line-height:14px}
 #hotnews .hd ul li.on{background:rgba(248,84,21,0.5)}
 .newslist{font-size:14px;color:#666;line-height:24px}
-.newslist .listStyle{background:#fb5415;border-radius:3px;width:5px;height:5px;margin:12px 10px 0px 5px}
+.newslist .listStyle{background:#f85415;border-radius:3px;width:5px;height:5px;margin:12px 10px 0px 5px}
 .newslist a{color:#666}
 
 .index_news .index_middle{width:580px;float:left;margin-left:20px;overflow:hidden}
@@ -333,5 +333,5 @@
 
 .floor_nav{width:35px;position: fixed;left:50%;margin-left:-660px;z-index:10000;top:300px;display:none}
 .floor_nav li{cursor:pointer;border:1px solid #fff;width:33px;height:50px;color:white;background:#7b7171;font-size:14px;text-align:center}
-.floor_nav li.cur{background:#fb5415;}
+.floor_nav li.cur{background:#f85415;}
 .floor_nav li.hl{display:none}

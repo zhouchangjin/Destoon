@@ -1,0 +1,91 @@
+{template 'header'}
+<div class="m">
+<div class="pos"><a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {cat_pos($CAT, ' &raquo; ')}</div>
+<div class="m_l_2 f_l">
+	<div class="left_box">		
+
+<!-- 分类过滤 -->
+			<div class="category1">
+				<div id="catsfilter" class="row o_a">
+					<div class="label f_l">分类:</div>
+					<a class="f_l unsel" href="{$MOD[linkurl]}">不限</a>
+					<ul class="f_l">
+						{php $child = get_maincat(0,4,1);}
+						 {loop $child $i $c}
+						<li>
+							{if $CAT[catid]==$c[catid]}
+							<a class="btn_cur" href="{$MODULE[$c[catid]][$c[linkurl]]}{$c[linkurl]}">{set_style($c[catname],$c[style])}</a>
+							{else}
+							<a href="{$MODULE[$c[catid]][$c[linkurl]]}{$c[linkurl]}">{set_style($c[catname],$c[style])}</a>
+							{/if}
+							
+						</li> 
+						{/loop}
+					</ul>
+				</div>
+				<div id="locationfilter" class="row o_a">
+					<div class="location_tabhd o_a">
+						<div class="label f_l">地区:</div>
+						<a class="btn_cur f_l">不限</a>
+						<ul class="f_l">
+							<li><a>行政区</a></li>
+							<li><a>热门商圈</a></li>	
+						</ul>
+					</div>
+					<div class="location_tabbd">
+						<div class="location_tabcnt subfilter">
+							{php $child = get_mainarea(1);}
+							 <ul>
+							 {loop $child $i $c}
+							 	<li><a href="{$MOD[linkurl]}search.php?areaid={$c[areaid]}">{$c[areaname]}</a></li>
+							 {/loop}
+							 </ul>
+							 							
+						</div>
+						<div class="location_tabcnt">
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			<!-- 分类过滤完 -->
+	</div>
+	<div class="b10">&nbsp;</div>
+	{if $tags}{template 'list-company', 'tag'}{/if}
+
+</div>
+<script type="text/javascript">
+          	$("#locationfilter").mytab("location_tabhd","location_tabbd");
+			$(function(){
+				$(".list_item").hover(function(){
+					$(".list_item").removeClass("select");
+					$(".comment").addClass("hid");
+					$(this).addClass("select");
+					$(this).find(".comment").removeClass("hid");
+				});
+			});
+	</script>
+<div class="m_n_2 f_l">&nbsp;</div>
+<div class="m_r_2 f_l">
+	<div class="sponsor">{ad($moduleid,$catid,$kw,7)}</div>
+	<div class="box_head"><div><strong>本周搜索排行</strong></div></div>
+	<div class="box_body">
+		<div class="rank_list">
+			<!--{tag("moduleid=$moduleid&table=keyword&condition=moduleid=$moduleid and status=3 and updatetime>$today_endtime-86400*7&pagesize=10&order=week_search desc&key=week_search&template=list-search_rank")}-->
+		</div>		
+	</div>
+	<div class="b10">&nbsp;</div>
+	<div class="box_head"><div><strong>按地区浏览</strong></div></div>
+	<div class="box_body">
+			<table width="100%" cellpadding="3">
+			{php $mainarea = get_mainarea(1)}
+			{loop $mainarea $k $v}
+			{if $k%2==0}<tr>{/if}
+			<td><a href="{$MOD[linkurl]}search.php?areaid={$v[areaid]}&catid={$catid}" rel="nofollow">{$v[areaname]}</a></td>
+			{if $k%2==1}</tr>{/if}
+			{/loop}
+			</table>
+	</div>	
+</div>
+</div>
+{template 'footer'}

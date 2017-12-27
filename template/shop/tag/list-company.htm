@@ -1,0 +1,53 @@
+		<!-- 列表 -->
+		<div class="left_box">
+			<div class="sort_box">
+				<ul>
+					<li><a>智能</a><em>|</em></li>
+					<li class="select"><a>好评&#8595;</a><em>|</em></li>
+					<li><a>人气&#8595;</a><em>|</em></li>
+					<li><a>环境&#8595;</a><em>|</em></li>
+					<li><a>师资&#8595;</a></li>
+				</ul>
+			</div>
+			<div class="list_box">
+				{loop $tags $t}
+				<div class="list_item">
+					<img class="f_l" src="{imgurl($t[thumb],'201')}" width=200 height=125 />
+					<div class="list_body f_l o_a">
+						<div class="item_title"><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></div>
+						<div class="level">					   			
+								{if $t[level]==1}
+					   				<img src="{DT_SKIN}images/stars_01.jpg" alt="star5" width=66 />
+					   			{else}
+					   				<img src="{DT_SKIN}images/stars_02.jpg" alt="star4.5" width=66 />
+					   			{/if}
+					   			    <span>{rand(0,100)}条点评</span>
+						</div>
+						<div class="address">
+								<img src="{DT_SKIN}images/location.png"/> <span class="address">{$t[address]}</span>
+						</div>
+						<hr/>
+						<div class="discount">
+							<span class="stylefont">最新优惠:</span>
+						</div>
+						<div class="comment hid">
+							<ul>
+								<li><a><img src="{DT_SKIN}images/pen.png"/>&nbsp;写点评</a><em>|</em></li>
+								<li><a><img src="{DT_SKIN}images/favorite.png"/>&nbsp;收藏</a><em>|</em></li>
+								<li><a>地图</a><em>|</em></li>
+								<li><a>附近</a></li>
+							</ul>
+						</div>
+						<div class="review">
+							<span>师资</span><span class="stylefont" style="margin-right:20px">{rand(8.0,9.0)}分</span><span>环境:</span><span class="stylefont">{rand(8.0,9.0)}分</span>
+						</div>
+					</div>
+				</div>
+				
+				{/loop}
+			</div>
+		</div>
+		<!-- 列表完 -->	
+		<!-- 分页 -->
+		{if $showpage && $pages}<div class="pages">{$pages}</div>{/if}
+		<!-- 分页完 -->

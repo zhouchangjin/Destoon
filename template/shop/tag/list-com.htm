@@ -1,0 +1,17 @@
+<ul>
+{loop $tags $t}
+<li>
+<div>
+<a href="{$t[linkurl]}" target="_blank">{$t[company]}</a>
+</div>
+<div class="ranking">
+{if $t[level]==1}
+<img src="{DT_SKIN}images/stars_01.jpg" alt="star5" width=66 />
+{else}
+<img src="{DT_SKIN}images/stars_02.jpg" alt="star4.5" width=66 />
+{/if}
+<div class="f_r f_gray"><img src="{DT_SKIN}images/location.png">{area_pos($t[areaid], '/', 1)}</div>
+</div>
+</li>
+{/loop}
+</ul>
