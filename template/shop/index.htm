@@ -1,5 +1,17 @@
 {php $CSS = array('index');}
 {template 'header'}
+<?php
+$company_cat=array();
+$company_cat[28]=37;
+$company_cat[29]=38;
+$company_cat[30]=39;
+$company_cat[31]=40;
+$company_cat[32]=41;
+$company_cat[33]=42;
+$company_cat[34]=43;
+$company_cat[35]=44;
+$company_cat[111]=46;
+?>
 <link rel="stylesheet" type="text/css" href="{DT_SKIN}css/style_home.css" />
 <!--正文start-->
 <div class="w_1200 o_a c_f">
@@ -250,9 +262,9 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
             	
             	<div class="ad_text">
                 	<ul>
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=28&catid=".$course[catid]."&condition=status=3 and level>-1 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
+<!--{php $tags=tag("moduleid=4&areaid=$cityid&length=28&catid=".$company_cat[$course[catid]]."&condition=level>-1&pagesize=4&order=validtime desc&template=null");}-->
                     {loop $tags $t}
-                    <li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
+                    <li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[company]}</a></li>
 					 {/loop}
                     </ul>
                 </div>
