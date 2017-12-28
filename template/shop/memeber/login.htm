@@ -1,0 +1,66 @@
+{template 'header'}
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}css/login.css" />
+<div class="login-wrap">
+	<div class="container">
+		<div class="loginbox">
+			<div class="loginlt f_l">
+				<img src="{DT_SKIN}images/adv4.jpg"/>
+			</div>
+			
+			<div class="loginrt f_r">
+				<div class="login_tab">
+					<div class="login_hd">
+                		<ul>
+                  			<li class="on">帐号登录</li>
+                 			 <li>微信关注</li>
+                		</ul>
+              		</div>
+              		<div class="login_bd">
+              			<div class="login_cnt">
+              				<div class="lgform_body">
+              					<form method="post" action="{$DT[file_login]}" onsubmit="return Dcheck();">
+              						<input name="forward" type="hidden" value="{$forward}"/>
+									<input name="auth" type="hidden" value="{$auth}"/>
+									<table class="table_form">
+										<tr>
+											<td class="loginlabel">账号：</td>
+											<td class="loginipt"><input onblur="if(!value){value=defaultValue;this.style.color='#999'}" onclick="if(value==defaultValue){value='';this.style.color='#000'}" value="" id="username" name="username" autocomplete="off" class="input_txt" style="color: rgb(153, 153, 153);" placeholder="用户名/邮箱/手机号" type="text"></td>
+										</tr>
+										<tr>
+											<td class="loginlabel">密码：</td>
+											<td class="loginipt"><input name="password" class="input_txt" id="password" value="" placeholder="请输入密码" type="password"></td>
+										</tr>
+									</table>
+									<div class="table_form">
+										<div class="b10">&nbsp;</div>
+										<span><input name="cookietime" value="1" class="rem-check" id="cookietime" type="checkbox">记住用户名</span>
+										<span><input name="goto" value="1" class="rem-check" id="goto"  type="checkbox">进入会员中心</span>
+									</div>
+									<div class="table_form">
+										<input class="loginbtn" name="submit" value="登    录" type="submit">
+										<hr>
+										<div>您还可以使用合作账号登录无忧美育网</div>
+										<div class="loginutl"><span class="loginico"><a href="" title="qq登录"><img src="{DT_SKIN}images/qqico.png"/></a></span><span class="loginico"><a href="" title="微博登录"><img src="{DT_SKIN}images/weiboico.png"/></a></span></div>
+									</div>
+              					</form>
+              				</div>
+              			
+              			</div>
+              			<div class="login_cnt">
+              				<div class="table_form">
+              				<img class="loginqrcode" src="{DT_SKIN}images/qrcode.png"/>
+              				</div>
+              			</div>
+              		</div>
+				</div>
+				<div class="login_foot">
+					还不是无忧美育网会员，还等什么，<a href="{$MODULE[2][linkurl]}{$DT[file_register]}" title="注册会员">快来注册</a>吧！
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+$(".login_tab").mytab("login_hd","login_cnt");
+</script>
+{template 'footer'}
