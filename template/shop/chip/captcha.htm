@@ -1,0 +1,34 @@
+<input name="captcha" class="captcha f_gray" type="text" size="6" onfocus="showcaptcha();" value="点击显示" onkeyup="checkcaptcha(this.value);" onblur="checkcaptcha(this.value);" style="margin:10px 0 10px 0;"/>&nbsp;<img src="{DT_SKIN}image/loading.gif" title="验证码,看不清楚?请点击刷新&#10;字母不区分大小写" alt="" align="absmiddle" class="captchapng" onclick="reloadcaptcha();" style="display:none;cursor:pointer;"/><span id="ccaptcha"></span>
+<script type="text/javascript">
+function showcaptcha() {
+	if($('.captchapng').css('display')=='none') {
+		$('.captchapng').css('display','');
+	}
+	if($('.captchapng').attr('src').indexOf('loading.gif') != -1) {
+		$('.captchapng').attr('src','{DT_PATH}api/captcha.png.php?action=image');
+	}
+	if($('.captcha').val()=='点击显示') {
+		$('.captcha').val('点击显示');
+	}
+	$('.captcha').removeClass('f_gray');
+}
+function reloadcaptcha() {
+	$('.captchapng').attr('src', '{DT_PATH}api/captcha.png.php?action=image&refresh='+Math.random());
+	$('.ccaptcha').html('');
+	$('.captcha').val('');
+}
+function checkcaptcha(s) {
+	if(!is_captcha(s)) return;
+	makeRequest('action=captcha&captcha='+s, AJPath, '_checkcaptcha');
+}
+function _checkcaptcha() {    
+	if(xmlHttp.readyState==4 && xmlHttp.status==200) {
+		if(xmlHttp.responseText == '0') {
+			$('.ccaptcha').html('&nbsp;&nbsp;<img src="{DT_SKIN}image/check_right.gif" align="absmiddle"/>');
+		} else {
+			$('.captcha').focus();
+			$('.ccaptcha').html('&nbsp;&nbsp;<img src="{DT_SKIN}image/check_error.gif" align="absmiddle"/>');
+		}
+	}
+}
+</script>

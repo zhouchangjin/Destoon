@@ -1,0 +1,104 @@
+{if $DT_TOUCH}
+{template 'header', $module}
+<script type="text/javascript">
+$('.head-bar-right').html('<a href="{$EXT[mobile_url]}login.php"><span>登录</span></a>');
+</script>
+{else}
+{template 'header'}
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}css/register.css" />
+{/if}
+
+
+<div class="register-wrap">
+	<div class="register-container">
+		<div class="register-box">
+			<div class="register-head">
+				<ul>
+					<li>学生家长</li>
+					<li>培训机构</li>
+				</ul>
+			</div>
+			<div class="register-body">
+				<div class="register-tab">
+					<div class="register-left f_l">
+						<div class="register-person">
+							
+								
+								<div class="person_box">
+									<form action="{$DT[file_register]}" method="post" target="send" onsubmit="return check();">
+										<input name="action" type="hidden" id="action" value="{crypt_action('register')}"/>
+										<input name="forward" type="hidden" value="{$forward}"/>
+										<input name="post[truename]" type="hidden" value="未填写">
+										<input name="post[regid]" type="hidden" value=5 />
+								 	<table>
+								 	<tr><td class="register_label">用户名：<span class="f_red">*</span></td><td><input type="text" class="reg_inp" style="width:200px;" name="post[username]" id="username" onblur="validator('username');" autocomplete="off" {if $username} value="{$username}" readonly{/if}/></td></tr>
+								 	<tr><td class="register_label">设置密码：<span class="f_red">*</span></td><td><input type="password" class="reg_inp" style="width:200px;" name="post[password]" id="password" onblur="validator('password');" autocomplete="off"{if $password} value="{$password}" readonly{/if}/></td></tr>
+								 	<tr><td class="register_label">确认密码：<span class="f_red">*</span></td><td><input type="password" class="reg_inp" style="width:200px;" size="30" name="post[cpassword]" id="cpassword" onblur="validate('cpassword');" autocomplete="off"{if $password} value="{$password}" readonly{/if}/></td></tr>
+								 	<tr><td class="register_label">电子邮箱：<span class="f_red">*</span></td><td><input type="text" class="reg_inp" style="width:200px;" name="post[email]" id="email" onblur="validator('email');"{if $email} value="{$email}" readonly{/if}/></td></tr>
+								 	{if $MOD[captcha_register]}
+								 	<tr><td class="register_label">验证码：</td><td>{template 'captcha', 'chip'}<span class="dcaptcha f_red"></span>&nbsp;</td></tr>
+								 	{/if}
+								 	<tr><td class="register_submit" colspan="2"><input type="submit" name="submit" value="注册" style="background:#0FAB64;color:#FFFFFF;font-size:14px;width:345px;line-height:32px;border:none;border-radius:4px;text-align:center;"/></td></tr>
+								 	</table>
+								 	</form>
+								</div>
+
+						</div>
+					</div>
+					<div class="register-right f_l o_a">
+						<div class="register-qrcode">
+							<h3>微信扫一扫,关注无忧美育</h3>
+							<a class="wximg-box"><img src="{DT_SKIN}images/qrcode.png" width=178 height=178/></a>
+							<div class="login-oauth">
+									<p>选择更便捷的登录方式</p>
+									<div class="loginutl"><span class="loginico"><a href="" title="qq登录"><img src="{DT_SKIN}images/qqico.png"/></a></span><span class="loginico"><a href="" title="微博登录"><img src="{DT_SKIN}images/weiboico.png"/></a></span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="register-tab">
+					<div class="register-left f_l">
+						<div class="register-person">
+							<div class="person_box">
+							<form action="{$DT[file_register]}" method="post" target="send" onsubmit="return check();">
+								<input name="action" type="hidden" id="action" value="{crypt_action('register')}"/>
+								<input name="forward" type="hidden" value="{$forward}"/>
+								<input name="post[truename]" type="hidden" value="未填写">
+								<input name="post[regid]" type="hidden" value=6 />
+								<table>
+									<tr><td class="register_label">会员名：<span class="f_red">*</span></td><td><input type="text" class="reg_inp" style="width:200px;" name="post[username]" id="username" onblur="validator('username');" autocomplete="off" {if $username} value="{$username}" readonly{/if}/></td></tr>
+								 	<tr><td class="register_label">设置密码：<span class="f_red">*</span></td><td><input type="password" class="reg_inp" style="width:200px;" name="post[password]" id="password" onblur="validator('password');" autocomplete="off"{if $password} value="{$password}" readonly{/if}/></td></tr>
+								 	<tr><td class="register_label">确认密码：<span class="f_red">*</span></td><td><input type="password" class="reg_inp" style="width:200px;" size="30" name="post[cpassword]" id="cpassword" onblur="validate('cpassword');" autocomplete="off"{if $password} value="{$password}" readonly{/if}/></td></tr>
+								 	<tr><td class="register_label">公司名称：<span class="f_red">*</span></td><td><input type="text" class="reg_inp" style="width:200px;" name="post[company]" id="company" onblur="validator('company');" autocomplete="off" </td></tr>
+								 	<tr><td class="register_label">电子邮箱：<span class="f_red">*</span></td><td><input type="text" class="reg_inp" style="width:200px;" name="post[email]" id="email" onblur="validator('email');"{if $email} value="{$email}" readonly{/if}/></td></tr>
+								 	{if $MOD[captcha_register]}
+								 	<tr><td class="register_label">验证码：</td><td>{template 'captcha', 'chip'}<span class="dcaptcha f_red"></span>&nbsp;</td></tr>
+								 	{/if}
+								 	<tr><td class="register_submit" colspan="2"><input type="submit" name="submit" value="注册" style="background:#0FAB64;color:#FFFFFF;font-size:14px;width:345px;line-height:32px;border:none;border-radius:4px;text-align:center;"/></td></tr>
+								</table>
+							</form>
+							</div>
+						</div>
+					</div>
+					<div class="register-right f_l o_a">
+						<div class="register-qrcode">
+							<h3>微信扫一扫,关注无忧美育</h3>
+							<a class="wximg-box"><img src="{DT_SKIN}images/qrcode.png" width=178 height=178/></a>
+							<div class="login-oauth">
+									<p>选择更便捷的登录方式</p>
+									<div class="loginutl"><span class="loginico"><a href="" title="qq登录"><img src="{DT_SKIN}images/qqico.png"/></a></span><span class="loginico"><a href="" title="微博登录"><img src="{DT_SKIN}images/weiboico.png"/></a></span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<script>
+$(".register-box").mytab("register-head","register-tab");
+</script>
+{template 'footer'}

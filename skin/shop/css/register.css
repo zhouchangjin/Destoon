@@ -1,0 +1,112 @@
+.register-wrap{
+	width:100%;
+	height:540px;
+	background:url(../images/bg.jpg) no-repeat
+}
+.register-container{
+	width:1200px;
+	margin:0 auto;
+	height:490px;
+}
+
+.register-box{
+	border: 4px solid #e4e4e4;
+	width: 954px;
+    display: block;
+    margin: 10px auto;
+    height:490px;
+    background:white;
+    padding: 21px 48px 0 48px;
+}
+.register-box .register-head {
+	border-bottom:2px solid #eee;
+}
+.register-box .register-head ul li{
+	display:inline-block;
+	background:#f0f0f0;
+	color:#666;
+	cursor:pointer;
+	font-size:16px;
+	width:140px;
+	line-height:38px;
+	text-align:center;
+	margin-right:15px;
+}
+
+.register-box .register-head ul li.select{
+	background:#f85415;
+	color:white;
+	font-weight:bold;
+}
+
+.register-box .register-body .register-left{
+	width:635px;
+	height:450px;
+	border-right:2px solid #eee;
+}
+
+.register-box .register-body  .person_box{
+	width:350px;
+	height:356px;
+	margin:60px 152px 20px 132px;
+}
+
+.register-box .register-body  .person_box table{
+	width:100%
+}
+.register-box .register-body  .person_box table tr{
+	height:52x;
+	line-height: 52px;
+	border:1px solid #eee;
+}
+.register-box .register-body  .person_box table tr:last-of-type{
+	border:none;
+}
+.register-box .register-body  .person_box .register_label{
+	width:130px;
+	padding-left:20px;
+	text-align:center;
+}
+.reg_inp{
+	border:none;
+}
+ .person_box .register_submit{
+	padding:10px 0;
+}
+
+.register-box .register-qrcode{
+	width:219px;
+	padding:36px 20px 0 78px;
+}
+
+.register-qrcode h3{
+	font-size:16px;
+	text-align:center;
+	height:50px;
+	line-height:26px;
+}
+.register-qrcode .wximg-box{
+	margin:0 auto;
+	border:1px solid #eee;
+	width:180px;
+	display:block;
+}
+.register-qrcode .wximg-box img{
+	margin:0 auto;
+}
+
+.register-box .login-oauth{
+	border-top: 1px dotted #ddd;
+	margin-top: 30px;
+	padding:10px 0 0 0;
+}
+.login-oauth p{
+	text-align:center;
+}
+.loginutl{
+	margin-top:10px;
+	text-align:center;
+}
+.loginico{
+	margin-right:15px;
+}
