@@ -4,7 +4,8 @@
 .ico_updown{ background-position: 0 -4px; width:7px; height:4px; margin-left:5px;}
 /*顶部*/
 .site_topbar{ color:#cccccc;font-family: "Microsoft YaHei";height:35px;background-color:#f5f5f5; border-bottom:1px solid #eeeeee; padding:0 0 0 0; line-height:35px; min-width:990px;}
-.site_topbar a{margin:0 10px 0 0px;color:#888888;};
+.site_topbar a{margin:0 10px 0 0px;color:#888888;}
+.site_topbar a:hover{text-decoration:none;}
 .site_topbar .right .ppd{ padding-top:3px; _padding-top:0;}
 .site_topbar .welcome{ margin-right:10px;}
 .site_topbar .left .c_f60{ margin-right:10px;}
