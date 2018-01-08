@@ -451,7 +451,8 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
 </div>
 
 <div class="index_middle">
-<h3><span class="f_r"><a target="_blank" href="{$MODULE[21][linkurl]}">更多&nbsp;&nbsp;<b class="ico ico_news"></b></a></span>美育新闻</h3>
+<!-- {php $cat=get_cat(48)} -->
+<h3><span class="f_r"><a target="_blank" href="{$MODULE[21][linkurl]}{$cat[linkurl]}">更多&nbsp;&nbsp;<b class="ico ico_news"></b></a></span>{$cat[catname]}</h3>
 <div class="newslist col f_l">
 		<!--{php $tags=tag("moduleid=21&catid=48&length=34&condition=status=3&areaid=$cityid&order=addtime&pagesize=18&target=_blank&template=null")}-->
 		<ul>
@@ -478,7 +479,8 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
 
 <div class="index_right">
 <div>
-<h3><span class="f_r"><a target="_blank" href="{$MODULE[21][linkurl]}">更多&nbsp;&nbsp;<b class="ico ico_news"></b></a></span>美育政策</h3>
+<!-- {php $cat=get_cat(116)} -->
+<h3><span class="f_r"><a target="_blank" href="{$MODULE[21][linkurl]}{$cat[linkurl]}">更多&nbsp;&nbsp;<b class="ico ico_news"></b></a></span>{$cat[catname]}</h3>
 <div class="newslist">
 <!--{php $tags=tag("moduleid=21&catid=116&length=28&condition=status=3&areaid=$cityid&order=addtime&pagesize=9&target=_blank&template=null")}-->
 		<ul>
@@ -494,7 +496,8 @@ jQuery(".picScroll").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",a
 </div>
 <div class="sep_tras b10">&nbsp;</div>
 <div>
-<h3><span class="f_r"><a target="_blank" href="{$MODULE[21][linkurl]}">更多&nbsp;&nbsp;<b class="ico ico_news"></b></a></span>美育观点</h3>
+<!-- {php $cat=get_cat(118)} -->
+<h3><span class="f_r"><a target="_blank" href="{$MODULE[21][linkurl]}{$cat[linkurl]}">更多&nbsp;&nbsp;<b class="ico ico_news"></b></a></span>{$cat[catname]}</h3>
 <div class="newslist">
 <!--{php $tags=tag("moduleid=21&catid=118&length=28&condition=status=3&areaid=$cityid&order=addtime&pagesize=6&target=_blank&template=null")}-->
 		<ul>
