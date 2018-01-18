@@ -34,7 +34,7 @@ $pages=pages($items,$page,10);
 					</div>
 					<div class="location_tabbd">
 						<div class="location_tabcnt subfilter">
-							{php $child = get_mainarea(1);}
+							{php $child = get_mainarea(110000);}
 							 <ul>
 							 {loop $child $i $c}
 							 	<li><a href="{$MOD[linkurl]}search.php?areaid={$c[areaid]}">{$c[areaname]}</a></li>
@@ -64,7 +64,7 @@ $pages=pages($items,$page,10);
 				</ul>
 			</div>
 			<div class="list_box">
-				<!--{php $tags=tag("moduleid=5&table=company&pagesize=10&page=$page&showpage=1&order=hits desc&template=null")}-->
+				<!--{php $tags=tag("moduleid=5&table=company&pagesize=10&page=$page&showpage=1&order=userid desc&template=null")}-->
 				{loop $tags $t}
 				<div class="list_item">
 					<img class="f_l" src="{imgurl($t[thumb],'201')}" width=200 height=125 />

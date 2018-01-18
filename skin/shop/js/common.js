@@ -527,3 +527,22 @@ function rePadding(f,t){
 
 }
 
+function img_tip_ad(o, i) {
+	if(i) {
+		if(i.indexOf('nopic.gif') == -1) {
+			if(i.indexOf('.thumb.') != -1) {var t = i.split('.thumb.');var s = t[0];} else {var s = i;}
+			var aTag = o; var leftpos = toppos = 0;
+			do {aTag = aTag.offsetParent; leftpos	+= aTag.offsetLeft; toppos += aTag.offsetTop;
+			} while(aTag.offsetParent != null);
+			var X = o.offsetLeft + leftpos + o.width+10;
+			var Y = o.offsetTop + toppos - 40;
+			Dd('img_tip').style.left = X + 'px';
+			Dd('img_tip').style.top = Y + 'px';
+			Ds('img_tip');
+			Inner('img_tip', '<img src="'+s+'" onload="if(this.width<200) {Dh(\'img_tip\');}else if(this.width>300){this.width=300;}Dd(\'img_tip\').style.width=this.width+\'px\';"/>')
+		}
+	} else {
+		Dh('img_tip');
+	}
+}
+
