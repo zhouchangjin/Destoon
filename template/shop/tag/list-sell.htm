@@ -17,14 +17,24 @@
 					<div class="list_body f_l o_a">
 						<div class="item_title"><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></div>
 						<div class="item_introduce">					   			
-								{$t[introduce]}
+								{mb_substr($t[introduce],0,70)}<a class="list_detail" href="{$t[linkurl]}" target="_blank">[详细]</a>
 						</div>
+						<div class="price o_a">
+							{if $t[price]>0}<div class="price_tag f_l">￥{$t[price]}</div>{else}<div class="list_btn f_l"><img src="{DT_SKIN}images/phone1.png"/>电话咨询</div>{/if}
+							
+							<div class="f_r o_a">
+					   			{if $t[level]==1}
+					   				<img src="{DT_SKIN}images/stars_01.jpg" alt="star5" width=66/>
+					   			{else}
+					   				<img src="{DT_SKIN}images/stars_02.jpg" alt="star4.5" width=66"/>
+					   			{/if}
+					   		</div>
+						</div>
+						<hr/>
 						<div class="address">
 								<img src="{DT_SKIN}images/location.png"/> <span class="address">{area_pos($t[areaid], '')}</span><span class="f_r">{timetodate($t[edittime], $datetype)}&nbsp;&nbsp;</span>
 						</div>
-						<div class="price">
-							
-						</div>
+						
 						<div class="comment hid">
 							<ul>
 								<li><a><img src="{DT_SKIN}images/pen.png"/>&nbsp;写点评</a><em>|</em></li>

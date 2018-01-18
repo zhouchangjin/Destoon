@@ -257,17 +257,23 @@ a.g:hover {color:#FF6600;}
 .m_l_2 .list_body .item_title a {font-size:16px;line-height:32px;color:#333;}
 .m_l_2 .list_body .level{}
 .m_l_2 .list_body{width:660px;font-size:12px;color:#b0b0b0}
-.m_l_2 .list_body hr{border:1px dashed #eee;margin:15px 0px}
+.m_l_2 .list_body hr{border:1px dashed #eee;margin:10px 0px}
 .m_l_2 .list_body .stylefont{color:#f85415}
 .m_l_2 .list_body .review{position:absolute;top:20px;right:20px}
 .m_l_2 .list_body .comment{position:absolute;top:0px;right:20px}
 .m_l_2 .list_body .comment ul li{display:inline;cursor:pointer}
 .m_l_2 .list_body .comment ul li em{margin-left:5px;margin-right:5px;color:#eeeeee}
 .m_l_2 .list_body .comment ul li a{color:#b0b0b0;}
+.m_l_2 .list_body .item_introduce{color:#666}
+.m_l_2 .list_body .list_detail{color: #999;font-size: 12px;}
+.m_l_2 .list_body .price_tag{color:#f85415;font-size: 14px;font-weight:bold}
+.m_l_2 .list_body .list_btn{color:#fff;font-size:12px;background:#f85415;border-radius:8px;line-height:20px;padding-left:5px;padding-right:5px;}
+.m_l_2 .list_body .list_btn img{border:none;margin-right:3px;margin-bottom:2px}
 .m_l_2 .pagination{height:35px;width:100%;margin-top:20px}
 .m_l_2 .pagination ul{float:right}
 .m_l_2 .pagination ul li{float:left;margin-right:5px;padding:10px;display:inline-block;border:1px solid #eeeeee;line-height:15px;color:#666;font-size:14px;text-align:center}
 .hid{display:none}
+
 
 .m_r_2 .box_head strong{font-size:16px}
 .m_r_2 .box_head{background:white}
