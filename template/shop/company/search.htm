@@ -1,0 +1,97 @@
+{template 'header'}
+{php $kwurl=$kw?'&kw='.$kw:''}
+<div class="m">
+<div class="pos">当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; <a href="{$MOD[linkurl]}search.php">搜索</a></div>
+<div class="m_l_2 f_l">
+	<div class="left_box">	
+	
+	<!-- 分类过滤 -->
+			<div class="category1">
+				<div id="catsfilter" class="row o_a">
+					<div class="label f_l">分类:</div>
+					<a class="f_l {if $catid==0}btn_cur{else}unsel{/if}" href="{$MOD[linkurl]}search.php?areaid={$areaid}{$kwurl}">不限</a>
+					<ul class="f_l">
+						{php $child = get_maincat(0,4,1);}
+						 {loop $child $i $c}
+						<li>
+							{if $CAT[catid]==$c[catid]}
+							<a class="btn_cur" href="{$MOD[linkurl]}search.php?areaid={$areaid}&catid={$c[catid]}{$kwurl}">{set_style($c[catname],$c[style])}</a>
+							{else}
+							<a href="{$MOD[linkurl]}search.php?areaid={$areaid}&catid={$c[catid]}{$kwurl}">{set_style($c[catname],$c[style])}</a>
+							{/if}
+							
+						</li> 
+						{/loop}
+					</ul>
+				</div>
+				<div id="locationfilter" class="row o_a">
+					<div class="location_tabhd o_a">
+						<div class="label f_l">地区:</div>
+						<a class="btn_cur f_l">不限</a>
+						<ul class="f_l">
+							<li><a>行政区</a></li>
+							<li><a>热门商圈</a></li>	
+						</ul>
+					</div>
+					<div class="location_tabbd">
+						<div class="location_tabcnt subfilter">
+							{php $child = get_mainarea(110000);}
+							 <ul>
+							 {loop $child $i $c}
+							 	<li><a href="{$MOD[linkurl]}search.php?areaid={$c[areaid]}&catid={$catid}{$kwurl}">{$c[areaname]}</a></li>
+							 {/loop}
+							 </ul>
+							 							
+						</div>
+						<div class="location_tabcnt">
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			<!-- 分类过滤完 -->	
+		
+
+	</div>
+	
+	<div class="b10">&nbsp;</div>
+	{if $tags}{template 'list-company', 'tag'}{/if}
+</div>
+<div class="m_n f_l">&nbsp;</div>
+<div class="m_r_2 f_l">
+	{if $kw}
+	<div class="box_head"><div><strong>相关搜索</strong></div></div>
+	<div class="box_body">
+		<div class="sch_site">
+			<ul>
+			{loop $MODULE $mod}{if $mod[moduleid]>3 && $mod[moduleid]!=$moduleid && !$mod[islink]}<li><a href="{$mod[linkurl]}search.php?kw={urlencode($kw)}">在 <span class="f_red">{$mod[name]}</span> 找 {$kw}</a></li>{/if}{/loop}
+			</ul>
+		</div>
+		<!--{tag("moduleid=$moduleid&table=keyword&condition=moduleid=$moduleid and status=3 and word<>'$kw' and keyword like '%$keyword%'&pagesize=10&order=total_search desc&template=list-search_relate", -2)}-->
+	</div>
+	<div class="b10">&nbsp;</div>
+	{/if}
+	<div class="sponsor">{ad($moduleid,$catid,$kw,7)}</div>
+	<div class="box_head"><div><strong>今日搜索排行</strong></div></div>
+	<div class="box_body">
+		<div class="rank_list">
+			<!--{tag("moduleid=$moduleid&table=keyword&condition=moduleid=$moduleid and status=3 and updatetime>$today_endtime-86400&pagesize=10&order=today_search desc&key=today_search&template=list-search_rank")}-->
+		</div>		
+	</div>
+	<div class="b10">&nbsp;</div>
+	<div class="box_head"><div><strong>本周搜索排行</strong></div></div>
+	<div class="box_body">
+		<div class="rank_list">
+			<!--{tag("moduleid=$moduleid&table=keyword&condition=moduleid=$moduleid and status=3 and updatetime>$today_endtime-86400*7&pagesize=10&order=week_search desc&key=week_search&template=list-search_rank")}-->
+		</div>		
+	</div>
+	<div class="b10">&nbsp;</div>
+	<div class="box_head"><div><strong>本月搜索排行</strong></div></div>
+	<div class="box_body">
+		<div class="rank_list">
+			<!--{tag("moduleid=$moduleid&table=keyword&condition=moduleid=$moduleid and status=3 and updatetime>$today_endtime-86400*30&pagesize=10&order=month_search desc&key=month_search&template=list-search_rank")}-->
+		</div>		
+	</div>
+</div>
+</div>
+{template 'footer'}
