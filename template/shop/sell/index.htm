@@ -1,5 +1,18 @@
 {template 'header'}
 <link href="{DT_SKIN}css/style_product.css" rel="stylesheet" type="text/css" />
+
+<?php
+$company_cat=array();
+$company_cat[28]=37;
+$company_cat[29]=38;
+$company_cat[30]=39;
+$company_cat[31]=40;
+$company_cat[32]=41;
+$company_cat[33]=42;
+$company_cat[34]=43;
+$company_cat[35]=44;
+$company_cat[111]=46;
+?>
 <div class="w_1200 o_a c_f">
 	<!--总分类start-->
 	<div class="w_215 f_l" >
@@ -19,49 +32,65 @@
     	<div class="index_slide">
         	<div class="slideimg bdx">
                 <ul>
-                  <li><a href="/"><img height="240" width="970" src="{DT_SKIN}images/140091315572966.jpg" alt="" /></a></li>
-				  <li><a href="/"><img height="240" width="970" src="{DT_SKIN}images/138249434672724.jpg" alt="" /></a></li>
+                  <li>{ad(27)}</li>
+				  <li>{ad(28)}</li>
+				  <li>{ad(29)}</li>
 				</ul>
             </div>
             <ul class="slidetab hd">
             <li>1</li>
 			<li>2</li>
+			<li>3</li>
 			</ul>
         </div>
 		<script type="text/javascript">
 			jQuery(".index_slide").slide( { mainCell:".slideimg ul",effect:"leftLoop",autoPlay:true} );
 		</script>
 		<!--轮播 end-->
-		        <div class="hr_10"></div>
+		<div class="hr_10"></div>
         <div class="product c_f">
 		    <!--推荐产品 start-->
             <div class="recorm_mer w_720 f_l">
             	<h2>推荐课程</h2>
                 <div class="bor c_f w_720"><span class="bor_1 f_l"></span><span class="bor_2 f_l"></span></div>
                 <div  class="recorm_list c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=38&condition=status=3 and level>0 and thumb<>''&pagesize=6&order=addtime desc&template=null");}-->
-                    {loop $tags $t}
-                    <dl class="c_f">
-					   <dt><div class="c_img c_img80"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="80"  height="80" alt="{$t[title]}" ></A></div></dt>
-					  <dd>
-					   <p class="title_pro01"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></p>
-					   <p class="price ff_yh fs_14 c_js c_999">价格<strong >：{if $t[price]>0}{$t[price]}{$DT[money_unit]}{else}面议{/if}</strong></p>
-					   <p class="company"><a class="c_999" target="_blank" href="{userurl($t[username])}">{dsubstr($t[company], 22)}</a></p>
-					  </dd>
-					</dl>
-					 {/loop}                        
-
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=32&condition=status=3 and level>0 and thumb<>''&pagesize=12&order=addtime desc&template=null");}-->
+                    
+							<div class="scrollbody">
+								<ul class="picList">
+								{loop $tags $t}
+										<li>
+										<div class="pic">
+											<a alt="{$t[title]}" href="{$t[linkurl]}" target="_blank"><img alt="{$t[title]}" src="{imgurl($t[thumb], 1)}"/></a>
+										</div>
+										<div class="course_title">
+											{$t[title]}
+										</div>
+										<div class="course_price">
+											价格<strong >：{if $t[price]>0}{$t[price]}{$DT[money_unit]}{else}面议{/if}</strong>
+										</div>
+										</li>
+								{/loop}
+								</ul>                        
+							</div>
+							<div class="scrollhead">
+								<ul></ul>
+							</div>
                 </div>
             </div>
+            <script>
+            jQuery(".recorm_list").slide({titCell:".scrollhead ul",mainCell:".scrollbody ul",autoPage:true,effect:"left",autoPlay:true,vis:5,trigger:"click"});
+            </script>
             <!--推荐产品 end-->
 			<!--最新加盟商家 start-->
     		<div class="leag w_250 f_r">
             	<div class="leag_mer">
                 	<h2><span><a class="f_r" href="/company/" target="_blank">更多</a></span>最新加盟</h2>
+                	<div class="bor c_f"><span class="bor_1 f_l"></span><span class="bor_2 f_l"></span></div>
                     <ul>
- <!--{php $tags=tag("moduleid=4&condition=groupid>5 and vip>-1 and catids<>''&areaid=$cityid&length=28&pagesize=8&order=userid desc&template=null");}-->
+ <!--{php $tags=tag("moduleid=4&condition=groupid>5 and vip>-1 and catids<>''&areaid=$cityid&length=18&pagesize=6&order=userid desc&template=null");}-->
                       {loop $tags $t}
-                      <li><span class="f_r f_gray">{area_pos($t[areaid], '/', 1)}</span><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></li>
+                      <li><span class="f_r f_gray">{area_pos($t[areaid], '', 2)}</span><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></li>
                       {/loop}
                     </ul>
                 </div>
@@ -71,580 +100,268 @@
     </div>
 </div>
 <div class="hr_10"></div>
-<div class="w_1200 o_a">
-		<a target="_blank" href="/"><img height="90" width="1200" src="{DT_SKIN}images/138249637647759.jpg" alt="" /></a>
-</div>
+
+
+
 <!--产品层 start-->
 <div class="w_1200 o_a">
+{php $child = get_maincat(0, $mid, 1);}
+{loop $child $j $course}
+{php $ij=$j+1}
+{if in_array($course[catid], array(28,29,30,31,111,32,33,34,35))}
 <!--1F start-->
-<div class="pro_sort pro_sort01 c_f mt10">
-    	<div class="cont_left w_210 f_l">
-        	<h2><a href="/sell/list.php?catid=28" target="_blank"><span class="f_r ico ico_product1"></span></a>1F 音乐</h2>
+	<div id="tabfloor{$ij}"  class="pro_sort pro_sort0{$ij} c_f mt10">
+	    <div class="floor_top tab_hd">
+	    <div class="w_220 f_l">
+	    <div class="floor_img f_l">{$ij}F</div>
+	    <div class="floor_title f_l">{$course[catname]}课程</div>
+	    </div>
+	    <div class="w_720 f_l">
+	    <ul>
+	    <li>最新</li>
+	    <li>热门</li>
+	    <li>好评</li>
+	    <li>推荐</li>
+	    </ul>
+	    </div>
+	    	 <div class="righttopic w_240 f_l">
+	    	 	<div class="rmph f_l">推荐机构</div>
+	   		 </div>
+	    </div>
+    	<div class="cont_left w_220 f_l">
+        	<h2>{$course[catname]}课程</h2>
         	<div class="ad_box">
-            	<div class="pic_tit">
-                	<h3>热门分类</h3>
-                    <span>
-					   {php $maincat = get_maincat(28, $CATEGORY);}					
-                  {loop $maincat $i $c} {if $i < 12}
-                 <a href="{$MOD[linkurl]}{$c[linkurl]}" target="_blank">{$c[catname]}</a>{/if}
-                  {/loop}          
-					</span>
+            	
+            	<div class="ad_text">
+   					{php $maincat = get_maincat($course[catid], $CATEGORY);}
+					    {loop $maincat $i $c} 
+                    <span><a href="{$c[linkurl]}" target="_blank" title="{$c[catname]}">{$c[catname]}</a></span>
+					 	{/loop}
+                    
                 </div>
-            	<!--<div class="ad_text">
-                	<h3>品牌商家</h3>
-                	<ul class="c_f">
-                        <li><a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138674414973610.jpg" alt="" /></a></li>
-						<li class="mar_let"><a target="_blank" href="/"><img height="50" width="100" src="{DT_SKIN}images/138674406023899.jpg" alt="" /></a></li>
-						<li><a target="_blank" href="/"><img height="50" width="100" src="{DT_SKIN}images/138674383682066.jpg" alt="" /></a></li>
-						<li class="mar_let"><a target="_blank" href="/"><img height="50" width="100" src="{DT_SKIN}images/138674469561857.jpg" alt="" /></a></li>
-						<li><a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138674476960136.jpg" alt="" /></a></li>
-						<li class="mar_let"><a target="_blank" href="/"><img height="50" width="100" src="{DT_SKIN}images/138674487811862.jpg" alt="" /></a></li>
-					</ul>
-                </div>-->
             </div>
         </div>
-        <div class="cont_right w_780">
-        	<div class="cont_rightone c_f">
-            	<div class="bdx f_l">
-                    <ul class="pro_list bghover c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=40&catid=28&condition=status=3 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
-                    {loop $tags $t}
-                    <li class="item">
-					   <div class="c_img"><a href="{$t[linkurl]}" target=_blank><img  src="{imgurl($t[thumb], 1)}" width="140"  height="140" alt="{$t[title]}" ></a></div>
-					   <p class="title_pro02"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></p>
-					   <p class="price ff_yh fs_14  c_js c_999">价格<strong >：{if $t[price]>0}{$t[price]}{$DT[money_unit]}{else}面议{/if}</strong></p>
-					   <p><a class="c_999" target="_blank" href="{userurl($t[username])}">{dsubstr($t[company], 22)}</a></p>
-					</li>
-					 {/loop}                        
-				   </ul>
-        		</div>
-               	<div class="hot_mer f_l">
-                	<h3>热门课程推荐</h3>
-                    <ul>
- <!--{php $tags=tag("moduleid=4&condition=groupid>5 and vip>-1 and catids<>''&areaid=$cityid&catid=2992&length=32&pagesize=8&order=userid desc&template=null");}-->
-                      {loop $tags $t}
-                      <li class="no_border"><span><?php echo $f+1;$f++?></span><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></li>
-                      {/loop}
-					</ul>
-                </div>
-            </div>
-            <!--  <div class="cont_righttwo">
-                 <ul class="c_f">
-                   <li class="" ><a target="_blank" href="/"><img height="80" width="298" src="{DT_SKIN}images/138249910257152.jpg" alt="" /></a></li>
-				   <li class="bor_rlt" ><a target="_blank" href="/"><img height="80" width="298" src="{DT_SKIN}images/138249911479039.jpg" alt="" /></a></li>
-				   <li class="no_mar" ><a target="_blank" href="/"><img height="80" width="298" src="{DT_SKIN}images/138249912443722.jpg" alt="" /></a></li>
-				 </ul>
-            </div>-->
-    	</div>
-	</div>
-<!-- 1F end-->
-<!--2F start-->
-<div class="pro_sort pro_sort02 c_f mt10">
-    	<div class="cont_left w_210 f_l">
-        	<h2><a href="/sell/list.php?catid=29" target="_blank"><span class="f_r ico ico_product2"></span></a>2F 美术</h2>
-        	<div class="ad_box">
-            	<div class="pic_tit">
-                	<h3>热门分类</h3>
-                    <span>
-					   {php $maincat = get_maincat(29, $CATEGORY);}					
-                  {loop $maincat $i $c} {if $i < 12}
-                 <a href="{$MOD[linkurl]}{$c[linkurl]}" target="_blank">{$c[catname]}</a>{/if}
-                  {/loop}          
-					</span>
-                </div>
-            	<!--<div class="ad_text">
-                	<h3>品牌商家</h3>
-                	<ul class="c_f">
-                        							<li  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138250946811196.jpg" alt="" /></a>							</li>
-													<li  class="mar_let"  >
-								<a target="_blank" href="/"><img height="50" width="100" src="{DT_SKIN}images/138674513190676.jpg" alt="" /></a>	           </li>
-													<li  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138674506171466.jpg" alt="" /></a>							</li>
-													<li  class="mar_let"  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138250936189996.jpg" alt="" /></a>							</li>
-													<li  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138250937183728.jpg" alt="" /></a>							</li>
-													<li  class="mar_let"  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138250938418206.jpg" alt="" /></a>							</li>
-						                    </ul>
-                </div>-->
-            </div>
-        </div>
-        <div class="cont_right w_780">
-        	<div class="cont_rightone c_f">
-            	<div class="bdx f_l">
-                    <ul class="pro_list bghover c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=40&catid=29&condition=status=3 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
-                    {loop $tags $t}
-                    <li class="item">
-					   <div class="c_img"><a href="{$t[linkurl]}" target=_blank><img  src="{imgurl($t[thumb], 1)}" width="140"  height="140" alt="{$t[title]}" ></a></div>
-					   <p class="title_pro02"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></p>
-					   <p class="price ff_yh fs_14  c_js c_999">价格<strong >：{if $t[price]>0}{$t[price]}{$DT[money_unit]}{else}面议{/if}</strong></p>
-					   <p><a class="c_999" target="_blank" href="{userurl($t[username])}">{dsubstr($t[company], 22)}</a></p>
-					</li>
-					 {/loop}                        
-				   </ul>
-        		</div>
-               	<div class="hot_mer f_l">
-                	<h3>热门课程推荐</h3>
-                    <ul>
- <!--{php $tags=tag("moduleid=4&condition=groupid>5 and vip>-1 and catids<>''&areaid=$cityid&catid=2953&length=32&pagesize=8&order=userid desc&template=null");}-->
-                      {loop $tags $t}
-                      <li class="no_border"><span><?php echo $e+1;$e++?></span><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></li>
-                      {/loop}
-					</ul>
-                </div>
-            </div>
-           <!--   <div class="cont_righttwo">
-                 <ul class="c_f">
-                     							<li class="" >
-								<a target="_blank"><img height="80" width="298" src="{DT_SKIN}images/138250984987509.jpg" alt="" /></a>							</li>
-												<li class="bor_rlt" >
-								<a target="_blank"><img height="80" width="298" src="{DT_SKIN}images/138250964425517.jpg" alt="" /></a>							</li>
-												<li class="no_mar" >
-								<a target="_blank"><img height="80" width="298" src="{DT_SKIN}images/138250965598684.jpg" alt="" /></a>							</li>
-					                 </ul>
-            </div>-->
-    	</div>
-	</div>
-<!--2F end-->
-<!--3F start-->
-<div class="pro_sort pro_sort03 c_f mt10">
-    	<div class="cont_left w_210 f_l">
-        	<h2><a href="/sell/list.php?catid=30" target="_blank"><span class="f_r ico ico_product3"></span></a>3F 舞蹈</h2>
-        	<div class="ad_box">
-            	<div class="pic_tit">
-                	<h3>热门分类</h3>
-                    <span>
-					   {php $maincat = get_maincat(30, $CATEGORY);}					
-                  {loop $maincat $i $c} {if $i < 12}
-                 <a href="{$MOD[linkurl]}{$c[linkurl]}" target="_blank">{$c[catname]}</a>{/if}
-                  {/loop}          
-					</span>
-                </div>
-            	<!--<div class="ad_text">
-                	<h3>品牌商家</h3>
-                	<ul class="c_f">
-                        							<li  >
-								<a target="_blank" href="/"><img height="50" width="100" src="{DT_SKIN}images/138674520328396.jpg" alt="" /></a>							</li>
-													<li  class="mar_let"  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138251024655170.jpg" alt="" /></a>							</li>
-													<li  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138251018127355.jpg" alt="" /></a>							</li>
-													<li  class="mar_let"  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138251019125966.jpg" alt="" /></a>							</li>
-													<li  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138251020071196.jpg" alt="" /></a>							</li>
-													<li  class="mar_let"  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138251020931713.jpg" alt="" /></a>							</li>
-						                    </ul>
-                </div>-->
-            </div>
-        </div>
-        <div class="cont_right w_780">
-        	<div class="cont_rightone c_f">
-            	<div class="bdx f_l">
-                    <ul class="pro_list bghover c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=40&catid=30&condition=status=3 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
-                    {loop $tags $t}
-                    <li class="item">
-					   <div class="c_img"><a href="{$t[linkurl]}" target=_blank><img  src="{imgurl($t[thumb], 1)}" width="140"  height="140" alt="{$t[title]}" ></a></div>
-					   <p class="title_pro02"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></p>
-					   <p class="price ff_yh fs_14  c_js c_999">价格<strong >：{if $t[price]>0}{$t[price]}{$DT[money_unit]}{else}面议{/if}</strong></p>
-					   <p><a class="c_999" target="_blank" href="{userurl($t[username])}">{dsubstr($t[company], 22)}</a></p>
-					</li>
-					 {/loop}                        
-				   </ul>
-        		</div>
-               	<div class="hot_mer f_l">
-                	<h3>热门课程推荐</h3>
-                    <ul>
- <!--{php $tags=tag("moduleid=4&condition=groupid>5 and vip>-1 and catids<>''&areaid=$cityid&catid=2596&length=32&pagesize=8&order=userid desc&template=null");}-->
-                      {loop $tags $t}
-                      <li class="no_border"><span><?php echo $g+1;$g++?></span><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></li>
-                      {/loop}
-					</ul>
-                </div>
-            </div>
-            <!-- <div class="cont_righttwo">
-                 <ul class="c_f">
-                     							<li class="" >
-								<a target="_blank"><img height="80" width="298" src="{DT_SKIN}images/138251037099378.jpg" alt="" /></a></li>
-												<li class="bor_rlt" >
-								<a target="_blank"><img height="80" width="298" src="{DT_SKIN}images/138251038034462.jpg" alt="" /></a></li>
-												<li class="no_mar" >
-								<a target="_blank"><img height="80" width="298" src="{DT_SKIN}images/138251047581544.jpg" alt="" /></a></li>
-					                 </ul>
-            </div> -->
-    	</div>
-	</div>
-<!--3F end-->
-<!--4F start-->
-<div class="pro_sort pro_sort04 c_f mt10">
-    	<div class="cont_left w_210 f_l">
-        	<h2><a href="/sell/list.php?catid=31" target="_blank"><span class="f_r ico ico_product4"></span></a>4F 国学</h2>
-        	<div class="ad_box">
-            	<div class="pic_tit">
-                	<h3>热门分类</h3>
-                    <span>
-					   {php $maincat = get_maincat(31, $CATEGORY);}					
-                  {loop $maincat $i $c} {if $i < 12}
-                 <a href="{$MOD[linkurl]}{$c[linkurl]}" target="_blank">{$c[catname]}</a>{/if}
-                  {/loop}          
-					</span>
-                </div>
-            	<!--<div class="ad_text">
-                	<h3>品牌商家</h3>
-                	<ul class="c_f">
-                        							<li  >
-								<a target="_blank" href="/"><img height="50" width="100" src="{DT_SKIN}images/138674531191560.jpg" alt="" /></a>							</li>
-													<li  class="mar_let"  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138251073529108.jpg" alt="" /></a>							</li>
-													<li  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138674539221319.jpg" alt="" /></a>							</li>
-													<li  class="mar_let"  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138674541596907.jpg" alt="" /></a>							</li>
-													<li  >
-								<a target="_blank" href="/"><img height="50" width="100" src="{DT_SKIN}images/138674544196057.jpg" alt="" /></a>							</li>
-													<li  class="mar_let"  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138251070357442.jpg" alt="" /></a>							</li>
-						                    </ul>
-                </div>-->
-            </div>
-        </div>
-        <div class="cont_right w_780">
-        	<div class="cont_rightone c_f">
-            	<div class="bdx f_l">
-                    <ul class="pro_list bghover c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=40&catid=31&condition=status=3 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
-                    {loop $tags $t}
-                    <li class="item">
-					   <div class="c_img"><a href="{$t[linkurl]}" target=_blank><img  src="{imgurl($t[thumb], 1)}" width="140"  height="140" alt="{$t[title]}" ></a></div>
-					   <p class="title_pro02"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></p>
-					   <p class="price ff_yh fs_14  c_js c_999">价格<strong >：{if $t[price]>0}{$t[price]}{$DT[money_unit]}{else}面议{/if}</strong></p>
-					   <p><a class="c_999" target="_blank" href="{userurl($t[username])}">{dsubstr($t[company], 22)}</a></p>
-					</li>
-					 {/loop}                        
-				   </ul>
-        		</div>
-               	<div class="hot_mer f_l">
-                	<h3>热门课程推荐</h3>
-                    <ul>
- <!--{php $tags=tag("moduleid=4&condition=groupid>5 and vip>-1 and catids<>''&areaid=$cityid&catid=2516&length=32&pagesize=8&order=userid desc&template=null");}-->
-                      {loop $tags $t}
-                      <li class="no_border"><span><?php echo $h+1;$h++?></span><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></li>
-                      {/loop}
-					</ul>
-                </div>
-            </div>
-            <!-- <div class="cont_righttwo">
-                 <ul class="c_f">
-                     							<li class="" >
-								<a target="_blank"><img height="80" width="298" src="{DT_SKIN}images/138251080386769.jpg" alt="" /></a>							</li>
-												<li class="bor_rlt" >
-								<a target="_blank"><img height="80" width="298" src="{DT_SKIN}images/138251081388482.jpg" alt="" /></a>							</li>
-												<li class="no_mar" >
-								<a target="_blank"><img height="80" width="298" src="{DT_SKIN}images/138251082186231.jpg" alt="" /></a>							</li>
-					                 </ul>
-            </div> -->
-    	</div>
-	</div>
-<!--4F end-->
-<!--5F start-->
-<div class="pro_sort pro_sort05 c_f mt10">
-    	<div class="cont_left w_210 f_l">
-        	<h2><a href="/sell/list.php?catid=111" target="_blank"><span class="f_r ico ico_product5"></span></a>5F 棋类</h2>
-        	<div class="ad_box">
-            	<div class="pic_tit">
-                	<h3>热门分类</h3>
-                    <span>
-					   {php $maincat = get_maincat(111, $CATEGORY);}					
-                  {loop $maincat $i $c} {if $i < 12}
-                 <a href="{$MOD[linkurl]}{$c[linkurl]}" target="_blank">{$c[catname]}</a>{/if}
-                  {/loop}          
-					</span>
-                </div>
-            	<!--<div class="ad_text">
-                	<h3>品牌商家</h3>
-                	<ul class="c_f">
-                        							<li  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138672318412701.jpg" alt="" /></a>							</li>
-													<li  class="mar_let"  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138674586231084.jpg" alt="" /></a>							</li>
-													<li  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138674565435330.jpg" alt="" /></a>							</li>
-													<li  class="mar_let"  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138674569480045.jpg" alt="" /></a>							</li>
-													<li  >
-								<a target="_blank" href="/"><img height="50" width="100" src="{DT_SKIN}images/138674575748676.jpg" alt="" /></a>							</li>
-													<li  class="mar_let"  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138674582460834.jpg" alt="" /></a>							</li>
-						                    </ul>
-                </div>-->
-            </div>
-        </div>
-        <div class="cont_right w_780">
-        	<div class="cont_rightone c_f">
-            	<div class="bdx f_l">
-                    <ul class="pro_list bghover c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=40&catid=111&condition=status=3 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
-                    {loop $tags $t}
-                    <li class="item">
-					   <div class="c_img"><a href="{$t[linkurl]}" target=_blank><img  src="{imgurl($t[thumb], 1)}" width="140"  height="140" alt="{$t[title]}" ></a></div>
-					   <p class="title_pro02"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></p>
-					   <p class="price ff_yh fs_14  c_js c_999">价格<strong >：{if $t[price]>0}{$t[price]}{$DT[money_unit]}{else}面议{/if}</strong></p>
-					   <p><a class="c_999" target="_blank" href="{userurl($t[username])}">{dsubstr($t[company], 22)}</a></p>
-					</li>
-					 {/loop}                        
-				   </ul>
-        		</div>
-               	<div class="hot_mer f_l">
-                	<h3>热门课程推荐</h3>
-                    <ul>
- <!--{php $tags=tag("moduleid=4&condition=groupid>5 and vip>-1 and catids<>''&areaid=$cityid&catid=2739&length=32&pagesize=8&order=userid desc&template=null");}-->
-                      {loop $tags $t}
-                      <li class="no_border"><span><?php echo $l+1;$l++?></span><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></li>
-                      {/loop}
-					</ul>
-                </div>
-            </div>
-            <!-- <div class="cont_righttwo">
-                 <ul class="c_f">
-                     							<li class="" >
-								<a target="_blank"><img height="80" width="298" src="{DT_SKIN}images/138251117322082.jpg" alt="" /></a>							</li>
-												<li class="bor_rlt" >
-								<a target="_blank"><img height="80" width="298" src="{DT_SKIN}images/138251118385382.jpg" alt="" /></a>							</li>
-												<li class="no_mar" >
-								<a target="_blank"><img height="80" width="298" src="{DT_SKIN}images/138251119241425.jpg" alt="" /></a>							</li>
-					                 </ul>
-            </div> -->
-    	</div>
-	</div>
-<!--5F end-->
-<!--6F start-->
-<div class="pro_sort pro_sort06 c_f mt10">
-    	<div class="cont_left w_210 f_l">
-        	<h2><a href="/sell/list.php?catid=32" target="_blank"><span class="f_r ico ico_product6"></span></a>6F 外语</h2>
-        	<div class="ad_box">
-            	<div class="pic_tit">
-                	<h3>热门分类</h3>
-                    <span>
-					   {php $maincat = get_maincat(32, $CATEGORY);}					
-                  {loop $maincat $i $c} {if $i < 12}
-                 <a href="{$MOD[linkurl]}{$c[linkurl]}" target="_blank">{$c[catname]}</a>{/if}
-                  {/loop}          
-					</span>
-                </div>
-            	<!--<div class="ad_text">
-                	<h3>品牌商家</h3>
-                	<ul class="c_f">
-                        							<li  >
-								<a target="_blank" href="/"><img height="50" width="100" src="{DT_SKIN}images/138674596795145.jpg" alt="" /></a>							</li>
-													<li  class="mar_let"  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138251147486776.jpg" alt="" /></a>							</li>
-													<li  >
-								<a target="_blank" href="/"><img height="50" width="100" src="{DT_SKIN}images/138674607253918.jpg" alt="" /></a>							</li>
-													<li  class="mar_let"  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138251141576718.jpg" alt="" /></a>							</li>
-													<li  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138251142645687.jpg" alt="" /></a>							</li>
-													<li  class="mar_let"  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138251143594507.jpg" alt="" /></a>							</li>
-						                    </ul>
-                </div>-->
-            </div>
-        </div>
-        <div class="cont_right w_780">
-        	<div class="cont_rightone c_f">
-            	<div class="bdx f_l">
-                    <ul class="pro_list bghover c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=40&catid=32&condition=status=3 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
-                    {loop $tags $t}
-                    <li class="item">
-					   <div class="c_img"><a href="{$t[linkurl]}" target=_blank><img  src="{imgurl($t[thumb], 1)}" width="140"  height="140" alt="{$t[title]}" ></a></div>
-					   <p class="title_pro02"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></p>
-					   <p class="price ff_yh fs_14  c_js c_999">价格<strong >：{if $t[price]>0}{$t[price]}{$DT[money_unit]}{else}面议{/if}</strong></p>
-					   <p><a class="c_999" target="_blank" href="{userurl($t[username])}">{dsubstr($t[company], 22)}</a></p>
-					</li>
-					 {/loop}                        
-				   </ul>
-        		</div>
-               	<div class="hot_mer f_l">
-                	<h3>热门课程推荐</h3>
-                    <ul>
- <!--{php $tags=tag("moduleid=4&condition=groupid>5 and vip>-1 and catids<>''&areaid=$cityid&catid=3163&length=32&pagesize=8&order=userid desc&template=null");}-->
-                      {loop $tags $t}
-                      <li class="no_border"><span><?php echo $n+1;$n++?></span><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></li>
-                      {/loop}
-					</ul>
-                </div>
-            </div>
-            <!-- <div class="cont_righttwo">
-                 <ul class="c_f">
-                     							<li class="" >
-								<a target="_blank"><img height="80" width="298" src="{DT_SKIN}images/138251157266896.jpg" alt="" /></a>							</li>
-												<li class="bor_rlt" >
-								<a target="_blank"><img height="80" width="298" src="{DT_SKIN}images/138251159152998.jpg" alt="" /></a>							</li>
-												<li class="no_mar" >
-								<a target="_blank"><img height="80" width="298" src="{DT_SKIN}images/138251153862057.jpg" alt="" /></a>							</li>
-					                 </ul>
+        
+        <!-- 最新课程 -->
+        <div class="cont_middle f_l tab_cont">
 
-            </div> -->
-    	</div>
-	</div>
-<!--6F end-->
-<!--7F start-->
-<div class="pro_sort pro_sort07 c_f mt10">
-    	<div class="cont_left w_210 f_l">
-        	<h2><a href="/sell/list.php?catid=33" target="_blank"><span class="f_r ico ico_product7"></span></a>7F 体育</h2>
-        	<div class="ad_box">
-            	<div class="pic_tit">
-                	<h3>热门分类</h3>
-                    <span>
-					   {php $maincat = get_maincat(33, $CATEGORY);}					
-                  {loop $maincat $i $c} {if $i < 12}
-                 <a href="{$MOD[linkurl]}{$c[linkurl]}" target="_blank">{$c[catname]}</a>{/if}
-                  {/loop}          
-					</span>
-                </div>
-            	<!--<div class="ad_text">
-                	<h3>品牌商家</h3>
-                	<ul class="c_f">
-                        							<li  >
-								<a target="_blank" href="/"><img height="50" width="100" src="{DT_SKIN}images/138674643065427.jpg" alt="" /></a>							</li>
-													<li  class="mar_let"  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138674647355775.jpg" alt="" /></a>							</li>
-													<li  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138674650132414.jpg" alt="" /></a>							</li>
-													<li  class="mar_let"  >
-								<a target="_blank" href="/"><img height="50" width="100" src="{DT_SKIN}images/138674652038223.jpg" alt="" /></a>							</li>
-													<li  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138251189441054.jpg" alt="" /></a>							</li>
-													<li  class="mar_let"  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138251190918292.jpg" alt="" /></a>							</li>
-						                    </ul>
-                </div>-->
-            </div>
-        </div>
-        <div class="cont_right w_780">
-        	<div class="cont_rightone c_f">
-            	<div class="bdx f_l">
-                    <ul class="pro_list bghover c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=40&catid=33&condition=status=3 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
+            <div class="bdx">
+                <ul class="pro_list bghover c_f">
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=20&catid=".$course[catid]."&condition=status=3 and thumb<>''&pagesize=6&order=edittime desc&template=null");}-->
                     {loop $tags $t}
-                    <li class="item">
-					   <div class="c_img"><a href="{$t[linkurl]}" target=_blank><img  src="{imgurl($t[thumb], 1)}" width="140"  height="140" alt="{$t[title]}" ></a></div>
-					   <p class="title_pro02"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></p>
-					   <p class="price ff_yh fs_14  c_js c_999">价格<strong >：{if $t[price]>0}{$t[price]}{$DT[money_unit]}{else}面议{/if}</strong></p>
-					   <p><a class="c_999" target="_blank" href="{userurl($t[username])}">{dsubstr($t[company], 22)}</a></p>
+                    <li class=" item">
+					   <div class="c_img"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="220"  height="140" alt="{$t[title]}" ></A></div>
+					   <div class="title_pro02"><div class="f_l"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></div>
+					   		<div class="f_r o_a">
+					   			{if $t[level]==1}
+					   				<img src="{DT_SKIN}images/stars_01.jpg" alt="star5" width=66/>
+					   			{else}
+					   				<img src="{DT_SKIN}images/stars_02.jpg" alt="star4.5" width=66"/>
+					   			{/if}
+					   		</div>
+					   	</div>
+					   <div class="price ff_yh fs_14  c_js f_l">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div><div class="learnum fs_14 f_r"><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
+					   
 					</li>
 					 {/loop}                        
-				   </ul>
-        		</div>
-               	<div class="hot_mer f_l">
-                	<h3>热门课程推荐</h3>
-                    <ul>
-                   <ul>
- <!--{php $tags=tag("moduleid=4&condition=groupid>5 and vip>-1 and catids<>''&areaid=$cityid&catid=3129&length=32&pagesize=8&order=userid desc&template=null");}-->
-                         {loop $tags $t}
-                      <li class="no_border"><span><?php echo $p+1;$p++?></span><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></li>
-                      {/loop}
-					</ul>
-            </div>
-            </div>
-            <!--  <div class="cont_righttwo">
-                 <ul class="c_f">
-                     							<li class="" >
-								<a target="_blank"><img height="80" width="298" src="{DT_SKIN}images/138251201478274.jpg" alt="" /></a>							</li>
-												<li class="bor_rlt" >
-								<a target="_blank"><img height="80" width="298" src="{DT_SKIN}images/138251202979804.jpg" alt="" /></a>							</li>
-												<li class="no_mar" >
-								<a target="_blank"><img height="80" width="298" src="{DT_SKIN}images/138251204422371.jpg" alt="" /></a>							</li>
-					                 </ul>
-            </div>-->
-    	</div>
-	</div>
-<!--7F end-->
-<!--8F start-->
-<div class="pro_sort pro_sort08 c_f mt10">
-    	<div class="cont_left w_210 f_l">
-        	<h2><a href="/sell/list.php?catid=34" target="_blank"><span class="f_r ico ico_product8"></span></a>8F 兴趣</h2>
-        	<div class="ad_box">
-            	<div class="pic_tit">
-                	<h3>热门分类</h3>
-                    <span>
-					   {php $maincat = get_maincat(34, $CATEGORY);}					
-                  {loop $maincat $i $c} {if $i < 12}
-                 <a href="{$MOD[linkurl]}{$c[linkurl]}" target="_blank">{$c[catname]}</a>{/if}
-                  {/loop}          
-					</span>
-                </div>
-            	<!--<div class="ad_text">
-                	<h3>品牌商家</h3>
-                	<ul class="c_f">
-                        							<li  >
-								<a target="_blank" href="/"><img height="50" width="100" src="{DT_SKIN}images/138674658589020.jpg" alt="" /></a>							</li>
-													<li  class="mar_let"  >
-								<a target="_blank" href="/"><img height="50" width="100" src="{DT_SKIN}images/138674665155857.jpg" alt="" /></a>							</li>
-													<li  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138674668290423.jpg" alt="" /></a>							</li>
-													<li  class="mar_let"  >
-								<a target="_blank" href="/"><img height="50" width="100" src="{DT_SKIN}images/138674670275281.jpg" alt="" /></a>							</li>
-													<li  >
-								<a target="_blank" href="/"><img height="50" width="100" src="{DT_SKIN}images/138674674311512.jpg" alt="" /></a>							</li>
-													<li  class="mar_let"  >
-								<a target="_blank"><img height="50" width="100" src="{DT_SKIN}images/138251238890614.jpg" alt="" /></a>							</li>
-						                    </ul>
-                </div>-->
-            </div>
+                </ul>
+
+        	</div>
         </div>
-        <div class="cont_right w_780">
-        	<div class="cont_rightone c_f">
-            	<div class="bdx f_l">
-                    <ul class="pro_list bghover c_f">
-<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=40&catid=34&condition=status=3 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
+        <!--  最新课程 -->
+        
+       <!-- 热门课程 --> 
+       <div class="cont_middle f_l tab_cont">
+
+            <div class="bdx">
+                <ul class="pro_list bghover c_f">
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=20&catid=".$course[catid]."&condition=status=3 and thumb<>''&pagesize=6&order=hits desc&template=null");}-->
                     {loop $tags $t}
-                    <li class="item">
-					   <div class="c_img"><a href="{$t[linkurl]}" target=_blank><img  src="{imgurl($t[thumb], 1)}" width="140"  height="140" alt="{$t[title]}" ></a></div>
-					   <p class="title_pro02"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></p>
-					   <p class="price ff_yh fs_14  c_js c_999">价格<strong >：{if $t[price]>0}{$t[price]}{$DT[money_unit]}{else}面议{/if}</strong></p>
-					   <p><a class="c_999" target="_blank" href="{userurl($t[username])}">{dsubstr($t[company], 22)}</a></p>
+                    <li class=" item">
+					   <div class="c_img"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="220"  height="140" alt="{$t[title]}" ></A></div>
+					   <div class="title_pro02"><div class="f_l"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></div>
+					   		<div class="f_r o_a">
+					   			{if $t[level]==1}
+					   				<img src="{DT_SKIN}images/stars_01.jpg" alt="star5" width=66/>
+					   			{else}
+					   				<img src="{DT_SKIN}images/stars_02.jpg" alt="star4.5" width=66"/>
+					   			{/if}
+					   		</div>
+					   	</div>
+					   <div class="price ff_yh fs_14  c_js f_l">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div><div class="learnum fs_14 f_r"><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
+					   
 					</li>
 					 {/loop}                        
-				   </ul>
+                </ul>
+
+        	</div>
+        </div>
+       <!-- 热门课程 -->
+       
+       <!-- 好评课程 -->
+        <div class="cont_middle f_l tab_cont">
+
+            <div class="bdx">
+                <ul class="pro_list bghover c_f">
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=20&catid=".$course[catid]."&condition=status=3 and thumb<>''&pagesize=6&order=price desc&template=null");}-->
+                    {loop $tags $t}
+                    <li class=" item">
+					   <div class="c_img"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="220"  height="140" alt="{$t[title]}" ></A></div>
+					   <div class="title_pro02"><div class="f_l"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></div>
+					   		<div class="f_r o_a">
+					   			{if $t[level]==1}
+					   				<img src="{DT_SKIN}images/stars_01.jpg" alt="star5" width=66/>
+					   			{else}
+					   				<img src="{DT_SKIN}images/stars_02.jpg" alt="star4.5" width=66"/>
+					   			{/if}
+					   		</div>
+					   	</div>
+					   <div class="price ff_yh fs_14  c_js f_l">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div><div class="learnum fs_14 f_r"><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
+					   
+					</li>
+					 {/loop}                        
+                </ul>
+
+        	</div>
+        </div>
+        <!-- 好评课程 -->
+        
+        
+        <!-- 推荐课程 -->
+        <div class="cont_middle f_l tab_cont">
+
+            <div class="bdx">
+                <ul class="pro_list bghover c_f">
+<!--{php $tags=tag("moduleid=5&areaid=$cityid&length=20&catid=".$course[catid]."&condition=status=3 and level=1 and thumb<>''&pagesize=6&order=addtime desc&template=null");}-->
+                    {loop $tags $t}
+                    <li class=" item">
+					   <div class="c_img"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="220"  height="140" alt="{$t[title]}" ></A></div>
+					   <div class="title_pro02"><div class="f_l"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></div>
+					   		<div class="f_r o_a">
+					   			{if $t[level]==1}
+					   				<img src="{DT_SKIN}images/stars_01.jpg" alt="star5" width=66/>
+					   			{else}
+					   				<img src="{DT_SKIN}images/stars_02.jpg" alt="star4.5" width=66/>
+					   			{/if}
+					   		</div>
+					   </div>
+					   <div class="price ff_yh fs_14  c_js f_l">￥{if $t[price]>0}{$t[price]}{else}免费{/if}</div><div class="learnum fs_14 f_r"><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
+					   
+					</li>
+					 {/loop}                        
+                </ul>
+
+        	</div>
+        </div>
+         <!-- 推荐课程 -->
+
+
+
+        <div id="recm_{$ij}" class="cont_right f_l">
+        	<div class="recm_headder tabhd">
+        		<ul>
+        			<li>推荐机构</li><li>最新机构</li>
+        		</ul>
+        	</div>
+        	<div class="recm_body">
+        		<div class="tabcont">
+        		   <ul>
+        		   		<!--{php $tags=tag("moduleid=4&areaid=$cityid&length=22&catid=".$company_cat[$course[catid]]."&condition=level=1&pagesize=10&order=validtime desc&template=null");}-->
+
+        		   		{loop $tags $i $t}
+        		   		 <li>
+        		   			<div class="rTitle o_a">
+        		   				<div class="ratitle">
+        		   			  	{if $i==0}
+        		   			  	    <div class="ranking f_l toprank">{$i+1}</div>
+        		   			  	{elseif $i==1}
+        		   			  	    <div class="ranking f_l secondrank">{$i+1}</div>
+        		   			  	{elseif $i==2}
+        		   			  	    <div class="ranking f_l thirdrank">{$i+1}</div>
+        		   			  	{else}
+        		   			  	    <div class="ranking f_l">{$i+1}</div> 
+        		   			  	{/if}
+        		   			  	<a href="{$t[linkurl]}" target="_blank" title="{$t[company]}">{$t[company]}</a>
+        		   			  	</div>
+        		   			  	{if $i==0}
+        		   			  	<div class="rabody">
+        		   			  	<div class="f_l"><img width="75" height="45" src='{imgurl($t[thumb], 1)}'/></div>
+        		   			  	<div class="rafee f_l">
+        		   			  		<div>
+					   					{if $t[level]==1}
+					   				<img src="{DT_SKIN}images/stars_01.jpg" alt="star5" width=66/>
+					   					{else}
+					   				<img src="{DT_SKIN}images/stars_02.jpg" alt="star4.5" width=66/>
+					   					{/if}
+					   				</div>
+        		   			  		<div><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
+        		   			  	</div>
+        		   			  	</div>	
+        		   			  	{/if}
+ 
+        		   			  	
+        		   			</div>
+        		   		</li>
+        		   		{/loop}
+        		   </ul>
+        			
         		</div>
-               	<div class="hot_mer f_l">
-                	<h3>热门课程推荐</h3>
-                    <ul>
- <!--{php $tags=tag("moduleid=4&condition=groupid>5 and vip>-1 and catids<>''&areaid=$cityid&catid=2760&length=32&pagesize=8&order=userid desc&template=null");}-->
-                      {loop $tags $t}
-                      <li class="no_border"><span><?php echo $p+1;$p++?></span><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></li>
-                      {/loop}
-					</ul>
-                </div>
-            </div>
-            <!-- <div class="cont_righttwo">
-                 <ul class="c_f">
-                     							<li class="" >
-								<a target="_blank"><img height="80" width="298" src="{DT_SKIN}images/138251251929772.jpg" alt="" /></a>							</li>
-												<li class="bor_rlt" >
-								<a target="_blank"><img height="80" width="298" src="{DT_SKIN}images/138251253560182.jpg" alt="" /></a>							</li>
-												<li class="no_mar" >
-								<a target="_blank"><img height="80" width="298" src="{DT_SKIN}images/138251254919476.jpg" alt="" /></a>							</li>
-					                 </ul>
-            </div> -->
-    	</div>
-	</div>
-<!--8F end-->
+        		<div class="tabcont">
+        			<ul>
+        		   		<!--{php $tags=tag("moduleid=4&areaid=$cityid&length=22&catid=".$company_cat[$course[catid]]."&pagesize=10&order=validtime desc&template=null");}-->
+
+        		   		{loop $tags $i $t}
+        		   		<li>
+        		   			<div class="rTitle o_a">
+        		   				<div class="ratitle">
+        		   			  	{if $i==0}
+        		   			  	    <div class="ranking f_l toprank">{$i+1}</div>
+        		   			  	{elseif $i==1}
+        		   			  	    <div class="ranking f_l secondrank">{$i+1}</div>
+        		   			  	{elseif $i==2}
+        		   			  	    <div class="ranking f_l thirdrank">{$i+1}</div>
+        		   			  	{else}
+        		   			  	    <div class="ranking f_l">{$i+1}</div> 
+        		   			  	{/if}
+        		   			  	<a href="{$t[linkurl]}" target="_blank" title="{$t[company]}">{$t[company]}</a>
+        		   			  	</div>
+        		   			  	{if $i==0}
+        		   			  	<div class="rabody">
+        		   			  	<div class="f_l"><img width="75" height="45" src='{imgurl($t[thumb], 1)}'/></div>
+        		   			  	<div class="rafee f_l">
+        		   			  		<div>
+					   					{if $t[level]==1}
+					   				<img src="{DT_SKIN}images/stars_01.jpg" alt="star5" width=66/>
+					   					{else}
+					   				<img src="{DT_SKIN}images/stars_02.jpg" alt="star4.5" width=66/>
+					   					{/if}
+					   				</div>
+        		   			  		<div><img src="{DT_SKIN}images/user.png"/>{rand(5,120)}人点评</div>
+        		   			  	</div>
+        		   			  	</div>	
+        		   			  	{/if}
+ 
+        		   			  	
+        		   			</div>
+        		   		</li>
+        		   		{/loop}
+        		  	 </ul>
+        		</div>
+        	</div>
+        	
+        </div>
+    </div>
+<!--1F end-->
+<script type="text/javascript">
+	    $("#tabfloor{$ij}").TabADS();
+        $("#recm_{$ij}").mytab("tabhd","tabcont");
+      
+</script>
+{/if} 
+{/loop}
+
 </div>
 <!--产品层 end-->
-<script type="text/javascript">
-$(function(){
-	$('.c_img100 img').LoadImage(true,100,100);
-	$('.c_img160 img').LoadImage(true,160,160);
-	$('.c_img80 img').LoadImage(true,80,80);
-	$('.c_img140 img').LoadImage(true,140,140);
-});
-</script>
+
+
 {template 'footer'}
