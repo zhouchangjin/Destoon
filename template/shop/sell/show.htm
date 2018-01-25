@@ -1,148 +1,198 @@
 {template 'header'}
+<link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+<script src="http://cache.amap.com/lbs/static/es5.min.js"></script>
+<script src="http://webapi.amap.com/maps?v=1.4.3&key=b067e3c67b11b14b67861e4d3c8f5e0a&plugin=AMap.Geocoder"></script>
+<script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+    
+<link href="{DT_SKIN}font.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">var module_id= {$moduleid},item_id={$itemid},content_id='content',img_max_width={$MOD[max_width]};</script>
-<div class="m">
-	<div class="left_box">		
-		<div class="pos"><span class="f_r"><a href="{$MODULE[2][linkurl]}{$DT[file_my]}?mid={$moduleid}&action=add&catid={$catid}" rel="nofollow"><img src="{DT_SKIN}image/btn_add.gif" width="81" height="20" alt="发布信息" style="margin-top:6px;"/></a></span>当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {cat_pos($CAT, ' &raquo; ')} &raquo;</div>
-		<div class="b10 c_b"></div>
-		<table width="100%">
-		<tr>
-		<td width="10"> </td>
-		<td>
-			<table width="100%">
-			<tr>
-			<td colspan="3"><h1 class="title_trade" id="title">{$title}</h1></td>
-			</tr>
-			<tr>
-			<td width="250" valign="top">
-				<div id="mid_pos"></div>
-				<div id="mid_div" onmouseover="SAlbum();" onmouseout="HAlbum();" onclick="PAlbum(Dd('mid_pic'));">
-				<img src="{$albums[0]}" width="240" height="180" id="mid_pic"/><span id="zoomer"></span>
-				</div>
-				<div class="b5"></div>
-				<div>
-				{loop $thumbs $k $v}<img src="{$v}" width="60" height="60" onmouseover="if(this.src.indexOf('nopic60.gif')==-1)Album({$k}, '{$albums[$k]}');" class="{if $k}ab_im{else}ab_on{/if}" id="t_{$k}"/>{/loop}
-				</div>
-				<div class="b5"></div>
-				<div onclick="PAlbum(Dd('mid_pic'));" class="c_b t_c c_p"><img src="{DT_SKIN}image/ico_zoom.gif" width="16" height="16" align="absmiddle"/> 点击图片查看原图</div>
-			</td>
-			<td width="15"> </td>
-			<td valign="top">
-				<div id="big_div" style="display:none;"><img src="" id="big_pic"/></div>
-				<table width="100%" cellpadding="5" cellspacing="5">
-				{if $brand}
-				<tr>
-				<td class="f_dblue">品牌：</td>
-				<td>{$brand}</td>
-				</tr>
-				{/if}
-				{if $n1 && $v1}
-				<tr>
-				<td class="f_dblue">{$n1}：</td>
-				<td>{$v1}</td>
-				</tr>
-				{/if}
-				{if $n2 && $v2}
-				<tr>
-				<td class="f_dblue">{$n2}：</td>
-				<td>{$v2}</td>
-				</tr>
-				{/if}
-				{if $n3 && $v3}
-				<tr>
-				<td class="f_dblue">{$n3}：</td>
-				<td>{$v3}</td>
-				</tr>
-				{/if}
-				<tr>
-				<td class="f_dblue">单价：</td>
-				<td class="f_b f_orange">{if $price>0}{$price}{$DT[money_unit]}/{$unit}{else}面议{/if}</td>
-				</tr>
-				<tr>
-				<td class="f_dblue">起订：</td>
-				<td class="f_b f_orange">{if $minamount}{$minamount} {$unit}{/if}</td>
-				</tr>
-				<tr>
-				<td class="f_dblue">供货总量：</td>
-				<td class="f_b f_orange">{if $amount}{$amount} {$unit}{/if}</td>
-				</tr>
-				<tr>
-				<td class="f_dblue">发货期限：</td>
-				<td>自买家付款之日起  <span class="f_b f_orange">{if $days}{$days}{/if}</span> 天内发货</td>
-				</tr>
-				<tr>
-				<td class="f_dblue">所在地：</td>
-				<td>{area_pos($areaid, ' ')}</td>
-				</tr>
-				<tr>
-				<td class="f_dblue">有效期至：</td>
-				<td>{if $todate}{$todate}{else}长期有效{/if}{if $expired} <span class="f_red">[已过期]</span>{/if}</td>
-				</tr>
-				<tr>
-				<td class="f_dblue">最后更新：</td>
-				<td>{$editdate}</td>
-				</tr>
-				<tr>
-				<td width="80" class="f_dblue">浏览次数：</td>
-				<td><span id="hits">{$hits}</span></td>
-				</tr>
-				{if $username && !$expired}
-				<tr>
-				<td colspan="2"><img src="{DT_SKIN}image/btn_inquiry.gif" alt="询价" class="c_p" onclick="Go('{$MOD[linkurl]}{rewrite('inquiry.php?itemid='.$itemid)}');"/></td>
-				</tr>
-				{/if}
-				</table>
-			</td>
-			</tr>
-		</table>
-		</td>
-		<td width="10"> </td>
-		<td width="300" valign="top">		
-			<div class="contact_head">公司基本资料信息</div>
-			<div class="contact_body" id="contact">{template 'contact', 'chip'}</div>
-			{if !$username}
-			<br/>
-			&nbsp;<strong class="f_red">注意</strong>:发布人未在本站注册，建议优先选择<a href="{$MODULE[2][linkurl]}grade.php"><strong>{VIP}会员</strong></a>
-			{/if}
-		</td>
-		<td width="10"> </td>
-		</tr>
-		</table>
-		<div class="b10">&nbsp;</div>
+<div class='m'>
+<div class="pos"></span>当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {cat_pos($CAT, ' &raquo; ')} &raquo;</div>
+
+<div class="m_l_2 f_l">
+
+<div class="left_box o_a">
+<div id="csalbum" class="f_l">
+</div>
+
+<div class="cinfo f_l">
+	<div class="ctitle">{$title}</div>
+	<div class="commpany">{if $vip==1}<span class="icon-vip icon"></span>{/if}{$company}</div>
+	
+	<div class="com_level o_a">
+		<div class="f_l">星级：
+					   			{if $t[level]==1}
+					   				<img src="{DT_SKIN}images/stars_01.jpg" alt="star5" width=66/>
+					   			{else}
+					   				<img src="{DT_SKIN}images/stars_02.jpg" alt="star4.5" width=66"/>
+					   			{/if}
+		</div>
 	</div>
+	<div class="com_address"><span class="icon-location link"></span>{$address}</div>
+	<div class="cprice">&nbsp;&nbsp;价格:{if $price==0}面议{else}￥{$price}{/if}/{if $unit==''}学期{else}{$unit}{/if}</div>
+	<div class="contact_qq"><span class="icon-qq icon"></span>{if $qq==''}未提供{else}{$qq}{/if}</div>	
+	<div class="contact_mobile"><span class="icon-mobile icon"></span>{if $mobile==''}未提供{else}{$mobile}{/if}</div>
+	<div class="contact_tel"> <span class="icon-tel icon"></span>{$telephone}</div>
+	<div class="todate"> <span class="icon"></span>有效期至：{if $todate==0}无限期{else}{$todate}{/if}</div>
+	<div class="caction">
+	<span class="icon-appointment button">&nbsp;预约试听</span><span class="icon-comment link">点评</span><span class="icon-forwarding link">分享</span><span class="icon-star-full link">收藏</span>
+	</div>
+
+
 </div>
-<div class="m">
+
+</div>
 <div class="b10">&nbsp;</div>
-<div class="box_head">
-<strong>产品详细说明</strong>
+
+<div class="left_box o_a">
+
+<div class='column'>
+<div class="column_head">
+<div class="column_title"><strong>课程简介</strong></div>
 </div>
-<div class="box_body" style="padding:0;">
-{if $CP}{template 'property', 'chip'}{/if}
-<div class="content c_b" id="content">{$content}</div>
+<div class="column_body o_a">
+
+<div class="column_table f_l">
+{$t[content]}
+</div>
+
+<div id='cscal' class="f_l">
+
+</div>
+
+</div>
+
+</div>
+
+<div class='column'>
+<div class="column_head">
+<div class="column_title"><strong>上课地址</strong></div>
+
+</div>
+<div class="column_body">
+<div id="map_container">
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+<div class="b10">&nbsp;</div>
+
+<div class="left_box o_a">
 {template 'comment', 'chip'}
 </div>
+
+
+
 </div>
-{if $username}
-<div class="m">
-	<div class="b10">&nbsp;</div>
-	<div class="box_head"><div><span class="f_r"><a href="{userurl($username, 'file=sell')}">更多&raquo;</a></span><strong>本企业其它产品</strong></div></div>
-	<div class="box_body">
-	<div class="thumb" style="padding:10px;">
-	<!--{tag("moduleid=$moduleid&length=20&condition=status=3 and thumb<>'' and username='$username'&pagesize=8&order=edittime desc&width=80&height=80&cols=8&template=thumb-table")}-->
-	</div>
-	</div>
+
+
+<div class="m_n f_l">&nbsp;</div>
+<div class="m_r_2 f_l">
+
+<div class="box_head"><div><strong>机构简介</strong></div></div>
+<div class="box_body">
+<!--{php $tags=tag("moduleid=4&length=28&condition=username='".$username."'&pagesize=1&template=null");}-->
+ {loop $tags $t}
+ 	<table>
+ 	<tr><td   align="center"><img src='{$t[thumb]}' width=150 height=80/></td></tr>
+ 	<tr><td>{$t[introduce]}</td></tr>
+ 	</table>
+ 	
+ 	{/loop}
 </div>
-{/if}
-<div class="m">
-	<br/>
-	<center>
-	[ <a href="{$MOD[linkurl]}search.php" rel="nofollow">{$MOD[name]}搜索</a> ]&nbsp;
-	[ <a href="javascript:SendFav();">加入收藏</a> ]&nbsp;
-	[ <a href="javascript:SendPage();">告诉好友</a> ]&nbsp;
-	[ <a href="javascript:Print();">打印本文</a> ]&nbsp;
-	[ <a href="javascript:window.close()">关闭窗口</a> ]
-	</center>
-	<br/>
+
+<div class="b10">&nbsp;</div>
+
+<div class="box_head"><div><strong>该机构其他课程</strong></div></div>
+<div class="box_body">
+<!--{php $tags=tag("moduleid=5&length=22&condition=username='".$username."'&order=hits desc&pagesize=5&template=null");}-->
+ {loop $tags $t}
+ <div class="img_box">
+ <div><img src='{$t[thumb]}' width=150 height=80/></div>
+ <div><a href="{$t[linkurl]}" title="{$t[title]}">{$t[title]}</a></div>
+ </div>
+ {/loop}
+
+</div>
+
+<div class="b10">&nbsp;</div>
+
+<div class="box_head"><div><strong>猜你喜欢</strong></div></div>
+<div class="box_body">
+</div>
+
+</div>
+
 </div>
 <script type="text/javascript" src="{DT_STATIC}file/script/album.js"></script>
 {if $content}<script type="text/javascript" src="{DT_STATIC}file/script/content.js"></script>{/if}
+
+<script>
+{php $i=0;}
+var album=new A_album('csalbum',{
+	width:600,
+	height:410,
+	imgs:[
+		{loop $thumbs $k $v}
+			{php $i++}
+			{
+				src:"{$v}"
+			}{if $i<3},{/if}
+		{/loop}
+	]
+});
+
+var calendar=new A_Calendar('cscal',{});
+$(function(){
+
+	setTimeout(geocoder,1000);
+ 
+});
+var map = new AMap.Map("map_container", {
+    resizeEnable: true
+});
+function geocoder(){
+    var geocoder = new AMap.Geocoder({
+        city: "010", //城市，默认：“全国”
+        radius: 1000 //范围，默认：500
+    });
+    //地理编码,返回地理编码结果
+    geocoder.getLocation("{$address}", function(status, result) {
+        if (status === 'complete' && result.info === 'OK') {
+            geocoder_CallBack(result);
+        }
+    });
+}
+function addMarker(i, d) {
+    var marker = new AMap.Marker({
+        map: map,
+        position: [ d.location.getLng(),  d.location.getLat()]
+    });
+    var infoWindow = new AMap.InfoWindow({
+        content: d.formattedAddress,
+        offset: {x: 0, y: -30}
+    });
+    marker.on("mouseover", function(e) {
+        infoWindow.open(map, marker.getPosition());
+    });
+}
+//地理编码返回结果展示
+function geocoder_CallBack(data) {
+    var resultStr = "";
+    //地理编码结果数组
+    var geocode = data.geocodes;
+    for (var i = 0; i < geocode.length; i++) {
+        //拼接输出html
+        resultStr += "<span style=\"font-size: 12px;padding:0px 0 4px 2px; border-bottom:1px solid #C1FFC1;\">" + "<b>地址</b>：" + geocode[i].formattedAddress + "" + "&nbsp;&nbsp;<b>的地理编码结果是:</b><b>&nbsp;&nbsp;&nbsp;&nbsp;坐标</b>：" + geocode[i].location.getLng() + ", " + geocode[i].location.getLat() + "" + "<b>&nbsp;&nbsp;&nbsp;&nbsp;匹配级别</b>：" + geocode[i].level + "</span>";
+        addMarker(i, geocode[i]);
+    }
+    map.setFitView();
+    document.getElementById("result").innerHTML = resultStr;
+}
+
+</script>
 {template 'footer'}

@@ -546,3 +546,265 @@ function img_tip_ad(o, i) {
 	}
 }
 
+function A_Calendar(divid,options){
+	var that=this;
+	this.now=new Date();
+	this.divid=divid;
+	if(typeof options !='undefined'){
+		this.options=options;
+	}else{
+		this.options={};
+		
+	}
+	this.node=document.getElementById(this.divid);
+	
+	if(typeof this.options.height !='undefined'){
+		this.height=this.options.height;
+	}else{
+		this.height=this.node.clientHeight;
+	}
+	
+	if(typeof this.options.width !='undefined'){
+		this.width=this.options.width;
+	}else{
+		this.width=this.node.clientWidth;
+	}
+	
+	if(this.height<300){
+		this.height=290;
+	}
+	
+	if(this.width<180){
+		this.width=250;
+	}
+	
+	this.node.className+=" mCalendar";
+	this.node.style.height=this.height+'px';
+	this.node.style.width=this.width+'px';
+	this.node.style.border="1px solid #e7e7e7";
+	//this.node.style.boxShadow="1px 1px 1px #888888";
+	this.node.style.background="rgb(255,255,241)";
+	this.node.style.borderRadius="5px";
+	
+	this.dateTitleNode=document.createElement("div");
+	this.dateTitleNode.className="mCalendar dateTitle";
+	this.dateTitleNode.style.height=((this.height-20)/9)+"px";
+	this.dateTitleNode.style.paddingLeft="20px";
+	this.dateTitleNode.style.lineHeight=(this.height-20)/9+"px";
+	this.dateTitleNode.innerHTML=""+new Date().format("yyyy年MM月dd日")+"&nbsp;&nbsp;"+new Date().getCWeekday();
+	this.node.appendChild(this.dateTitleNode);
+	
+	this.cellWidth=(this.width-40)/7;
+	this.cellHeight=(this.height-20)/9;
+	
+	this.calendarWrapper=document.createElement("div");
+	this.calendarWrapper.style.height=((this.height-20)*8/9)+"px";
+	this.calendarWrapper.style.width=(this.width-40)+"px";
+	this.calendarWrapper.style.marginLeft=18+"px";
+	this.calendarWrapper.style.background="#f8f8f8";
+	this.calendarWrapper.style.textAlign="center";
+	this.calendarWrapper.style.borderRadius="10px";
+	this.calendarWrapper.style.boxShadow="1px 1px 1px #888888";
+	this.node.appendChild(this.calendarWrapper);
+	
+	this.calendarHeader=document.createElement("div");
+	this.calendarHeader.className="mCalendar calheader";
+	this.calendarHeader.innerHTML="<ul><li style='width:"+this.cellWidth+"px;float:left;' >日</li><li style='width:"+this.cellWidth+"px;float:left;'>一</li><li style='width:"+this.cellWidth+"px;float:left;'>二</li><li style='width:"+this.cellWidth+"px;float:left;'>三</li><li style='width:"+this.cellWidth+"px;float:left;'>四</li><li style='width:"+this.cellWidth+"px;float:left;'>五</li><li style='width:"+this.cellWidth+"px;float:left;'>六</li></ul>";
+	this.calendarHeader.style.height=(this.height-20)/9+"px";
+	this.calendarWrapper.appendChild(this.calendarHeader);
+	
+	this.calendarBody=document.createElement("div");
+	this.calendarWrapper.appendChild(this.calendarBody);
+	var diff=this.now.getFirstDay();
+	var firstDay=new Date(this.now.getTime());
+	firstDay.setDate(1);
+	var initialTime=firstDay.getTime()-diff*24*60*60*1000;
+	for(var i=0;i<6;i++){
+		var row=document.createElement("div");
+		row.style.width="100%";
+		for(var j=0;j<7;j++){
+			var celldate=new Date(initialTime);
+			initialTime+=24*60*60*1000;
+			var cell=document.createElement("div");
+			cell.style.width=(this.cellWidth-4)+"px";
+			cell.style.height=(this.cellHeight-4)+"px";
+			cell.style.float="left";
+			cell.style.marginLeft="1px";
+			cell.style.marginRight="1px";
+			cell.style.marginTop='1px';
+			cell.style.marginBottom='1px';
+			cell.style.border="1px solid #e7e7e7";
+			cell.style.cursor="pointer";
+			
+			if((i*7+j)%2==0){
+				cell.style.background="#e7e7e1";
+			}else{
+				cell.style.background="#e1e7e7";
+			}
+			
+			if(celldate.getMonth()==firstDay.getMonth()){
+				if(celldate.getDate()!=this.now.getDate()){
+					if(celldate.getDate()<this.now.getDate()){
+						cell.style.color="#333";
+					}else{
+						cell.style.color="#fff";
+						cell.style.fontWeight="bold";
+						if(celldate.getDay()==0 || celldate.getDay()==6){
+							cell.style.background="#0FAB64";
+						}else{
+							cell.style.background="#f85415";
+						}
+					}
+				}else{
+					cell.style.color="#fff";
+					cell.style.background="#f85415";
+					cell.style.fontWeight="bold";
+				}
+				
+			}else{
+				cell.style.color="#aaa";
+			}
+			if(j==6){
+				cell.style.clear="right";
+			}
+			cell.innerHTML=""+celldate.getDate();
+			row.appendChild(cell);
+		}
+		this.calendarBody.appendChild(row);
+	}
+
+}
+
+
+function A_album(divid,options){
+	var that=this;
+	this.divid=divid;
+	if(typeof options !='undefined'){
+		this.options=options;
+	}else{
+		this.options={};
+		
+	}
+	this.node=document.getElementById(this.divid);
+
+	if(typeof this.options.height !='undefined'){
+		this.height=this.options.height;
+	}else{
+		this.height=this.node.clientHeight;
+	}
+	
+	if(typeof this.options.width !='undefined'){
+		this.width=this.options.width;
+	}else{
+		this.width=this.node.clientWidth;
+	}
+	
+	if(this.height<300){
+		this.height=300;
+	}
+	
+	this.node.className+=" mAlbum";
+	this.node.style.height=this.height+'px';
+	this.node.style.width=this.width+'px';
+	this.imgWrapper=document.createElement("div");
+	this.imgnode=document.createElement("img");
+	this.slidernode=document.createElement("div");
+	this.imgWrapper.appendChild(this.imgnode);
+
+	this.node.appendChild(this.imgWrapper);
+	
+	this.node.appendChild(this.slidernode);
+	this.node.style.background="rgb(29,46,62)";
+	if(typeof this.options.imgs!='undefined'){
+		this.imgs=this.options.imgs;
+	}else{
+
+	}
+	
+	this.imgnode.src=this.imgs[0].src;
+	this.imgnode.width=this.width;
+	this.imgnode.height=this.height;
+	
+	this.slidernode.style.height='65px';
+	this.slidernode.style.width='100%';
+	this.slidernode.style.position='relative';
+	this.slidernode.style.bottom="75px";
+	this.slidernode.style.background="rgba(29,46,62,0.6)";
+	this.ulnode=document.createElement("ul");
+	
+	for(var i=0;i<this.imgs.length;i++){
+		var lithumbi=document.createElement("li");
+		lithumbi.style.float='left';
+		var thumbi=document.createElement("img");
+		thumbi.src=this.imgs[i].src;
+		thumbi.width=115;
+		thumbi.height=60;
+		thumbi.onclick=function(){
+			var tmp=this;
+			that.select(tmp);
+		}
+		lithumbi.appendChild(thumbi);
+		lithumbi.style.marginRight="3px";
+		lithumbi.style.cursor="pointer";
+		if(i==0){
+			thumbi.className="select";
+		}
+		this.ulnode.appendChild(lithumbi);
+	}
+	this.slidernode.appendChild(this.ulnode);
+	var selectorNode=document.createElement("div");
+	selectorNode.className="selector";
+	this.slidernode.appendChild(selectorNode);
+	selectorNode.style.position='absolute';
+	this.selectorNode=selectorNode;
+	
+	this.select=function(obj){
+		var imgnodes=that.ulnode.getElementsByTagName("img");
+		for(var i=0;i<imgnodes.length;i++){
+			imgnodes[i].className="";
+		}
+		obj.className="select";
+		that.selectorNode.style.left=obj.offsetLeft+"px";
+		this.imgnode.src=obj.src;
+	}
+
+}
+
+Date.prototype.format = function(fmt) { 
+    var o = { 
+       "M+" : this.getMonth()+1,                 //月份 
+       "d+" : this.getDate(),                    //日 
+       "h+" : this.getHours(),                   //小时 
+       "m+" : this.getMinutes(),                 //分 
+       "s+" : this.getSeconds(),                 //秒 
+       "q+" : Math.floor((this.getMonth()+3)/3), //季度 
+       "S"  : this.getMilliseconds()             //毫秒 
+   }; 
+   if(/(y+)/.test(fmt)) {
+           fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length)); 
+   }
+    for(var k in o) {
+       if(new RegExp("("+ k +")").test(fmt)){
+            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+        }
+    }
+   return fmt; 
+}       
+
+Date.prototype.getCWeekday=function(){
+	var weekday=new Array(7)
+	weekday[0]="星期日";
+	weekday[1]="星期一";
+	weekday[2]="星期二";
+	weekday[3]="星期三";
+	weekday[4]="星期四";
+	weekday[5]="星期五";
+	weekday[6]="星期六";
+	 return weekday[this.getDay()];
+}
+
+Date.prototype.getFirstDay=function(){
+	var d=new Date(this.getTime());
+	d.setDate(1);
+	return parseInt(d.getDay());
+}
