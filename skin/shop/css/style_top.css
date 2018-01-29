@@ -53,4 +53,5 @@
 .footer .foot_info .img{ padding:5px 0px 15px 0px;}
 .footer .foot_info .img a{ margin-right:10px;}
 .footer_bor{ border-top:solid 2px #75b904;}
-
+.footer .friend_link{width:500px;background:white;border:1px solid #bbb;text-align:left}
+.footer .friend_link hr{border:1px dotted #eee}
