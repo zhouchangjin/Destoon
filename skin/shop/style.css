@@ -284,6 +284,8 @@ a.g:hover {color:#FF6600;}
 .m_l_2 .column #map_container{height:400px;width:100%}
 .m_l_2 .column .column_table{width:600px;border:3px dotted #e7e7e7;padding:10px 10px 10px 10px;margin-right:20px}
 
+.m_l_2 .box_head strong{font-size:16px}
+.m_l_2 .box_head{background:white}
 .m_r_2 .box_head strong{font-size:16px}
 .m_r_2 .box_head{background:white}
 .m_r_2 .box_body li {height:auto;line-height:19px;border-bottom:1px dashed #ccc;margin-bottom:10px}

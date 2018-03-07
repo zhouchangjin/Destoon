@@ -1,0 +1,308 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+<link rel="stylesheet" type="text/css" href="css/index_v2.css"/>
+<link rel="stylesheet" type="text/css" href="script/swiper/swiper-3.3.1.min.css"/>
+<script type="text/javascript" src="script/swiper/swiper-3.3.1.jquery.min.js"></script>
+<header class="aui-bar aui-bar-nav" id="aui-header">
+        {if $EXT['gl_mobile_city']}
+        <a class="aui-pull-left aui-btn" onclick="showcity();">
+           <span class="aui-font-size-16 dt-text-ellipsis" style="max-width:4rem;" id="bdcity">{$areaname}</span><i class="aui-iconfont aui-icon-unfold" aui-popup-for="top-left"></i>
+        </a>
+        {else}
+        <a class="aui-pull-left aui-btn" href="channel.php">
+           <i class="dt-iconfont dt-icon-menu"></i>
+        </a>
+        {/if}
+        <div class="aui-title">{$head_name}</div>
+        <a class="aui-pull-right" href="setting.php">
+        <span class="dt-iconfont dt-icon-setting dt-fz22"></span>
+        </a>
+</header>
+<div class="aui-bar-fix"></div>
+<div class="aui-popup aui-popup-menu-left" id="top-left">
+<section class="aui-grid">
+    <div class="aui-row" id="citylist">
+    {if $EXT['gl_mobile_city'] && $cityid<>0}
+    {loop $glarea $i $a}
+    <div class="aui-col-xs-3" onclick="Setmycity({$a['areaid']})"><div class="aui-grid-label dt-text-ellipsis">{$a['areaname']}</div></div>
+    {/loop}
+    {/if}
+        <div class="aui-col-xs-3" onclick="window.location.href='arealist.php'">
+            <div class="aui-grid-label dt-text-red dt-text-ellipsis">重新定位</div>
+        </div>
+        </div>
+</section> 
+ </div>
+
+<div class="aui-content">
+<div class="aui-searchbar" id="search" style="position:relative; height:2.25rem;" onclick="window.location.href='search.php'">
+    <div class="aui-searchbar-input aui-border-radius">
+        <i class="aui-iconfont aui-icon-search"></i>
+        <form action="javascript:search();">
+            <input type="search" placeholder="请输入搜索内容" id="go-search-input">
+        </form>
+    </div>
+    <div class="aui-searchbar-cancel" tapmod>取消</div>
+</div>
+</div>
+{if $ads}
+<div class="aui-content banner-container">
+<div class="swiper-container">
+			<div class="swiper-wrapper">
+            {loop $ads $t}
+				<div class="swiper-slide" onclick="window.location.href='{$t[url]}'"><img src="{$t[image_src]}" width="100%"/><span>{$t[title]}</span></div>
+            {/loop}
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+</div>
+{/if}
+ <section class="aui-grid dt-index-grid aui-margin-b-10">
+        <div class="aui-row aui-padded-t-10 aui-padded-b-5 aui-padded-l-10 aui-padded-r-10 dt-no-active">
+           <a href="{mobileurl(5, 0, 0)}" title="{$MODULE[5]['name']}">
+            <div class="aui-col-xs-3">
+                <div class="indexgrid-div dt-bg-sell"><i class="dt-iconfont dt-icon-sell"></i></div>
+                <div class="aui-grid-label">{$MODULE[5]['name']}</div>
+            </div>
+            </a>
+
+            <a href="{mobileurl(4, 0, 0)}" title="{$MODULE[4]['name']}">
+            <div class="aui-col-xs-3">
+                <div class="indexgrid-div dt-bg-company"><i class="dt-iconfont dt-icon-company"></i></div>
+                <div class="aui-grid-label">{$MODULE[4]['name']}</div>
+            </div>
+            </a>
+            
+           
+            <a href="{mobileurl(21, 0, 0)}" title="{$MODULE[21]['name']}">
+            <div class="aui-col-xs-3">
+                <div class="indexgrid-div dt-bg-buy"><i class="dt-iconfont dt-icon-news"></i></div>
+                <div class="aui-grid-label">{$MODULE[21]['name']}</div>
+            </div>
+            </a>
+
+            <a href="{mobileurl(8, 0, 0)}" title="{$MODULE[8]['name']}">
+            <div class="aui-col-xs-3">
+                <div class="indexgrid-div dt-bg-photo"><i class="dt-iconfont dt-icon-photo"></i></div>
+                <div class="aui-grid-label">{$MODULE[8]['name']}</div>
+            </div>
+            </a>
+            
+            <a href="{mobileurl(14, 0, 0)}" title="{$MODULE[14]['name']}">
+            <div class="aui-col-xs-3">
+                <div class="indexgrid-div dt-bg-mall"><i class="dt-iconfont dt-icon-video"></i></div>
+                <div class="aui-grid-label">{$MODULE[14]['name']}</div>
+            </div>
+            </a>
+             
+            <a href="{mobileurl(10, 0, 0)}" title="{$MODULE[10]['name']}">
+            <div class="aui-col-xs-3">
+                <div class="indexgrid-div dt-bg-buy"><i class="dt-iconfont dt-icon-know"></i></div>
+                <div class="aui-grid-label">{$MODULE[10]['name']}</div>
+            </div>
+            </a>
+
+            <div class="aui-col-xs-3">
+                <div class="indexgrid-div dt-bg-mall"><i class="dt-iconfont dt-icon-service"></i></div>
+                <div class="aui-grid-label">帮助</div>
+            </div>
+            <a href="my.php" rel="nofollow">
+            <div class="aui-col-xs-3">
+                <div class="indexgrid-div dt-bg-my"><i class="dt-iconfont dt-icon-my"></i></div>
+                <div class="aui-grid-label">会员</div>
+            </div>
+            </a>
+        </div>
+    </section>
+    
+{if $MODULE[5]['name']}
+ <!--{php $tags=tag("moduleid=5&condition=status=3 and thumb<>''&areaid=$cityid&pagesize=".$DT['page_trade']."&fields=itemid,catid,title,thumb,vip,username,company,hits,price,areaid,mobile,telephone,addtime,edittime&order=edittime desc&debug=0&template=null");}-->
+ {if $tags}
+<div class="aui-content gl-floor gl-love-floor index-module-list" data-id="5">
+ <div class="dt-index-title aui-text-warning dt-bg-white aui-list-item-arrow">
+  <div class="box-title dt-text-sell"><i class="dt-iconfont dt-icon-lsjhx box-title-sjx dt-text-mall"></i>最新{$MODULE[5]['name']}</div>
+  <span class="aui-right-more aui-text-gray aui-font-size-12" onclick="window.location.href='{mobileurl(5, 0,0)}'">更多</span>
+  </div>
+<div class="aui-hr"></div>
+<ul class="gl-cf aui-padded-t-5">
+{loop $tags $i $t}
+{php $t[thumb] = gl_thumb_type($t[thumb],1)}
+{php if($EXT['gl_img_echo'] && isset($t['thumb']) && $t['thumb']) $t['thumb'] =  'image/echoblank.gif" data-echo="'.$t['thumb'];}
+<li class="gl-mall-li"><a href="{mobileurl(5, 0, $t['itemid'])}" title="{$t[title]}">>
+<div class="gl-mall-product">
+<span class="gl-mall-product-img"><img alt="{$t[title]}" class="dt-img-contain opa1" src="{$t[thumb]}" height="100%"></span>
+<span class="gl-mall-product-text">【{gl_cat_name($t[catid])}】{$t[title]}</span>
+<span class="gl-mall-product-price">{$DT[money_sign]}<span class="big-price">{$t[price]}</span>
+<span class="guess-button J_ping" onclick="event.preventDefault();window.location.href='{mobileurl(5, $t['catid'], 0)}'">看相似</span></span>
+<span class="sam-space"></span></div>
+</a>
+</li>
+{/loop}
+</ul>
+</div>   
+{/if}
+{/if}
+
+{if $MODULE[4]['name']}
+{php $order = gl_get_morder(4)}
+<div class="aui-content index-module-list" data-id="4">
+<div class="dt-index-title aui-text-warning dt-bg-white aui-list-item-arrow">
+  <div class="box-title dt-text-sell"><i class="dt-iconfont dt-icon-lsjhx box-title-sjx dt-text-sell"></i><span>最新{$MODULE[4]['name']}</span></div>
+  <span class="aui-right-more aui-text-gray aui-font-size-12" onclick="window.location.href='{mobileurl(4, 0,0)}'">更多</span></div>
+                    <!--{php $tags=tag("moduleid=4&condition=thumb<>''&areaid=$cityid&pagesize=".$DT['page_trade']."&fields=userid,address,thumb,vip,username,company,hits,areaid,telephone&order=userid&debug=0&template=null");}-->
+<div class="aui-content aui-margin-b-10 dt-media-sell">
+        <ul class="aui-list aui-media-list dt-border-b-none" id="slistdiv">
+        {loop $tags $v}
+        {php if($EXT['gl_img_echo'] && isset($v['thumb']) && $v['thumb']) $v['thumb'] =  'image/echoblank.gif" data-echo="'.$v['thumb'];}
+            <li class="aui-list-item aui-padded-t-5 aui-padded-b-5">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media">
+                     <a href="{mobileurl(4, 0, $v['itemid'])}"><img src="{if $v[thumb]}{$v[thumb]}{else}image/nopic-120.png{/if}" class="dt-img-cover" height="90" /></a>{if $v[vip]}<span class="" style="position:absolute; top:0rem; left:0rem; color:#FFF"><i class="dt-iconfont dt-icon-tuijian dt-text-orange"></i></span>{/if}
+                    </div>
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title aui-ellipsis-2"><a href="{mobileurl(4, 0, $v['itemid'])}">{$v[title]}</a></div>
+                        </div>
+                        <div class="aui-list-item-text dt-margin-t-5 ">
+                        <div class="aui-ellipsis-2" style="width:95%">{$v[company]}</div>{if $v[telephone]}<div><a href="tel:{$v[telephone]}"><i class="dt-iconfont dt-icon-dianhua aui-font-size-18 aui-margin-l-10 aui-text-info"></i></a></div>{elseif $v[mobile]}<div><a href="tel:{$v[mobile]}"><i class="dt-iconfont dt-icon-dianhua aui-font-size-18 aui-margin-l-10 aui-text-info"></i></a></div>{/if}
+                        </div>
+                        <div class="aui-list-item-text  dt-margin-t-5 aui-font-size-12"><div>{timetodate($v[addtime],5)}</div><span class=""><i class="aui-iconfont aui-icon-location aui-font-size-12"></i>{gl_area_name($v[areaid])}</span>
+                        </div>
+                       
+                    </div>
+                </div>
+
+            </li>
+{/loop}
+</ul>
+</div>
+{/if}
+
+{if $MODULE[8]['name']}
+<div class="aui-content aui-margin-b-10 index-module-list" data-id="8">
+<div class="dt-index-title aui-text-warning dt-bg-white aui-list-item-arrow">
+  <div class="box-title dt-text-buy"><i class="dt-iconfont dt-icon-lsjhx box-title-sjx dt-text-buy"></i>最新{$MODULE[8]['name']}</div>
+  <span class="aui-right-more aui-text-gray aui-font-size-12" onclick="window.location.href='{mobileurl(8, 0,0)}'">更多</span></div>        
+  <ul class="aui-list aui-media-list dt-border-b-none">
+  <!--{php $tags=tag("moduleid=8&condition=status=3&areaid=$cityid&pagesize=".$DT['page_trade']."&fields=itemid,catid,title,thumb,totime&order=totime desc&template=null");}-->
+                    {loop $tags $t}
+							            <li class="aui-list-item"><a href="{mobileurl(8, 0, $t['itemid'])}">
+               								 <div class="aui-media-list-item-inner">
+              					  			<div class="aui-list-item-inner">
+                   							 <div class="aui-list-item-title aui-font-size-16 aui-ellipsis-2" style="height:2.45rem">{$t[title]}</div>
+                  					 		 <div class="aui-list-item-text">
+                       						 <div class="aui-font-size-12"><span>{gl_cat_name($t[catid])}</span><span class="aui-margin-l-10">{timetodate($t[totime],5)}</span></div>
+                    						</div>
+                							</div>
+                						<div class="aui-list-item-media" style="width:30%;">
+                    					<img src="{if $t[thumb]}{$t[thumb]}{else}image/nopic-80.png{/if}" height="66" class="dt-img-cover">
+                						</div>
+           								 </div>
+            							</a></li>
+					{/loop}
+</ul>
+</div>            
+{/if}
+
+{if $MODULE[21]['name']}
+<div class="aui-content aui-margin-b-10 index-module-list" data-id="21">
+<div class="dt-index-title aui-text-warning dt-bg-white aui-list-item-arrow">
+  <div class="box-title dt-text-news"><i class="dt-iconfont dt-icon-lsjhx box-title-sjx dt-text-photo"></i>最新{$MODULE[21]['name']}</div>
+  {php $child = get_maincat(0, 21, 1);}
+  <div class="aui-right-cate">
+					{loop $child $i $c}
+                    {if $i<2}
+                    <span class="aui-pull-left dt-text-ellipsis aui-margin-r-10" style="max-width:4rem;"><a href="{mobileurl(21, $c[catid], 0)}" id="{$c[catid]}">{$c[catname]}</a></span>
+                    {/if}
+					{/loop}
+                    </div>
+                    <span class="aui-right-more aui-text-gray aui-font-size-12" onclick="window.location.href='{mobileurl(21, 0,0)}'">更多</span></div>
+        <ul class="aui-list aui-media-list dt-article-list dt-border-b-none">
+                    <!--{php $tags=tag("table=article_21&condition=status=3&showcat=1&pagesize=".$DT['page_news']."&fields=itemid,title,catid,thumb,username,hits,edittime&order=addtime desc&template=null");}-->
+                    {loop $tags $t}
+                    {if $t['thumb']}
+                    {php if($EXT['gl_img_echo'] && isset($t['thumb']) && $t['thumb']) $t['thumb'] =  'image/echoblank.gif" data-echo="'.$t['thumb'];}
+            <li class="aui-list-item"><a href="{mobileurl(21, 0, $t['itemid'])}">
+                <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title aui-font-size-16 aui-ellipsis-2" style="height:2.45rem">{$t[title]}</div>
+                    <div class="aui-list-item-text">
+                        <div class="aui-font-size-12"><span>{gl_cat_name($t[catid])}</span><span class="aui-margin-l-10">{$t[hits]}<i class="aui-iconfont aui-icon-comment aui-font-size-14 dt-margin-l-3"></i></span></div>
+                    </div>
+                </div>
+                <div class="aui-list-item-media" style="width:30%;">
+                    <img src="{if $t[thumb]}{$t[thumb]}{else}image/nopic-80.png{/if}" height="66" class="dt-img-cover">
+                </div>
+            </div>
+            </a></li>
+           {else}
+            <li class="aui-list-item aui-padded-t-5 aui-padded-b-5">
+            <a href="{mobileurl(21, 0, $t['itemid'])}">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title dt-text-ellipsis" style="width:85%;">{$t[title]}</div>
+                            <div class="aui-list-item-right">{$t[hits]}<i class="aui-iconfont aui-icon-comment aui-font-size-14 dt-margin-l-3"></i></div>
+                        </div>
+                    </div>
+                </div></a>
+            </li>
+            {/if}
+  {/loop}
+</ul>
+</div>            
+{/if}
+
+<script type="text/javascript">
+var titleFix = {
+    init:function(){
+		this.titles = $(".index-module-list .dt-index-title .box-title");
+		this.len = this.titles.length;
+		this.now = -1;
+		if(this.len <= 0) return false;
+		this.bind();
+    },
+	bind:function (){
+		var _this = this;
+	    $(window).on("touchmove scroll resize orientationchange",function(){
+			var nowTop = $(window).scrollTop()+50; // 50:height of the header
+			var now=-1;
+			for(var i=0;i<_this.len;i++){
+				var otop = _this.titles[i].parentNode.offsetTop;
+				if(nowTop >= otop){
+					now = i;
+				}
+			}
+			if(_this.now == now) return;
+			if(now != -1){
+				_this.titles.eq(now).addClass("fixedBar");
+			}
+			_this.titles.eq(_this.now).removeClass('fixedBar');
+			_this.now = now;		
+		});
+	}
+};
+titleFix.init();
+var swiper = new Swiper('.swiper-container', {
+	autoplay:3000,
+	autoplayDisableOnInteraction:false,
+    pagination: '.swiper-pagination'
+    });	
+function showcity(){
+        popup.show(document.getElementById("top-left"))
+    }
+	
+function Setmycity(cityid){
+	laymsg('正在定位...');
+   $.post("glajax.php", { "action": "gllocal","job": "setcity","mcityid": cityid},
+            function(data){
+				if(data.error=='ok'){
+					laymsg('定位成功,跳转中...');
+					window.location.href='index.php'
+				}
+            }, "json");
+
+}
+</script>
+
+{template 'footer_v2', 'mobile'}

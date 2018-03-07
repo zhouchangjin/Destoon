@@ -1,0 +1,181 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+<link rel="stylesheet" type="text/css" href="css/company_v2.css"/>
+<header class="aui-bar aui-bar-nav" id="aui-header">
+       {if $itemid || $catid || $areaid || $kw}
+        <a class="aui-pull-left aui-btn" href="{$back_link}">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+       {else}
+        <a class="aui-pull-left aui-btn" href="channel.php">
+           <span class="aui-iconfont aui-icon-left"></span>频道
+        </a>
+       {/if}
+        <div class="aui-title">{$head_name}</div>
+        <a class="aui-pull-right">
+        <span class="dt-iconfont dt-icon-caidan" onclick="showPopup();"></span>
+        </a>
+        <a class="aui-pull-right"><i class="dt-iconfont dt-icon-sousuo aui-font-size-20" onclick="showsearchbar();"></i></a>
+</header>
+<div class="aui-bar-fix"></div>
+{if $userid}
+	{if $action=='introduce'}
+		<div class="content">
+		{if $thumb}<center><img src="{$thumb}"/></center>{/if}
+		{$content}
+		</div>
+	{elseif $action=='news'}
+		{if $itemid}
+			<div class="title"><strong>{$title}</strong></div>
+			<div class="info">日期:<small>{$adddate}</small>&nbsp;&nbsp;点击:{$hits}</div>
+			<div class="content">{$content}</div>
+		{else}
+			{if $MTYPE}
+			<div class="content">
+				<a href="index.php?moduleid={$moduleid}&username={$username}&action={$action}"{if $typeid==0} class="f_b"{/if}>全部</a>
+				{loop $MTYPE $t}
+				&nbsp;|&nbsp;<a href="index.php?moduleid={$moduleid}&username={$username}&action={$action}&typeid={$t[typeid]}"{if $typeid==$t[typeid]} class="f_b"{/if}>{$t[typename]}</a>
+				{/loop}
+			</div>
+			{/if}
+			<ul class="list-txt">
+			{loop $lists $v}
+			<li><span class="f_r px11 f_gray">&nbsp;{timetodate($v[addtime], 3)}</span><a href="index.php?moduleid={$moduleid}&username={$username}&action={$action}&itemid={$v[itemid]}">{$v[title]}</a></li>
+			{/loop}
+			</ul>
+		{/if}
+	{elseif $action=='sell'}
+		{if $MTYPE}
+		<div class="content">
+			<a href="index.php?moduleid={$moduleid}&username={$username}&action={$action}"{if $typeid==0} class="f_b"{/if}>全部</a>
+			{loop $MTYPE $t}
+			&nbsp;|&nbsp;<a href="index.php?moduleid={$moduleid}&username={$username}&action={$action}&typeid={$t[typeid]}"{if $typeid==$t[typeid]} class="f_b"{/if}>{$t[typename]}</a>
+			{/loop}
+		</div>
+		{/if}
+		{loop $lists $v}
+		<div class="list-img">
+		<a href="index.php?moduleid=5&itemid={$v[itemid]}"><img src="{if $v[thumb]}{$v[thumb]}{else}static/img/nopic-60.png{/if}" width="60" height="60" alt="" onerror="this.src='static/img/nopic-60.png';"/></a>
+		<ul>
+		<li><a href="index.php?moduleid=5&itemid={$v[itemid]}"><strong>{$v[title]}</strong></a></li>
+		<li><em>{$v[date]}</em></li>
+		<li{if $v[vip]} class="vip" title="{VIP}:{$v[vip]}"{/if}><a href="index.php?moduleid=4&username={$v[username]}"><span>{$v[company]}</span></a></li>
+		</ul>
+		</div>
+		{/loop}
+	{elseif $action=='contact'}
+		<div class="content">
+		{if $could_contact}
+			{if $truename}姓名:{$truename}({if $gender==1}先生{else}女士{/if})<br/>{/if}
+			{if $department}部门:{$department}<br/>{/if}
+			{if $career}职务:{$career}<br/>{/if}
+			{if $mobile}手机:{$mobile}<br/>{/if}
+			{if $telephone}电话:{$telephone}<br/>{/if}
+			{if $fax}传真:{$fax}<br/>{/if}
+			{if $address}地址:{$address}<br/>{/if}
+			{if $postcode}邮编:{$postcode}<br/>{/if}
+			{if $mail}邮件:{$mail}<br/>{/if}
+			{if $homepage}网址:{$homepage}<br/>{/if}
+			{if $qq && $DT[im_qq]}QQ:{$qq}<br/>{/if}
+			{if $ali && $DT[im_ali]}阿里旺旺:{$ali}<br/>{/if}
+			{if $msn && $DT[im_msn]}MSN:{$msn}<br/>{/if}
+			{if $skype && $DT[im_skype]}Skype:{$skype}<br/>{/if}
+			发信:<a href="index.php?moduleid=2&action=message_send&touser={$username}" class="b">点此发送</a><br/>
+		{else}
+		无权查看，请升级<br/>
+		{/if}
+		</div>
+	{else}
+		<div class="content">
+		{if $vip}级别:{VIP} {$vip}<br/>{/if}
+		{if $areaid}所在地区:{area_pos($areaid, '/')}<br/>{/if}
+		{if $type}公司类型:{$type}{if $mode}({$mode}){/if}<br/>{/if}
+		{if $regyear}成立时间:{$regyear}<br/>{/if}
+		{if $capital}注册资本:{$capital}万{$regunit}<br/>{/if}
+		{if $business}经营范围:{$business}<br/>{/if}
+		</div>
+		<!--{php $tags=tag("moduleid=5&condition=status=3 and elite>0 and username='$username'&pagesize=5&length=$len&order=edittime desc&template=null");}-->
+		{if $tags}
+		<div class="box_head"><span class="f_r px12"><a href="index.php?moduleid={$moduleid}&username={$username}&action=sell">更多&raquo;</a></span><strong>推荐产品</strong></div>
+		<ul class="list-txt">
+		{loop $tags $v}
+		<li><span class="f_r px11 f_gray">&nbsp;&nbsp;{timetodate($v[edittime], 3)}</span><a href="index.php?moduleid=5&itemid={$v[itemid]}"><strong>{$v[title]}</strong></a></li>
+		{/loop}
+		</ul>
+		{/if}
+	{/if}
+{else}
+{template 'dtchip-deals', 'mobile'}
+{template 'dt-results-bar', 'mobile'}
+	{if $lists}
+        <div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-media-list">
+	{loop $lists $v}
+            <li class="aui-list-item">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media dt-com-thumb">
+                        <a href="{gl_mobile_homeurl($moduleid,$v[username])}"><img src="{if $v[thumb]}{$v[thumb]}{else}{DT_PATH}mobile/static/img/home-logo.png{/if}" height="70"/></a>
+                    </div>
+                    
+                    <div class="aui-list-item-inner">
+                    <a href="{gl_mobile_homeurl($moduleid,$v[username])}">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title aui-ellipsis-2">{if $v[company]}{$v[company]}{else}这家伙很懒，什么都没留下{/if}</div>
+                            {if $v[vip]}<div class="aui-list-item-right"><span class="com-level dt-text-ellipsis">会员{vip_year($v['fromtime'])}年</span></div>{/if}
+                        </div>
+                        <div class="aui-list-item-text aui-ellipsis-2">
+                            主营：{dsubstr($v[business],50)}{if word_count($v[business])>50}...{/if}
+                        </div>
+                        </a>
+                    </div>
+                    
+                </div>
+                <div class="aui-info" style="padding-top:0">
+                    <div class="aui-info-item"  style="width:70%; font-size:0.6rem;">
+                        <span class="aui-margin-l-5 dt-text-ellipsis">{gl_area_name($v[areaid])}{if $v[mode]}&nbsp;&nbsp;({$v[mode]}){/if}&nbsp;&nbsp;{if $v[validated]}<span class="dt-text-orange">[已核实]</span>{else}[未核实]{/if}</span>
+                        </div>
+                        
+                        
+                    <div class="aui-info-item dt-company-dh" style="max-width:6rem;">{if $v[Distance] && $EXT['gl_nearcom'] && $v['glmap']}<span class="dt-label aui-label-info aui-label-outlined" style="position:relative;" onclick="gotoLocat({$v['userid']});">导航<div class="aui-popup dt-daohang-bottom" id="daohang-bottom{$v['userid']}">
+        <div class="aui-popup-arrow"></div>
+        <div class="aui-popup-content">
+            <section class="aui-grid">
+    <div class="aui-row">
+        <a href="{$v['glmap']}">
+        <div class="aui-col-xs-4">
+        
+            <i class="dt-iconfont dt-icon-buxing aui-text-info"></i>
+            <div class="aui-grid-label">步行</div>
+        </div>
+        </a>
+        <a href="{$v['glmap']}&type=1">
+        <div class="aui-col-xs-4">
+            <i class="dt-iconfont dt-icon-gongjiaoche aui-text-info"></i>
+            <div class="aui-grid-label">公交</div>
+        </div>
+        </a>
+        <a href="{$v['glmap']}&type=2">
+        <div class="aui-col-xs-4">
+            <i class="dt-iconfont dt-icon-qiche aui-text-info"></i>
+            <div class="aui-grid-label">汽车</div>
+        </div>
+        </a>
+        </div>
+        </section>
+        </div>
+    </div></span><i class="aui-iconfont aui-icon-location dt-margin-r-3 aui-font-size-12"></i><span class="dt-margin-t-3">{round($v[Distance],2)}km{/if}</span>
+                    
+</div>
+                </div>
+            </li>
+
+	{/loop}
+    </ul>
+    </div>
+	{else}
+	{template 'dtchip-empty', 'mobile'}
+	{/if}
+{/if}
+{if $pages}<div class="aui-content aui-margin-b-15 aui-text-center pageslist"><div class="pages">{$pages}</div></div>{/if}
+{template 'footer_v2', 'mobile'}
+

@@ -1,0 +1,85 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+
+<link rel="stylesheet" type="text/css" href="css/video_v2.css"/>
+<header class="aui-bar aui-bar-nav" id="aui-header">
+       {if $itemid || $catid || $areaid || $kw}
+        <a class="aui-pull-left aui-btn" href="{$back_link}">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+       {else}
+        <a class="aui-pull-left aui-btn" href="channel.php">
+           <span class="aui-iconfont aui-icon-left"></span>频道
+        </a>
+       {/if}
+        <div class="aui-title">{if $itemid}{$MOD[name]}详情{else}{$head_name}{/if}</div>
+        <a class="aui-pull-right">
+        <span class="dt-iconfont dt-icon-caidan" onclick="showPopup();"></span>
+        </a>
+        <a class="aui-pull-right"><i class="dt-iconfont dt-icon-sousuo aui-font-size-20" onclick="showsearchbar();"></i></a>
+</header>
+
+<div class="aui-bar-fix"></div>
+
+{if $itemid}
+    <section class="aui-content">
+        <div class="aui-card-list aui-border-t aui-border-b">
+            <div class="aui-info dt-padded-t-20 aui-padded-l-5 aui-padded-r-15">
+                <div class="aui-info-item aui-font-size-20">
+                    <span class="aui-margin-l-5 dt-text-black">{$title}</span>
+                </div>
+            </div>
+              <div class="aui-card-list-timer aui-font-size-14" style="color:#999;">
+                <div class="dt-article-times">
+                    {if $copyfrom}<span class="aui-margin-r-10">来源：{$copyfrom}</span>{/if}<span class="aui-margin-r-10"><i class="aui-iconfont aui-icon-time aui-margin-r-5"></i>{$editdate}</span><span class="aui-margin-r-10"><i class="aui-iconfont aui-icon-attention aui-margin-r-5"></i>{$hits}</span>
+                </div>
+            </div>
+            <div class="aui-hr"></div>
+            <div class="aui-content">
+                {if $user_status == 3}
+    <div><center>{video5_player($video, 280, 210)}</center></div>
+    <div>{$content}</div>
+    {else}
+    {template 'dtchip-content', 'mobile'}
+    {/if}
+            </div>
+        </div>
+</section>
+{template 'dtchip-other', 'mobile'}
+{template 'dtchip-comment', 'mobile'}
+{else}
+{template 'dtchip-deals', 'mobile'}
+{template 'dt-results-bar', 'mobile'}
+{if $lists}
+<div class="aui-content" id="content">
+            <ul class="aui-list aui-media-list dt-sell-list dt-border-none" id="slistdiv">
+            <li class="aui-list-item dt-sell-list-item dt-bg-gray">
+                <div class="aui-list-item-inner">
+                    <div class="aui-row aui-row-padded">
+                    {loop $lists $v}
+                        <div class="aui-col-xs-6">
+                            <div class="" style="height:8rem; background-color:#fff"><a href="{mobileurl($moduleid, 0, $v[itemid])}"><img src="{if $v[thumb]}{str_replace('.thumb.'.file_ext($v['thumb']), '.middle.'.file_ext($v['thumb']), $v['thumb'])}{else}image/nopic-80.png{/if}" class="dt-img-contain" height="100%"/><span class="dt-hor-center" style=" top:25%;color:#FFF; opacity:0.9"><i class="dt-iconfont dt-icon-video dt-fz34 dt-text-white"></i></span></a></div>
+               <div class="aui-img-body">
+                <div class="aui-waterfall-body">
+                    <a href="{mobileurl($moduleid, 0, $v[itemid])}"><span class="aui-ellipsis-2">{$v[title]}</span></a>
+                </div>
+                    <div class="aui-pull-left">
+                    <i class="dt-iconfont dt-icon-eyes aui-margin-r-5 aui-font-size-12"></i>{$v[hits]}
+                    </div>
+                    <div class="aui-pull-right">
+                    <i class="dt-iconfont dt-icon-comment aui-margin-r-5 aui-font-size-12"></i>23
+                    </div>
+                </div>
+                        </div>
+                     {/loop}
+                    </div>
+                </div>
+            </li>
+</ul>
+</div>
+{else}
+{template 'dtchip-empty', 'mobile'}
+{/if}
+{/if}
+{if $pages}<div class="aui-content aui-margin-b-15 aui-text-center pageslist"><div class="pages">{$pages}</div></div>{/if}
+{template 'footer_v2', 'mobile'}
