@@ -67,11 +67,13 @@ $company_cat[111]=46;
 			</div>
 			<div class="tab_cont">
 				<ul>
-<!--{php $tags=tag("moduleid=21&showcat=1&length=36&catid=6676&areaid=$cityid&condition=status=3 and level=3&order=addtime desc&pagesize=1&template=null");}-->
+<!--{php $tags=tag("moduleid=8&showcat=1&length=26&areaid=$cityid&condition=status=3 and level=3&order=addtime desc&pagesize=1&template=null");}-->
 				 {loop $tags $t}
-                <li><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="230"  height="72" alt="{$t[title]}" ></A></li>
+                <li  style="height:100px"><A href="{$t[linkurl]}" target=_blank><IMG  src="{imgurl($t[thumb], 1)}" width="200"  height="100" alt="{$t[title]}" ></A>
+                <div class="imgtxt">{$t[title]}</div>
+                </li>
 				 {/loop} 
-<!--{php $tags=tag("moduleid=21&showcat=1&length=36&catid=6676&areaid=$cityid&condition=status=3 and level>-1&order=addtime desc&pagesize=7&template=null");}-->
+<!--{php $tags=tag("moduleid=8&showcat=1&length=28&areaid=$cityid&condition=status=3 and level>-1&order=addtime desc&pagesize=5&template=null");}-->
 				 {loop $tags $t}
                 <li><A href="{$t[linkurl]}" alt="{$t[title]}" target="_blank">{$t[title]}</A></li>
 				 {/loop} 
