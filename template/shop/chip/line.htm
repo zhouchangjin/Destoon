@@ -4,8 +4,12 @@ var destoon_message = {$_message};
 var destoon_chat = {$_chat};
 var destoon_cart = substr_count(get_cookie('cart'), ',');
 var destoon_member = '';
+var destoon_intro='';
+var destoon_panel='';
 {if $_userid}
 destoon_member += '欢迎您，<span class="f_b f_green" title="{$MG[groupname]}">{$_truename}</span> <a href="{$MODULE[2][linkurl]}line.php" title="{if $_online}在线，点击隐身{else}隐身，点击上线{/if}"><img src="{DT_SKIN}image/user_{if $_online}on{else}off{/if}line.png" width="10" height="10" align="absmiddle"/></a> | <a href="{$MODULE[2][linkurl]}">商务中心</a> | <a href="{$MODULE[2][linkurl]}message.php">站内信(<span class="head_t" id="destoon_message">{if $_message}<strong>{$_message}</strong>{if $_sound}'+sound('message_{$_sound}')+'{/if}{else}0{/if}</span>)</a>{if $DT[im_web]} | <a href="{$MODULE[2][linkurl]}chat.php">新对话(<span class="head_t" id="destoon_chat">{if $_chat}<strong>{$_chat}</strong>'+sound('chat_new')+'{else}0{/if}</span>)</a>{/if} | <a href="{$MODULE[2][linkurl]}logout.php">退出</a>';
+destoon_intro='&nbsp;&nbsp;{$_truename}&nbsp;&nbsp;';
+destoon_panel='<a class="login" href="{$MODULE[2][linkurl]}">个人中心</a><a class="register" href="{$MODULE[2][linkurl]}logout.php">退出</a>';
 {else}
 	{if $EXT[oauth]}
 	var oauth_site = '{get_cookie('oauth_site')}';
@@ -13,9 +17,13 @@ destoon_member += '欢迎您，<span class="f_b f_green" title="{$MG[groupname]}
 	destoon_member += (oauth_user && oauth_site) ? '<img src="{DT_PATH}api/oauth/'+oauth_site+'/ico.png" align="absmiddle"/> 欢迎您，<strong>'+oauth_user+'</strong> | <a href="{DT_PATH}api/oauth/'+oauth_site+'/index.php?time={$DT_TIME}">绑定帐号</a> | <a href="javascript:" onclick="oauth_logout();">注销登录</a>' : '欢迎您，<span class="f_red">游客</span> | <a href="{$MODULE[2][linkurl]}{$DT[file_login]}">请登录</a> | <a href="{$MODULE[2][linkurl]}{$DT[file_register]}">免费注册</a> | <a href="{$MODULE[2][linkurl]}send.php">忘记密码?</a>';
 	{else}
 	destoon_member += '<a href=""><img src="{DT_SKIN}image/index_shutcut.png"/>&nbsp;&nbsp;美育首页</a> <a href="{$MODULE[2][linkurl]}{$DT[file_login]}"><img src="{DT_SKIN}image/toolbar_logon.png"/>&nbsp;&nbsp;登录</a> | <a href="{$MODULE[2][linkurl]}{$DT[file_register]}">&nbsp;&nbsp;注册</a> | <a href="{$MODULE[2][linkurl]}send.php">&nbsp;&nbsp;忘记密码?</a>';
+	destoon_intro='&nbsp;&nbsp;';
+	destoon_panel='<a class="login" href="{$MODULE[2][linkurl]}login.php">登录</a><a class="register" href="{$MODULE[2][linkurl]}register.php">注册</a>';
 	{/if}
 {/if}
 $('#destoon_member').html(destoon_member);
+$('#wcm_intro').html(destoon_intro);
+$('#wcm_panel').html(destoon_panel);
 {if $DT[city]}
 $('#destoon_city').html('{$city_name}');
 {/if}
