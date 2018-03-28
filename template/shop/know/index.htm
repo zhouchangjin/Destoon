@@ -1,0 +1,119 @@
+{template 'header'}
+<link href="{DT_SKIN}css/style_know.css" rel="stylesheet" type="text/css" />
+<div class="m">
+	<div class="pos">
+		<a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a	href="{$MOD[linkurl]}">{$MOD[name]}</a>
+	</div>
+	<div class="m_l_2 f_l">
+		{if $MOD[page_irec]}
+		<div class="know_rec">
+			<div class="know_rec_main f_l">
+				<!--{php $tags=tag("moduleid=$moduleid&condition=status=3 and process=3 and level=1&areaid=$cityid&order=edittime desc&pagesize=1&datetype=4&template=null");}-->
+				{loop $tags $t}
+					<div class="rec_title"><a href="{$t[linkurl]}">{$t[title]}</a></div>
+					<div class="rec_body">{get_content($t[itemid],'know')}</div>
+				{/loop}
+			</div>
+			<div class="know_rec_sub f_l o_a">
+				<div class="rec_top">
+						<!--{php $tags=tag("moduleid=$moduleid&condition=status=3 and process=3 and level=1&areaid=$cityid&order=edittime desc&pagesize=1&page=2&datetype=4&template=null");}-->
+						{loop $tags $t}
+							<div class="rec_title"><a href="{$t[linkurl]}">{$t[title]}</a></div>
+							<div class="rec_body">{get_content($t[itemid],'know')}</div>
+						{/loop}
+				</div>
+				<div class="rec_btom">
+						<!--{php $tags=tag("moduleid=$moduleid&condition=status=3 and process=3 and level=1&areaid=$cityid&order=edittime desc&pagesize=1&page=3&datetype=4&template=null");}-->
+						{loop $tags $t}
+							<div class="rec_title"><a href="{$t[linkurl]}">{$t[title]}</a></div>
+							<div class="rec_body">{get_content($t[itemid],'know')}</div>
+						{/loop}
+				</div>
+			</div>
+
+		</div>
+
+		{/if}
+		{if $MOD[page_isolve]}
+		<div class="box_head"><span class="f_r"><a href="{$MOD[linkurl]}{rewrite('search.php?typeid=1')}" rel="nofollow">更多&raquo;</a></span><strong>等你来答</strong></div>
+		<div class="box_body"><!--{tag("moduleid=$moduleid&condition=status=3 and process=1&areaid=$cityid&order=".$MOD[order]."&pagesize=".$MOD[page_isolve]."&datetype=4&template=list-know")}--></div>
+		<div class="b10"></div>
+		{/if}
+		{if $MOD[page_iresolve]}
+		<div class="box_head"><span class="f_r"><a href="{$MOD[linkurl]}{rewrite('search.php?typeid=0')}" rel="nofollow">更多&raquo;</a></span><strong>精彩问答</strong></div>
+		<div class="box_body"><!--{tag("moduleid=$moduleid&condition=status=3 and process=3&order=updatetime desc&areaid=$cityid&pagesize=".$MOD[page_iresolve]."&datetype=4&template=list-know")}--></div>
+		<div class="b10"></div>
+		{/if}
+		{if $MOD[page_ivote]}
+		<div class="box_head"><span class="f_r"><a href="{$MOD[linkurl]}{rewrite('search.php?typeid=2')}" rel="nofollow">更多&raquo;</a></span><strong>等你来选</strong></div>
+		<div class="box_body"><!--{tag("moduleid=$moduleid&condition=status=3 and process=2&order=updatetime desc&areaid=$cityid&pagesize=".$MOD[page_ivote]."&datetype=4&template=list-know")}--></div>
+		<div class="b10"></div>
+		{/if}
+	</div>
+	<div class="m_n_2 f_l">&nbsp;</div>
+	<div class="m_r_2 f_l">
+		<div class="box_head"><div><strong>问题搜索</strong></div></div>
+		<div class="box_body">
+			<div class="know_sch">
+				<form action="{$MODULE[2][linkurl]}{$DT[file_my]}" id="ask_form">
+				<input type="hidden" name="mid" value="{$moduleid}"/>
+				<input type="hidden" name="cid" value="{$catid}"/>
+				<input type="hidden" name="action" value="add"/>
+				<input type="hidden" name="kw" value="" id="ask_kw"/>
+				</form>
+				<form action="{$MOD[linkurl]}search.php" onsubmit="return know_sch_check();">
+				<input type="hidden" name="typeid" value="99" id="know_typeid"/>
+				<input style="width:180px" type="text" name="kw" id="know_kw" value="请输入问题" class="know_sch_inp" onfocus="if(this.value=='请输入问题')this.value='';"/>
+				<div class="know_sch_btn">
+				<input type="submit" value="搜答案" onclick="Dd('know_typeid').value=99;"/>&nbsp;
+				<input type="submit" value="我来答" onclick="Dd('know_typeid').value=3;"/>&nbsp;
+				<input type="button" value="我要问" onclick="if(know_sch_check()){Dd('ask_kw').value=Dd('know_kw').value;Dd('ask_form').submit();}"/>&nbsp;
+				</div>
+				</form>
+				<script type="text/javascript">
+					function know_sch_check() {
+						if(Dd('know_kw').value == '请输入问题' || Dd('know_kw').value.length < 1) {
+							alert('请输入问题');
+							Dd('know_kw').focus();
+							return false;
+						}
+						return true;
+					}
+				</script>
+				<div class="know_sch_item">
+				已解决：{php echo $db->count($table, 'status=3 and process=3', 1800);}&nbsp;&nbsp;&nbsp;
+				待解决：{php echo $db->count($table, 'status=3 and process=1', 1800);}
+				</div>
+			</div>			
+		</div>
+		<div class="b10"></div>
+		<div class="box_head"><div><strong>问题分类</strong></div></div>
+		<div class="box_body">
+			<div class="know_catalog">
+			{php $child = get_maincat(0, $moduleid, 1);}
+			{loop $child $i $c}		
+				<p><a href="{$MOD[linkurl]}{$c[linkurl]}"><strong class="px14">{set_style($c[catname], $c[style])}</strong></a> <span class="f_gray px10">({$c[item]})</span></p>
+				{if $c[child]}
+				<div>
+				{php $sub = get_maincat($c[catid], $moduleid, 1);}
+				{loop $sub $j $s}<a href="{$MOD[linkurl]}{$s[linkurl]}">{set_style($s[catname], $s[style])}</a>&nbsp;|&nbsp;{/loop}
+				</div>
+				{/if}
+			{/loop}
+			</div>
+		</div>
+		{if $MOD[page_iexpert]}
+		<div class="b10"></div>
+		<div class="box_head"><div><span class="f_r"><a href="{$MOD[linkurl]}{rewrite('expert.php?page=1')}">更多&raquo;</a></span><strong>知道专家</strong></div></div>
+		<div class="box_body">
+			<!--{php $tags=tag("table=know_expert&condition=1&pagesize=".$MOD['page_iexpert']."&order=addtime desc&template=null");}-->
+			{loop $tags $t}
+			<div class="know_expert">
+			<a href="{$MOD[linkurl]}{rewrite('expert.php?itemid='.$t['itemid'])}" target="_blank"><img src="{useravatar($t[username], 'large')}" width="80" height="80" alt="{$t[alt]}"/></a><div><a href="{$MOD[linkurl]}{rewrite('expert.php?itemid='.$t['itemid'])}" target="_blank" title="{$t[alt]}" class="b"><strong>{$t[title]}</strong></a><br/>{dsubstr($t[introduce], 86, '..')}</div>
+			</div>
+			{/loop}
+		</div>
+		{/if}
+	</div>
+</div>
+{template 'footer'}

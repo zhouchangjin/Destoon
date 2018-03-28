@@ -1,0 +1,72 @@
+/**/
+.know_rec{
+	width:930px;
+	height:650px;
+	background:url("../images/blackboard.jpg");
+	overflow:hidden;
+}
+
+.know_rec_main{
+	width:310px;
+	height:240px;
+	margin-top:210px;
+	margin-left:65px;
+	margin-right:50px;
+	padding:20px;
+	background:rgba(123,123,123,0.2);
+	border-radius:50px;
+	border:1px solid #ccc;
+}
+
+.know_rec_sub{
+	width:440px;
+	height:650px;
+}
+
+.rec_top{
+	
+	width:380px;
+	height:210px;
+	margin-top:190px;
+	margin-left:20px;
+	columns:160px 2;
+	column-gap:30px;
+	
+}
+
+.rec_btom{
+	width:310px;
+	height:120px;
+	margin-top:60px;
+	margin-left:20px;
+}
+
+.rec_title a{
+	color:#666;
+	font-size:20px;
+	font-weight:bold;
+}
+
+.rec_body {
+	color:#333;
+	font-size:14px;
+	margin-top:20px;
+}
+
+.know_sch_btn input[type=submit]{
+	background:#f85415;
+	color:white;
+	border:none;
+	padding:0 8px 0 8px;
+	border-radius:5px;
+	cursor:pointer;	
+}
+
+.know_sch_btn input[type=button]{
+	background:#f85415;
+	color:white;
+	border:none;
+	padding:0 8px 0 8px;
+	border-radius:5px;
+	cursor:pointer;	
+}
