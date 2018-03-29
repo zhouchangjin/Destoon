@@ -70,3 +70,51 @@
 	border-radius:5px;
 	cursor:pointer;	
 }
+
+.known_item_icon{
+	padding:2px;
+	border:1px solid #eee;
+	height:132px;
+	overflow:hidden;
+}
+
+.known_item_icon img{
+	border-radius:100px;
+}
+.known_item_cnt{
+	margin-left:25px;
+}
+.known_aw{
+	font-size:18px;
+	color:#666;
+}
+
+.known_item_text{
+	font-size:16px;
+	margin-top:15px;
+	height:40px;
+	overflow:hidden;
+	width:700px;
+	border-bottom:1px dashed #ccc;
+}
+.known_bottom_text{
+	margin-top:15px;
+}
+
+.known_item_username{
+	cursor:pointer;
+	background:rgba(120,120,120,0.8);
+	position:relative;
+	bottom:20px;
+	text-align:center;
+}
+.known_item_username a{
+	color:white;
+	font-weight:bold;
+}
+
+.known_item{
+	margin-top:5px;
+	background-color:#eee;
+	margin-bottom:5px;
+}

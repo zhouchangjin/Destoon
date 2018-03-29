@@ -34,22 +34,65 @@
 		</div>
 
 		{/if}
+		
+		<div class="b10"></div>
+		
 		{if $MOD[page_isolve]}
 		<div class="box_head"><span class="f_r"><a href="{$MOD[linkurl]}{rewrite('search.php?typeid=1')}" rel="nofollow">更多&raquo;</a></span><strong>等你来答</strong></div>
-		<div class="box_body"><!--{tag("moduleid=$moduleid&condition=status=3 and process=1&areaid=$cityid&order=".$MOD[order]."&pagesize=".$MOD[page_isolve]."&datetype=4&template=list-know")}--></div>
+		<div class="box_body">
+			<!--{php $tags=tag("moduleid=$moduleid&condition=status=3 and process=1&areaid=$cityid&order=".$MOD[order]."&pagesize=".$MOD[page_isolve]."&datetype=4&template=null")}-->
+			{loop $tags $t}
+				<div class="known_item o_a">
+					<div  class="known_item_icon f_l" ><img src="{useravatar($t[username], 'large')}"><div class="known_item_username"><a href="{$MODULE[$moduleid][linkurl]}{rewrite('search.php?username='.$t['username'])}" rel="nofollow">{$t[username]}</a></div></div>
+					<div class="known_item_cnt f_l">
+						<div class="known_item_title"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}" class="known_aw">{$t[title]}</a>{if $t[credit]}<span class="know_credit">{$t[credit]}</span> {/if}</div>
+						<div class="known_item_text">{get_content($t[itemid],'know')}</div>
+						<div class="known_bottom_text"><span style="margin-right:20px">{$t[answer]}&nbsp;回答</span><span><img src="{DT_SKIN}image/know_{$t[process]}.gif" title="{$PROCESS[$t[process]]}"/></span><span class="f_r">{timetodate($t[edittime],  'm-d H:i')}</span></div>
+					</div>
+				</div>
+			{/loop}
+		</div>
 		<div class="b10"></div>
 		{/if}
+
+
 		{if $MOD[page_iresolve]}
 		<div class="box_head"><span class="f_r"><a href="{$MOD[linkurl]}{rewrite('search.php?typeid=0')}" rel="nofollow">更多&raquo;</a></span><strong>精彩问答</strong></div>
-		<div class="box_body"><!--{tag("moduleid=$moduleid&condition=status=3 and process=3&order=updatetime desc&areaid=$cityid&pagesize=".$MOD[page_iresolve]."&datetype=4&template=list-know")}--></div>
+		<div class="box_body">
+		<!--{php $tags=tag("moduleid=$moduleid&condition=status=3 and process=3&order=updatetime desc&areaid=$cityid&pagesize=".$MOD[page_iresolve]."&datetype=4&template=null")}-->
+			{loop $tags $t}
+				<div class="known_item o_a">
+					<div  class="known_item_icon f_l" ><img src="{useravatar($t[username], 'large')}"><div class="known_item_username"><a href="{$MODULE[$moduleid][linkurl]}{rewrite('search.php?username='.$t['username'])}" rel="nofollow">{$t[username]}</a></div></div>
+					<div class="known_item_cnt f_l">
+						<div class="known_item_title"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}" class="known_aw">{$t[title]}</a>{if $t[credit]}<span class="know_credit">{$t[credit]}</span> {/if}</div>
+						<div class="known_item_text">{get_content($t[itemid],'know')}</div>
+						<div class="known_bottom_text"><span style="margin-right:20px">{$t[answer]}&nbsp;回答</span><span><img src="{DT_SKIN}image/know_{$t[process]}.gif" title="{$PROCESS[$t[process]]}"/></span><span class="f_r">{timetodate($t[edittime],  'm-d H:i')}</span></div>
+					</div>
+				</div>
+			{/loop}
+		</div>
 		<div class="b10"></div>
 		{/if}
+
 		{if $MOD[page_ivote]}
 		<div class="box_head"><span class="f_r"><a href="{$MOD[linkurl]}{rewrite('search.php?typeid=2')}" rel="nofollow">更多&raquo;</a></span><strong>等你来选</strong></div>
-		<div class="box_body"><!--{tag("moduleid=$moduleid&condition=status=3 and process=2&order=updatetime desc&areaid=$cityid&pagesize=".$MOD[page_ivote]."&datetype=4&template=list-know")}--></div>
+		<div class="box_body">
+		<!--{php $tags=tag("moduleid=$moduleid&condition=status=3 and process=2&order=updatetime desc&areaid=$cityid&pagesize=".$MOD[page_ivote]."&datetype=4&template=null")}-->
+			{loop $tags $t}
+				<div class="known_item o_a">
+					<div  class="known_item_icon f_l" ><img src="{useravatar($t[username], 'large')}"><div class="known_item_username"><a href="{$MODULE[$moduleid][linkurl]}{rewrite('search.php?username='.$t['username'])}" rel="nofollow">{$t[username]}</a></div></div>
+					<div class="known_item_cnt f_l">
+						<div class="known_item_title"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}" class="known_aw">{$t[title]}</a>{if $t[credit]}<span class="know_credit">{$t[credit]}</span> {/if}</div>
+						<div class="known_item_text">{get_content($t[itemid],'know')}</div>
+						<div class="known_bottom_text"><span style="margin-right:20px">{$t[answer]}&nbsp;回答</span><span><img src="{DT_SKIN}image/know_{$t[process]}.gif" title="{$PROCESS[$t[process]]}"/></span><span class="f_r">{timetodate($t[edittime],  'm-d H:i')}</span></div>
+					</div>
+				</div>
+			{/loop}
+		</div>
 		<div class="b10"></div>
 		{/if}
-	</div>
+
+		</div>
 	<div class="m_n_2 f_l">&nbsp;</div>
 	<div class="m_r_2 f_l">
 		<div class="box_head"><div><strong>问题搜索</strong></div></div>
