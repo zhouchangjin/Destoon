@@ -64,7 +64,7 @@ $pages=pages($items,$page,10);
 				</ul>
 			</div>
 			<div class="list_box">
-				<!--{php $tags=tag("moduleid=5&table=company&condition=groupid=6&pagesize=10&page=$page&showpage=1&order=level desc&template=null")}-->
+				<!--{php $tags=tag("moduleid=5&table=company&condition=groupid>5&pagesize=10&page=$page&showpage=1&order=level desc&template=null")}-->
 				{loop $tags $t}
 				<div class="list_item">
 					<img class="f_l" src="{imgurl($t[thumb],'201')}" width=200 height=125 />

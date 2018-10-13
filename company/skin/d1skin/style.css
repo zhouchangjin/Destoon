@@ -92,14 +92,14 @@ a.b:hover {color:#FF6600;}
 .menu_on {float:left; width:118px; height:52px; line-height:52px; background: #d6303a; display: inline-block; text-align:center; }
 .menu_on span {color:#FFFFFF; }
 
-.side_head {border:#E4E4E4 1px solid;border-bottom:none;background:#E4E4E4 url('search_dh.gif') repeat-x;width:198px; height:36px; line-height:36px; font-size:13px; /*text-indent:30px; color:#FFF;*/}
+.side_head {border:#eeeeee 1px solid; height:36px; line-height:36px; font-size:13px; /*text-indent:30px; color:#FFF;*/}
 .side_head div {padding:0 10px 0 10px;font-size:14px;height:28px;line-height:30px;overflow:hidden;letter-spacing:1px;}
 .side_body {border:#E4E4E4 1px solid;border-top:none;background:#FFFFFF;padding:10px;margin:0 0 10px;}
 .side_body li {background:url('../../image/ico_arrow.gif') no-repeat 5px 7px;padding:0 0 0 20px;height:26px;line-height:26px;overflow:hidden;}
 
-.main_head {border:#E4E4E4 1px solid;border-bottom:none;background:#E4E4E4 url('bignav_bg.gif') repeat-x;height:36px;}
+.main_head {border:#eeeeee 1px solid;height:36px;}
 .main_head strong{ padding-left:10px;}
-.main_head div {padding:0 10px 0 10px;font-size:14px;height:28px;line-height:30px;overflow:hidden;letter-spacing:1px;}
+.main_head div {padding:0 10px 0 10px;font-size:16px;height:28px;line-height:30px;overflow:hidden;letter-spacing:1px;}
 .main_body {border:#E4E4E4 1px solid;border-top:none;background:#FFFFFF;padding:10px;margin:0 0 10px;}
 
 .title {text-align:center;font-size:16px;font-weight:bold;color:#FF6600;line-height:40px;}

@@ -15,7 +15,7 @@ if($file == 'mall') {
 $_TYPE = get_type($_item);
 $_TP = $_TYPE ? sort_type($_TYPE) : array();
 ?>
-<div class="side_head"><div><span class="f_r"><a href="{userurl($username, 'file='.$_file, $domain)}"><img src="{DT_STATIC}{$MODULE[4][moduledir]}/image/more.gif" title="更多"/></a></span><strong>{$_name}</strong></div></div>
+<div class="side_head"><div><span class="f_r"><a href="{userurl($username, 'file='.$_file, $domain)}"> 更多&gt;&gt;</a></span><strong>{$_name}</strong></div></div>
 <div class="side_body">
 <ul>
 {if $_TYPE}
